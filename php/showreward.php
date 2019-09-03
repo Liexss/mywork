@@ -17,8 +17,8 @@
   <?php include("nav.php")?>
   <div class="container" style="margin-top: 50px;">
     <ul class="nav nav-tabs">
-      <li role="presentation" class="active"><a href="#">奖学金简介</a></li>
-      <li role="presentation"><a href="#">我要申请</a></li>
+      <li role="presentation" class="active"><a href="showreward.php">奖学金简介</a></li>
+      <li role="presentation"><a href="submitreward.php">我要申请</a></li>
     </ul>
     <div class="panel panel-default" style="margin-top: 50px;">
       <div class="panel-body">
@@ -51,4 +51,5 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
     <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
     <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/showreward.js"></script>
 </body>
