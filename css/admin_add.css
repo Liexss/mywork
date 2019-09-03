@@ -1,0 +1,38 @@
+#mainber{
+	border:2px solid;
+	border-radius: 5px;
+	padding-top: 30px;
+	padding-bottom: 30px;
+}
+
+#lefter{
+	width: 30%;
+	display: inline-block;
+}
+
+#righter{
+	float: right;
+	background-color: white;
+	margin-top: 20px;
+	margin-right: 35%;
+}
+
+#Img{
+	width: 100px;
+	margin-bottom: 20px;
+}
+
+.input-group{
+	padding-left: 10px;
+	padding-top: 8px;
+}
+
+.input-group-addon{
+  font-weight: bold;
+}
+
+
+.btn{
+	margin-top: 10px;
+	margin-bottom: 5px;
+}

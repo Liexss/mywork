@@ -1,0 +1,58 @@
+body{ 
+  padding-top: 40px;
+  background-color:#DCDCDC;
+  margin-bottom: 50px;
+}
+.jumbotron{
+    background-color:#343d46;
+    color: white;
+    height:100%;
+}
+.panel{
+	margin-top: 20px;
+	background-color: white;
+}
+.rewardol{
+	margin-top:10px;
+	list-style:none;
+}
+p{
+	margin:0;
+	padding:0;
+}
+.rewardol span{
+	font-weight: 600;
+    color: #495060;
+    font-size: 18px;
+}
+.rewardol .item{
+	background: #fdfdfd;
+	box-shadow: 0 5px 6px 0 rgba(146,166,231,.13);
+  padding-top:30px;
+  padding-bottom:30px;
+	border-radius: 2px;
+	margin-bottom: 15px;
+}
+.item p{
+  margin-top: 5px;
+}
+.item a{
+  text-decoration: none;
+  color:inherit;
+}
+.rewardol .btn{
+	margin-top: 5px;
+}
+footer{
+    position: absolute;  
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+    margin:0;
+    /* Set the fixed height of the footer here */
+    background-color: white;
+}
+footer p{
+    text-align: center;
+    margin:0;
+}

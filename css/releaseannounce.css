@@ -1,0 +1,12 @@
+.navbar-text{
+	margin-top: 5px;
+}
+body{ 
+  padding-top: 70px;
+  background-color:#DCDCDC;
+  margin-bottom: 50px;
+}
+footer p{
+    text-align: center;
+    margin:0;
+}
