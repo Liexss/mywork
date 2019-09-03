@@ -15,9 +15,19 @@
 </head>
 <body>
   <?php include("nav.php")?>
+  <div class="jumbotron">
+      <div class="container">
+        <h1>Volunteer Management System</h1>
+        <p>你可以在这个网站管理公告，人员，发送邮件</p>
+      </div>
+  </div>
   <div class="container">
       <div class="row">
         <div class="col-md-2">
+          <div class="form-inline">
+              <button type="button" class="btn btn-default" id="releasebtn">发布公告</button>
+
+          </div>
         </div>
 
         <div class="col-md-10">
@@ -30,41 +40,36 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-md-6">
-          <div class="panel panel-primary" style="margin-top: 20px;">
-            <div class="panel-heading">
-              <h3 class="panel-title">奖助名单公示</h3>
-            </div>
-            <ul class="list-group">
-              <li class='list-group-item'>
-              </li>
-            </ul>
+        <div class="panel panel-success" style="margin-top: 20px;">
+          <div class="panel-heading">
+            <h3 class="panel-title">公告列表</h3>
           </div>
-        </div>
-        <div class="col-md-6">
-          <div class="panel panel-primary" style="margin-top: 20px;">
-            <div class="panel-heading">
-              <h3 class="panel-title">申报通知</h3>
-            </div>
-            <ul class="list-group">
-              <li class='list-group-item'>
-              </li>
-            </ul>
-          </div>
-        </div>
+          <ul class="list-group">
+            <li class='list-group-item'>
+              <div class='row'>
+                <div class='col-md-2'>
+                   <p>标题：</p>
+                </div>
+                <div class='col-md-2 col-md-offset-4'>
+                  <p>时间：</p>
+                </div>
+                <div class='col-md-1'>
+                  <p>发布者：</p>
+                </div>
+              </div>
+            </li>
+            <li class="list-group-item" style="padding:0;">
+              <div class="footer">
+                <nav aria-label="Page navigation" style="text-align: center">
+                  <ul class="pagination">
+                  
+                  </ul>
+                </nav>
+              </div>
+            </li>
+
+          </ul>
       </div>
-      <div class="row">
-        <div class="col-md-12">
-          <div class="panel panel-primary" style="margin-top: 20px;">
-            <div class="panel-heading">
-              <h3 class="panel-title">公告列表</h3>
-            </div>
-            <ul class="list-group">
-              <li class='list-group-item'>
-              </li>
-            </ul>
-          </div>
-        </div>
       </div>
     </div>
   <footer>
@@ -74,4 +79,5 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
     <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
     <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/index.js"></script>
 </body>

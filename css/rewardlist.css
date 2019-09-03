@@ -1,13 +1,18 @@
 body{ 
-  padding-top: 70px;
+  padding-top: 40px;
   background-color:#DCDCDC;
   margin-bottom: 50px;
+}
+.jumbotron{
+    background-color:#343d46;
+    color: white;
+    height:100%;
 }
 .panel{
 	margin-top: 20px;
 	background-color: white;
 }
-ol{
+.rewardol{
 	margin-top:10px;
 	list-style:none;
 }
@@ -15,21 +20,27 @@ p{
 	margin:0;
 	padding:0;
 }
-ol li{
-	padding: 20px 20px 20px 40px;
-}
-ol span{
+.rewardol span{
 	font-weight: 600;
     color: #495060;
     font-size: 18px;
 }
-ol .item{
+.rewardol .item{
 	background: #fdfdfd;
 	box-shadow: 0 5px 6px 0 rgba(146,166,231,.13);
+  padding-top:30px;
+  padding-bottom:30px;
 	border-radius: 2px;
 	margin-bottom: 15px;
 }
-ol .btn{
+.item p{
+  margin-top: 5px;
+}
+.item a{
+  text-decoration: none;
+  color:inherit;
+}
+.rewardol .btn{
 	margin-top: 5px;
 }
 footer{

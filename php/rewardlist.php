@@ -15,12 +15,15 @@
 </head>
 <body>
   <?php include("nav.php")?>
+  <div class="jumbotron">
+      <div class="container">
+        <h1>奖学金列表</h1>
+        <p>你可以在这里选择奖学金，查看或申请</p>
+      </div>
+  </div>
   <div class="container">
     <div class="row">
-        <div class="col-md-2">
-        </div>
-
-        <div class="col-md-10">
+        <div class="col-md-12">
           <div class="form-inline">
             <div class="col-md-3 col-md-offset-5" id="searchoose">
             </div>
@@ -31,15 +34,15 @@
     </div>
     <div class="panel panel-default">
       <div class="panel-body">
-        <ol>
+        <ol class="rewardol">
           <li class="item">
             <div class="row">
-              <div class="col-md-9 col-md-offset-1">
+              <div class="col-md-9 col-md-offset-1" class="pgroup">
                 <span>学业优秀奖</span>
                 <p>2019-7-21 18:21</p>
               </div>
               <div class="col-md-2">
-                <button type="button" class="btn">申请</button>
+                <a href="showreward.php"><button type="button" class="btn">申请</button></a>
               </div>
             </div>
           </li>
@@ -66,14 +69,20 @@
             </div>
           </li>
         </ol>
+        <li class="list-group-item" style="padding:0;">
+              <div class="footer">
+                <nav aria-label="Page navigation" style="text-align: center">
+                  <ul class="pagination">
+                   
+                  </ul>
+                </nav>
+              </div>
+        </li>
       </div>
     </div>
   </div>
-  <footer>
-    <p>杭州师范大学</p>
-    <p>@2019-07-21</p>
-  </footer>
     <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
     <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
     <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/rewardlist.js"></script>
 </body>
