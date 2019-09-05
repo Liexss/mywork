@@ -35,53 +35,53 @@
               </thead>
               <tbody>
                 <tr>
-                  <td><a href="#">1015</a></td>
+                  <td>1015</td>
                   <td>一等奖学金</td>
                   <td>2019/08/03</td>
                   <td>待审批</td>
-                  <td><a href="submitsituation.php">查看</a></td>
+                  <td><a href="submitapprove.php">查看</a></td>
                 </tr>
                 <tr>
-                  <td><a href="#">1015</a></td>
+                  <td>1015</td>
                   <td>一等奖学金</td>
                   <td>2019/08/03</td>
                   <td>待审批</td>
-                  <td><a href="#">查看</a></td>
+                  <td><a href="submitapprove.php">查看</a></td>
                 </tr>
                 <tr>
-                  <td><a href="#">1015</a></td>
+                  <td>1015</td>
                   <td>一等奖学金</td>
                   <td>2019/08/03</td>
                   <td>待审批</td>
-                  <td><a href="#">查看</a></td>
+                  <td><a href="submitapprove.php">查看</a></td>
                 </tr>
                 <tr>
-                  <td><a href="#">1015</a></td>
+                  <td>1015</td>
                   <td>一等奖学金</td>
                   <td>2019/08/03</td>
                   <td>待审批</td>
-                  <td><a href="#">查看</a></td>
+                  <td><a href="submitapprove.php">查看</a></td>
                 </tr>
                 <tr>
-                  <td><a href="#">1015</a></td>
+                  <td>1015</td>
                   <td>一等奖学金</td>
                   <td>2019/08/03</td>
                   <td>待审批</td>
-                  <td><a href="#">查看</a></td>
+                  <td><a href="submitapprove.php">查看</a></td>
                 </tr>
                 <tr>
-                  <td><a href="#">1015</a></td>
+                  <td>1015</td>
                   <td>一等奖学金</td>
                   <td>2019/08/03</td>
-                  <td>已审批</td>
-                  <td><a href="#">查看</a></td>
+                  <td>待审批</td>
+                  <td><a href="submitapprove.php">查看</a></td>
                 </tr>
                 <tr>
-                  <td><a href="#">1015</a></td>
+                  <td>1015</td>
                   <td>一等奖学金</td>
                   <td>2019/08/03</td>
-                  <td>已审批</td>
-                  <td><a href="#">查看</a></td>
+                  <td>待审批</td>
+                  <td><a href="submitapprove.php">查看</a></td>
                 </tr>
               </tbody>
             </table>

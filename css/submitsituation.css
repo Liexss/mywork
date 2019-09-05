@@ -1,5 +1,16 @@
 body{ 
   padding-top: 70px;
-  /*background-color:#DCDCDC;*/
+  background-color:#DCDCDC;
   margin-bottom: 50px;
 }
+.page-header{
+  background-color:#343d46;
+  color: white;
+  height:100%;
+}
+#submitsituation{
+  background-color: white;
+  padding-bottom: 30px;
+  border-radius: 6px;
+}
+

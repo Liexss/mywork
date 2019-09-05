@@ -5,16 +5,22 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet"> 
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.no-icons.min.css">
     <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-responsive.min.css" rel="stylesheet">
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css">
-    <link rel="stylesheet" href="../css/releaseannounce.css" type="text/css">
     <link rel="stylesheet" href="../css/editor.css" type="text/css">
+    <link rel="stylesheet" href="../css/releaseannounce.css" type="text/css">
     <!-- <link rel="stylesheet" type="text/css" href="../css/frame.css"> -->
 </head>
 <body>
   <?php include("nav.php")?>
+  <div class="jumbotron">
+      <div class="container">
+        <h1>我的申请</h1>
+        <p>你可以在这里查看历史申请状态</p>
+      </div>
+  </div>
   <div class="container" id="myannounce">
     <ol class="breadcrumb" >
         <li><a href="index.php">公告首页</a></li>

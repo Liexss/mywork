@@ -15,21 +15,26 @@
 </head>
 <body>
   <?php include("nav.php")?>
-  <div class="container" style="margin-top: 50px;">
+  <div class="container" style="margin-top: 50px;" id="submitmain">
+    <div class="page-header">
+      <div class="container">
+        <h2>一等奖学金</h2>
+        <!-- <p>管理人员基本信息; 操作包含编辑、删除; 切换页面以显示相关信息。</p> -->
+      </div>
+   </div>
     <ul class="nav nav-tabs">
       <li role="presentation"><a href="showreward.php">奖学金简介</a></li>
       <li role="presentation" class="active"><a href="submitreward.php">我要申请</a></li>
     </ul>
-    <div class="container">
-      <div class="row" id="addsubmit">
+    <div class="row" id="addsubmit">
         <div class="row">
-          <div class ="col-md-6">
-            <div class="input-group" style="margin-top: 30px;">
+          <div class ="col-md-6" style="padding-left: 2.5%;">
+            <div class="input-group" style="margin-top: 30px; ">
               <span class="input-group-addon" id="basic-addon1">姓名</span>
               <input type="text" class="form-control" name="Username" id="Username">  
             </div>
           </div>
-          <div class ="col-md-6">
+          <div class ="col-md-6" style="padding-right: 2.5%;">
             <div class="input-group" style="margin-top: 30px;">
               <span class="input-group-addon" id="basic-addon1">学院</span>
               <input type="text" class="form-control" name="Username" id="Username">  
@@ -37,20 +42,20 @@
           </div>
         </div>
         <div class="row">
-          <div class ="col-md-6">
+          <div class ="col-md-6" style="padding-left: 2.5%;">
             <div class="input-group" style="margin-top: 30px;">
               <span class="input-group-addon" id="basic-addon1">专业</span>
               <input type="text" class="form-control" name="Username" id="Username">  
             </div>
           </div>
-          <div class ="col-md-6">
+          <div class ="col-md-6" style="padding-right: 2.5%;">
             <div class="input-group" style="margin-top: 30px;">
               <span class="input-group-addon" id="basic-addon1">班级</span>
               <input type="text" class="form-control" name="Username" id="Username">  
             </div>
           </div>
         </div>
-        <div class="row" style="margin-top: 30px;">
+        <div class="row" style="margin-top: 30px;padding-right: 1.5%;padding-left: 1.5%;">
           <div class ="col-md-12">
             <div class="form-group">
               <textarea class="form-control" placeholder="概要" rows="3" style="resize: none; height: 200px;"></textarea>
@@ -58,7 +63,7 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-md-12">
+          <div class="col-md-12" style="padding-left: 2.5%;">
             <div class="form-group">
               <label for="exampleInputFile">资料上传</label>
               <input type="file" id="exampleInputFile">
@@ -70,7 +75,6 @@
              <button type="submit" class="btn btn-default" name="btnsubmit" id="btnsubmit">提交申请</button>
           </div>
         </div>
-      </div>
     </div>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>

@@ -1,18 +1,15 @@
 body{ 
-  padding-top: 70px;
-  /*background-color:#DCDCDC;*/
+  padding-top: 50px;
+  background-color:#DCDCDC;
   margin-bottom: 50px;
 }
-footer{
-    position: absolute;  
-    bottom: 0;
-    width: 100%;
-    height: 50px;
-    margin:0;
-    /* Set the fixed height of the footer here */
-    /*background-color: white;*/
+.page-header{
+  background-color:#343d46;
+  color: white;
+  height:100%;
 }
-footer p{
-    text-align: center;
-    margin:0;
+#showmain{
+  background-color: white;
+  padding-bottom: 30px;
+  border-radius: 6px;
 }
