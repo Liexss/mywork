@@ -15,13 +15,12 @@ session_start();
 </head>
 <body>
     <?php include("nav.php")?>
-  	<div class="page-header">
-  		<div class="container">
-  			<h2>人员信息查询</h2>
-  			<p>选择查询字段并填写信息; 获取相关人员信息; 导出信息表格。</p>
-  		</div>
-  	</div>
-
+    <div class="jumbotron">
+      <div class="container">
+        <h2>人员信息查询</h2>
+        <p>选择查询字段并填写信息; 获取相关人员信息; 导出信息表格。</p>
+      </div>
+    </div>
     <div id="mainber" class="container">
       <div id="searchNav" class="page-header">
         <h4 style="display: inline-block;">查询 <small>根据字段</small></h4>

@@ -11,13 +11,12 @@
 </head>
 <body>
 	<?php include("nav.php")?>
-
-	<div class="page-header">
-		<div class="container">
-			<h2>人员信息管理</h2>
-			<p>管理人员基本信息; 操作包含编辑、删除; 切换页面以显示相关信息。</p>
-		</div>
-	</div>
+	<div class="jumbotron">
+      <div class="container">
+        <h2>人员信息管理</h2>
+        <p>管理人员基本信息; 操作包含编辑、删除; 切换页面以显示相关信息。</p>
+      </div>
+    </div>
 
 	<div class="mainber">
 		<div class="container">

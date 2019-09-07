@@ -11,13 +11,12 @@
 </head>
 <body>
   <?php include("nav.php")?>
-  <div class="page-header">
-    <div class="container">
-      <h2>人员信息添加</h2>
-      <p>填写人员基本信息; 上传并保留头像; 添加相关人员信息。</p>
-    </div>
+  <div class="jumbotron">
+      <div class="container">
+        <h2>人员信息添加</h2>
+        <p>填写人员基本信息; 上传并保留头像; 添加相关人员信息。</p>
+      </div>
   </div>
-
   <div id="mainber" class="container">
     <div id="lefter">
       <div id="accountInput" class="input-group">
