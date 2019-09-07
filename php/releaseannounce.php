@@ -6,10 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="../css/bootstrap.min.css" rel="stylesheet"> 
-    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.no-icons.min.css">
-    <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-responsive.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css">
-    <link rel="stylesheet" href="../css/editor.css" type="text/css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css">
     <link rel="stylesheet" href="../css/releaseannounce.css" type="text/css">
     <!-- <link rel="stylesheet" type="text/css" href="../css/frame.css"> -->
 </head>
@@ -22,36 +19,38 @@
       </div>
   </div>
   <div class="container" id="myannounce">
-    <ol class="breadcrumb" >
-        <li><a href="index.php">公告首页</a></li>
-        <li class="active">发布公告</li>
-    </ol>
     <input type='text' id="anntitle" class='form-control' placeholder='请输入标题' style="height: 34px;">
-    <div class="row">
       <form id="form1" method="post" enctype="multipart/form-data">
-        <div class="col-md-12">
-          <div class="container">
-            <?php include("edittext.php");?>
+        <div class="row">
+          <div class="col-md-12">
+            <div id="editor">
+            </div>  
           </div>
         </div>
-        <div class="row">
-          <div class="col-md-12 col-md-offset-1" style="margin-top: 30px;">
-              上传附件：
+
+        <div class="row" style="margin-top: 20px;">
+          <div class="col-md-10"  id="submitfile">
               <input type="file" name="file" id="file" />
           </div>
-        <div class="col-md-1 col-md-offset-10">
-          <button type="button" class="btn btn-default" id="annconbtn">确认发布</button>
+          <div class="col-md-2">
+              <button type="button" class="btn btn-default" id="annconbtn">确认发布</button>
+          </div>
         </div>
       </form>
-    </div>
   </div>
   <!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
   <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
   <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
   <script src="../js/bootstrap.min.js"></script>
   <script src="../js/releaseannounce.js" type="text/javascript"></script>
-  <script src="../js/jquery.hotkeys.js"></script>
-  <script src="../js/bootstrap-wysiwyg.js" type="text/javascript"></script>
-  <script src="../js/edittext.js"></script>
+  <script type="text/javascript" src="../js/wangEditor.js"></script>
 </body>
 </html>
+
+<script type="text/javascript">
+  var E = window.wangEditor
+  var editor = new E('#editor')
+  // 或者 var editor = new E( document.getElementById('editor') )
+  editor.customConfig.uploadImgShowBase64 = true
+  editor.create()
+</script>

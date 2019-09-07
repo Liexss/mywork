@@ -1,0 +1,21 @@
+body{
+	padding-top: 40px;
+  	background-color:#DCDCDC;
+  	margin-bottom: 50px;
+}
+
+#catalog{
+	background-color: #fff;
+	border-radius: 4px 4px 0px 0px;
+	border-bottom: 1px solid;
+	margin-top: 30px;
+}
+
+#mainber{
+	background-color: #fff;
+	padding-left: 3%;
+}
+
+#Info{
+	width: 40%;
+}

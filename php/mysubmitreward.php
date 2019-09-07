@@ -21,7 +21,7 @@
         <p>你可以在这里查看历史申请状态</p>
       </div>
   </div>
-  <div class="container">
+  <div class="container" id="mysubmitrewardmain">
     <div class="table-responsive" style="margin-top:50px;">
             <table class="table table-striped">
               <thead>

@@ -21,7 +21,7 @@
         <p>你可以在这里查看并审批学生的申报</p>
       </div>
   </div>
-  <div class="container">
+  <div class="container" id="myapproverewardmain">
     <div class="table-responsive" style="margin-top:50px;">
             <table class="table table-striped">
               <thead>

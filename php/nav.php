@@ -30,10 +30,9 @@
           <li id="releaseannounce"><a href="releaseannounce.php">发布公告</a></li>
           <li id="myapprovereward"><a href="myapprovereward.php">我的审批</a></li>
           <li id="mysubmitreward"><a href="mysubmitreward.php">我的申请</a></li>
-          <li><a href="#">个人信息</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="#">刘兴松</a></li>
+          <li id="personal"><a href="personal.php">刘兴松</a></li>
         </ul>
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
