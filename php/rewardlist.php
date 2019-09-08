@@ -34,6 +34,7 @@
     </div>
     <div class="panel panel-default">
       <div class="panel-body">
+
         <ol class="rewardol">
           <li class="item">
             <div class="row">
@@ -73,7 +74,7 @@
               <div class="footer">
                 <nav aria-label="Page navigation" style="text-align: center">
                   <ul class="pagination">
-                   
+
                   </ul>
                 </nav>
               </div>
