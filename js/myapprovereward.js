@@ -3,7 +3,7 @@ $(document).ready(function() {
 	 $("#myapprovereward").addClass('active');
 	$('#datatable').DataTable({
 		pageLength:8,
-		searching: false,
+		searching: true,
 		bLengthChange: false,
 
 	});

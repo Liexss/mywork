@@ -46,15 +46,9 @@
                         echo "<td>" . $row["file_name"] . "</td>";
                         echo "<td>" . $row["submit_time"] . "</td>";
                         echo "<td>" . $row["state"] . "</td>";
-                        echo "<td><a href='submitapprove.php'>查看</a></td>";
+                        //将申请编号传入url
+                        echo "<td><a href='submitapprove.php?".$row['prize_id']."'>查看</a></td>";
                          echo "</tr>";
-                    echo `<tr>
-                            <td>${row["prize_id"]}</td>
-                            <td>二等奖学金</td>
-                            <td>2019/08/03</td>
-                            <td>待审批</td>
-
-                          </tr>`;
                 }
               ?>
               </tbody>

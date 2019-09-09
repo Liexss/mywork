@@ -11,7 +11,7 @@
   <!-- <link rel="stylesheet" type="text/css" href="../css/frame.css"> -->
   <link rel="stylesheet" type="text/css" href="../css/mysubmitreward.css">
   <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css">
-
+  <link rel="stylesheet" type="text/css" href="http://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css">
 </head>
 <body>
   <?php include("nav.php")?>
@@ -23,7 +23,7 @@
   </div>
   <div class="container" id="mysubmitrewardmain">
     <div class="table-responsive" style="margin-top:50px;">
-            <table class="table table-striped">
+            <table class="table table-striped" id='datatable'>
               <thead>
                 <tr>
                   <th>申报编号</th>
@@ -34,55 +34,20 @@
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>1015</td>
-                  <td>一等奖学金</td>
-                  <td>2019/08/03</td>
-                  <td>待审批</td>
-                  <td><a href="submitsituation.php">查看</a></td>
-                </tr>
-                <tr>
-                  <td>1015</td>
-                  <td>一等奖学金</td>
-                  <td>2019/08/03</td>
-                  <td>待审批</td>
-                  <td><a href="submitsituation.php">查看</a></td>
-                </tr>
-                <tr>
-                  <td>1015</td>
-                  <td>一等奖学金</td>
-                  <td>2019/08/03</td>
-                  <td>待审批</td>
-                  <td><a href="submitsituation.php">查看</a></td>
-                </tr>
-                <tr>
-                  <td>1015</td>
-                  <td>一等奖学金</td>
-                  <td>2019/08/03</td>
-                  <td>待审批</td>
-                  <td><a href="submitsituation.php">查看</a></td>
-                </tr>
-                <tr>
-                  <td>1015</td>
-                  <td>一等奖学金</td>
-                  <td>2019/08/03</td>
-                  <td>待审批</td>
-                  <td><a href="submitsituation.php">查看</a></td>
-                </tr>
-                <tr>
-                  <td>1015</td>
-                  <td>一等奖学金</td>
-                  <td>2019/08/03</td>
-                  <td>待审批</td>
-                  <td><a href="submitsituation.php">查看</a></td>
-                </tr>
-                <tr>
-                  <td>1015</td>
-                  <td>一等奖学金</td>
-                  <td>2019/08/03</td>
-                  <td>待审批</td>
-                  <td><a href="submitsituation.php">查看</a></td>
-                </tr>
+                <?php
+                include("./ajax_php/connect.php");
+                $sql="select * from reward_apply";
+                $res = $db->query($sql);
+                while ($row = $res->fetch_array() ) {
+                    echo "<tr>";
+                    echo "<td>" . $row["prize_id"] . "</td>";
+                    echo "<td>" . $row["file_name"] . "</td>";
+                    echo "<td>" . $row["submit_time"] . "</td>";
+                    echo "<td>" . $row["state"] . "</td>";
+                    echo "<td><a href='submitsituation.php'>查看</a></td>";
+                    echo "</tr>";
+                }
+              ?>
               </tbody>
             </table>
           </div>
@@ -90,5 +55,6 @@
   <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
   <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
   <script src="../js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="http://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
   <script src="../js/mysubmitreward.js"></script>
 </body>]

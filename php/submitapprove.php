@@ -14,12 +14,32 @@
 
 </head>
 <body>
-  <?php include("nav.php")?>
+  <?php
+    include("nav.php");
+    include("./ajax_php/connect.php");
+       $id=$_SERVER["QUERY_STRING"];
+       //查找申请表信息
+       $sql="select * from reward_apply where prize_id=".$id;
+       $res = $db->query($sql);
+       while ($row = $res->fetch_array() ) {
+           $time =  $row['submit_time'];
+       }
+        //查找对应学生信息
+       $sql="select * from student where student_id = (select student_id from reward_apply where prize_id=".$id.")";
+        $res = $db->query($sql);
+        while ($row = $res->fetch_array() ) {
+            $name =  $row['name'];
+            $college = $row['college'];
+            $dept_name = $row['dept_name'];
+            $class = $row['class'];
+        }
+
+  ?>
   <div class="container" id="submitapprove">
       <div class="page-header">
         <div class="container">
-          <h2>申请编号：1522</h2>
-          <p>时间：1999年8月27日 23：05</p>
+          <h2>申请编号：<?php echo $id ?></h2>
+          <p>时间：<?php echo $time ?></p>
         </div>
       </div>
       <div class="row">
@@ -27,13 +47,13 @@
           <div class ="col-md-6" style="padding-left: 2.5%;">
             <div class="input-group" style="margin-top: 30px;">
               <span class="input-group-addon" id="basic-addon1">姓名</span>
-              <input type="text" class="form-control" name="Username" id="Username" readOnly="true">  
+              <input type="text" class="form-control" name="Username" id="Username" readOnly="true" value=<?php echo $name ?>>
             </div>
           </div>
           <div class ="col-md-6" style="padding-right: 2.5%;">
             <div class="input-group" style="margin-top: 30px;">
               <span class="input-group-addon" id="basic-addon1">学院</span>
-              <input type="text" class="form-control" name="Username" id="Username" readOnly="true">  
+              <input type="text" class="form-control" name="Username" id="Username" readOnly="true" value=<?php echo $college ?>>
             </div>
           </div>
         </div>
@@ -41,13 +61,13 @@
           <div class ="col-md-6" style="padding-left: 2.5%;">
             <div class="input-group" style="margin-top: 30px;">
               <span class="input-group-addon" id="basic-addon1">专业</span>
-              <input type="text" class="form-control" name="Username" id="Username" readOnly="true">  
+              <input type="text" class="form-control" name="Username" id="Username" readOnly="true" value=<?php echo $dept_name ?>>
             </div>
           </div>
           <div class ="col-md-6" style="padding-right: 2.5%;">
             <div class="input-group" style="margin-top: 30px;">
               <span class="input-group-addon" id="basic-addon1">班级</span>
-              <input type="text" class="form-control" name="Username" id="Username" readOnly="true">  
+              <input type="text" class="form-control" name="Username" id="Username" readOnly="true" value=<?php echo $class ?>>
             </div>
           </div>
         </div>
