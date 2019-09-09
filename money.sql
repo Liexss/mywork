@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 2019-09-08 15:51:52
+-- Generation Time: 2019-09-09 11:14:24
 -- 服务器版本： 5.7.14
 -- PHP Version: 5.6.25
 
@@ -114,6 +114,13 @@ CREATE TABLE `student` (
   `is_post` int(11) NOT NULL DEFAULT '1',
   `name` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- 转存表中的数据 `student`
+--
+
+INSERT INTO `student` (`student_id`, `password`, `college`, `class`, `dept_name`, `is_post`, `name`) VALUES
+('2017212212001', '123', '国服', '174', '计算机', 1, '真真');
 
 -- --------------------------------------------------------
 
