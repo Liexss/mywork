@@ -40,10 +40,11 @@
         </div>
       </div>
       <div class="row">
-        <div class="panel panel-success" style="margin-top: 20px;">
+        <div class="panel" style="margin-top: 20px;">
           <div class="panel-heading">
             <h3 class="panel-title">公告列表</h3>
           </div>
+          <br>
           <ul class="list-group">
             <li class='list-group-item'>
               <div class='row'>
@@ -72,10 +73,6 @@
       </div>
       </div>
     </div>
-  <footer>
-    <p>杭州师范大学</p>
-    <p>@2019-07-21</p>
-  </footer>
     <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
     <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
     <script src="../js/bootstrap.min.js"></script>

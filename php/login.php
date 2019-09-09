@@ -6,27 +6,42 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>杭师大奖助管理系统</title>
 
-	<!-- Bootstrap -->
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
-	<!-- <link rel="stylesheet" type="text/css" href="../css/frame.css"> -->
-    <link rel="stylesheet" type="text/css" href="../css/index.css">
+    
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css">
+
+	<link rel="stylesheet" type="text/css" href="../css/frame.css">
+	<link rel="stylesheet" type="text/css" href="../css/form.css">
+	<link rel="stylesheet" type="text/css" href="../css/background.css">
 
 </head>
 <body>
-	<div class="navbar navbar-default navbar-fixed-top">
-	    <div class="container">
-	      <div class="navbar-left">
-	        <a class="navbar-brand" href="#">
-	        <img id="icon" alt="Brand" src="../image/icon.jpg">
-	        </a>
-	        <p id="title" class="navbar-brand">杭师大奖助管理系统</p>
-	      </div>
+	<div class="perspective-text">
+	    <div class="perspective-line">  
+	        <p></p>
+	        <p>HZNU</p>
 	    </div>
-  	</div>
+	    <div class="perspective-line">
+	        <p>HZNU</p>
+	        <p>Grant</p>
+	    </div>
+	    <div class="perspective-line">
+	        <p>Grant</p>
+	        <p>Management</p>
+	    </div>
+	    <div class="perspective-line">
+	        <p>Management</p>
+	        <p>System</p>
+	    </div>
+	    <div class="perspective-line">
+	        <p>System</p>
+	        <p></p>
+	    </div>
+	</div>
+
 	<div class="container" id="login">
 	    <div class="row">
-	        <div class="col-md-offset-7 col-md-5">
+	        <div class="col-md-offset-4 col-md-7">
 	            <form class="form-horizontal">
 	                <span class="heading">欢迎登录</span>
 	                <div class="form-group">
@@ -39,22 +54,16 @@
 	                    <a href="#" class="fa fa-question-circle"></a>
 	                </div>
 	                <div class="form-group">
-	                    <div class="main-checkbox">
-	                        <input type="checkbox" value="None" id="checkbox1" name="check"/>
-	                        <label for="checkbox1"></label>
-	                    </div>
-	                    <span class="text">Remember me</span>
 	                    <button type="submit" class="btn btn-default" id="btnlogin">登录</button>
 	                </div>
 	            </form>
 	        </div>
 	    </div>
 	</div>
-	<footer>
-		<p>杭州师范大学</p>
-		<p>@2019-07-21</p>
-	</footer>
+	<nav class="navbar navbar-fixed-bottom">
+	   <p>Copyright @ 2019, Hangzhou Normal University , All rights reserved.</p>
+	</nav>
+	
     <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
-    <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
-    <script src="../js/bootstrap.min.js"></script>
+    <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 </body>
