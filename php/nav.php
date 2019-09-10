@@ -16,7 +16,7 @@
       <div class="collapse navbar-collapse" id="bs-example">
         <ul class="nav navbar-nav" id="ulbs">
           <li id="index"><a href="index.php">公告首页</a></li>
-          <li id="rewardlist"><a href="rewardlist.php">奖助金列表</a></li>
+          <li id="rewardlist"><a href="rewardlist.php?1">奖助金列表</a></li>
           <li class="dropdown" id="people">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">人员管理 <span class="caret"></span></a>
             <ul class="dropdown-menu">

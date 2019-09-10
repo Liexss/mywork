@@ -39,12 +39,13 @@
           </div>
         </div>
       </div>
+
       <div class="row">
         <div class="panel panel-success" style="margin-top: 20px;">
           <div class="panel-heading">
             <h3 class="panel-title">公告列表</h3>
           </div>
-          <ul class="list-group">
+          <ul class="list-group"  >
             <li class='list-group-item'>
               <div class='row'>
                 <div class='col-md-2'>
@@ -62,7 +63,7 @@
               <div class="footer">
                 <nav aria-label="Page navigation" style="text-align: center">
                   <ul class="pagination">
-                  
+
                   </ul>
                 </nav>
               </div>
@@ -70,6 +71,7 @@
 
           </ul>
       </div>
+      <div id='page'></div>
       </div>
     </div>
   <footer>
@@ -80,4 +82,6 @@
     <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/index.js"></script>
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/xlPaging.js"></script>
 </body>
