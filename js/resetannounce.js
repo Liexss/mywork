@@ -1,11 +1,6 @@
 $(document).ready(function() {
 	$("#releaseannounce").siblings('li').removeClass('active');
 	$("#releaseannounce").addClass('active');
-	var E = window.wangEditor;
-  	var editor = new E('#editor');
-  	// 或者 var editor = new E( document.getElementById('editor') )
-  	editor.customConfig.uploadImgShowBase64 = true;
-  	editor.create();
     var urll="";
     $("#annconbtn").click(function(){
     	var id= $(this).attr('value');
@@ -50,6 +45,7 @@ $(document).ready(function() {
 		if($flag)return;
 		console.log(urll);
 		var da={'ann_id':id,'enclosure':urll,'content':editor.txt.html(),'theme':$("#anntitle").val()};
+		console.log(da);
 	    $.ajax({
 	      url: '../ajax_php/change_db.php',
 	      type : 'POST',

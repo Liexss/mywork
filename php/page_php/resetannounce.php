@@ -57,8 +57,14 @@
           $row[$i]=$db->real_escape_string($row[$i]);
         }
         echo"<script>";
+        echo"var editor;";
         echo"$(document).ready(function() {";
-        //echo"console.log('11".$row[5]."11');";
+        echo"var E = window.wangEditor;";
+        echo"editor = new E('#editor');";
+        // 或者 var editor = new E( document.getElementById('editor') )
+        echo"editor.customConfig.uploadImgShowBase64 = true;";
+        echo"editor.create();";
+        echo"console.log('11".$row[2]."11');";
         if($row[5]==""){
           echo"$('#conensol').hide();";
         }
@@ -69,7 +75,7 @@
         }
         echo"$('#anntitle').val('".$row[0]."');";
         echo"$('#anntheme').html('".$row[0]."');";
-        echo"$('#editor').html('".$row[2]."');";
+        echo"editor.txt.html('".$row[2]."');";
         echo"$('#annconbtn').attr('value',".$row[4].");";
         echo"});";
         echo"</script>";
