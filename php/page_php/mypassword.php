@@ -6,10 +6,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>杭师大奖助管理系统</title>
 
-  <link rel="stylesheet" href="../css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css">
-  <link rel="stylesheet" type="text/css" href="../css/mypassword.css">
-
+  <link rel="stylesheet" type="text/css" href="../../css/mypassword.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+  <script src="../../js/bootstrap.min.js"></script>
+  <script src="../../js/mypassword.js"></script>
 </head>
 <body>
   <?php include("nav.php")?>
@@ -37,8 +39,4 @@
         <input type="password" class="form-control" id="newPasswordAgainInput" placeholder="请输入再次输入密码">
       </div>
   </div>
-
-  <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
-  <script src="../js/bootstrap.min.js"></script>
-  <script src="../js/mypassword.js"></script>
 </body>

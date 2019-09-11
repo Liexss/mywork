@@ -7,33 +7,56 @@
   <title>杭师大奖助管理系统</title>
 
   <!-- Bootstrap -->
-  <link href="../css/bootstrap.min.css" rel="stylesheet">
+  <link href="../../css/bootstrap.min.css" rel="stylesheet">
   <!-- <link rel="stylesheet" type="text/css" href="../css/frame.css"> -->
-  <link rel="stylesheet" type="text/css" href="../css/submitsituation.css">
+  <link rel="stylesheet" type="text/css" href="../../css/submitapprove.css">
   <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css">
-
+  <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+  <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+  <script src="../../js/bootstrap.min.js"></script>
+  <script src="../../js/submitapprove.js"></script>
 </head>
 <body>
-  <?php include("nav.php")?>
-  <div class="container" id="submitsituation">
-    <div class="page-header">
-      <div class="container">
-        <h2>申请编号：1522</h2>
-        <p>时间：1999年8月27日 23：05</p>
+  <?php
+    include("nav.php");
+    include("./ajax_php/connect.php");
+       $id=$_SERVER["QUERY_STRING"];
+       //查找申请表信息
+       $sql="select * from reward_apply where prize_id=".$id;
+       $res = $db->query($sql);
+       while ($row = $res->fetch_array() ) {
+           $time =  $row['submit_time'];
+       }
+        //查找对应学生信息
+       $sql="select * from student where student_id = (select student_id from reward_apply where prize_id=".$id.")";
+        $res = $db->query($sql);
+        while ($row = $res->fetch_array() ) {
+            $name =  $row['name'];
+            $college = $row['college'];
+            $dept_name = $row['dept_name'];
+            $class = $row['class'];
+        }
+
+  ?>
+  <div class="container" id="submitapprove">
+      <div class="page-header">
+        <div class="container">
+          <h2>申请编号：<?php echo $id ?></h2>
+          <p>时间：<?php echo $time ?></p>
+        </div>
       </div>
-    </div>
-      <div class="row" id="addsubmit">
+      <div class="row">
         <div class="row">
           <div class ="col-md-6" style="padding-left: 2.5%;">
             <div class="input-group" style="margin-top: 30px;">
               <span class="input-group-addon" id="basic-addon1">姓名</span>
-              <input type="text" class="form-control" name="Username" id="Username" readOnly="true">  
+              <input type="text" class="form-control" name="Username" id="Username" readOnly="true" value=<?php echo $name ?>>
             </div>
           </div>
           <div class ="col-md-6" style="padding-right: 2.5%;">
             <div class="input-group" style="margin-top: 30px;">
               <span class="input-group-addon" id="basic-addon1">学院</span>
-              <input type="text" class="form-control" name="Username" id="Username" readOnly="true">  
+              <input type="text" class="form-control" name="Username" id="Username" readOnly="true" value=<?php echo $college ?>>
             </div>
           </div>
         </div>
@@ -41,13 +64,13 @@
           <div class ="col-md-6" style="padding-left: 2.5%;">
             <div class="input-group" style="margin-top: 30px;">
               <span class="input-group-addon" id="basic-addon1">专业</span>
-              <input type="text" class="form-control" name="Username" id="Username" readOnly="true">  
+              <input type="text" class="form-control" name="Username" id="Username" readOnly="true" value=<?php echo $dept_name ?>>
             </div>
           </div>
           <div class ="col-md-6" style="padding-right: 2.5%;">
             <div class="input-group" style="margin-top: 30px;">
               <span class="input-group-addon" id="basic-addon1">班级</span>
-              <input type="text" class="form-control" name="Username" id="Username" readOnly="true">  
+              <input type="text" class="form-control" name="Username" id="Username" readOnly="true" value=<?php echo $class ?>>
             </div>
           </div>
         </div>
@@ -62,7 +85,10 @@
           <div class ="col-md-6" style="padding-left: 2.5%;">
             <div class="input-group" style="margin-top: 30px;">
               <span class="input-group-addon" id="basic-addon1">审核状态</span>
-              <input type="text" class="form-control" name="Username" id="Username" readOnly="true">  
+              <select class="form-control">
+                <option>通过</option>
+                <option>未通过</option>
+              </select>
             </div>
           </div>
         </div>
@@ -76,13 +102,9 @@
         </div>
         <div class="row">
           <div class="col-md-2 col-md-offset-10">
-             <button type="submit" class="btn btn-default" name="btnsubmit" id="btnsubmit">返回</button>
+             <button type="submit" class="btn btn-default" name="btnsubmit" id="btnsubmit">确认审核</button>
           </div>
         </div>
       </div>
   </div>
-  <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
-  <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
-  <script src="../js/bootstrap.min.js"></script>
-  <script src="../js/submitsituation.js"></script>
-</body>
+</body>]

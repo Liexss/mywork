@@ -8,6 +8,8 @@ $(document).ready(function() {
   	editor.create();
     var urll="";
     $("#annconbtn").click(function(){
+    	var id= $(this).attr('value');
+    	console.log(id);
     	urll="";
     	if($("#anntitle").val()==""){
     		alert("标题不得为空");
@@ -46,10 +48,10 @@ $(document).ready(function() {
 	   		});
 		}
 		if($flag)return;
-		var da={'enclosure':urll,'content':editor.txt.html(),'theme':$("#anntitle").val()};
-		console.log(da);
+		console.log(urll);
+		var da={'ann_id':id,'enclosure':urll,'content':editor.txt.html(),'theme':$("#anntitle").val()};
 	    $.ajax({
-	      url: '../ajax_php/subann_db.php',
+	      url: '../ajax_php/change_db.php',
 	      type : 'POST',
 	      dataType : 'JSON',
 	      data : da, 
@@ -57,7 +59,7 @@ $(document).ready(function() {
 		      console.log(msg);
 		      if (msg['isSuccess']) {
 		        alert("发布成功");
-		        $(location).attr('href', 'showannounce.php'+'?id='+msg['id']);
+		        $(location).attr('href', 'showannounce.php'+'?id='+id);
 		      }
 		      else {
 		        alert('内容过多');

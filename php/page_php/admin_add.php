@@ -4,10 +4,13 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css">
     <!-- <link rel="stylesheet" type="text/css" href="../css/frame.css"> -->
-    <link rel="stylesheet" type="text/css" href="../css/admin_add.css">
+    <link rel="stylesheet" type="text/css" href="../../css/admin_add.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+    <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+    <script src="../../js/bootstrap.min.js"></script>
 </head>
 <body>
   <?php include("nav.php")?>
@@ -70,8 +73,5 @@
       </div>
     </div>
   </div>
-  <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
-    <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
-  <script src="../js/bootstrap.min.js"></script>
 </body>
 </html>
