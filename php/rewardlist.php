@@ -41,40 +41,31 @@
         <?php
             include("./ajax_php/connect.php");
 
-            $sql="select count(*) from reward_apply";
+            $sql="select count(*) from reward where is_post=1";
             $res = $db->query($sql);
              while ($row = $res->fetch_array() ) {
                 $total = $row[0];
+
              }
 
-             $forward=(number_format($_SERVER["QUERY_STRING"])-1)*5+1;
+             $forward=(number_format($_SERVER["QUERY_STRING"])-1)*5;
              $backward = $forward+4;
              if($backward>$total)
                 $backward = $total;
-            $sql="select * from reward_apply limit ".$forward.",".$backward;
+            $sql="select * from reward where is_post=1 limit ".$forward.",".$backward;
             $res = $db->query($sql);
             while ($row = $res->fetch_array() ) {
-                echo '<li class="item">';
+            $name = $row["prize_name"];
+                    echo '<li class="item">';
                     echo '<div class="row">';
-                    echo '<div class="col-md-9 col-md-offset-1" class="pgroup">';
-                    echo '<span>学业优秀奖</span>';
-                    echo '<p>2019-7-21 18:21</p></div>';
+                    echo '<div class="col-md-9 col-md-offset-1" class="group">';
+                    echo "<span>" .$row["prize_name"]. "</span>";
+                    echo '<p>'.$row['start_time'].' ~ '.$row['end_time'].'</p></div>';
                     echo ' <div class="col-md-2">';
-                    echo '<a href="showreward.php"><button type="button" class="btn">申请</button></a>';
+                    echo '<a href="showreward.php?'.$row['id'].'"><button type="button" class="btn" id='.$row['id'].'>申请</button></a>';
                     echo '</div></div></li>';
             }
         ?>
-          <li class="item">
-            <div class="row">
-              <div class="col-md-9 col-md-offset-1" class="pgroup">
-                <span>学业优秀奖</span>
-                <p>2019-7-21 18:21</p>
-              </div>
-              <div class="col-md-2">
-                <a href="showreward.php"><button type="button" class="btn">申请</button></a>
-              </div>
-            </div>
-          </li>
         </ol>
        <div id='page'></div>
       </div>
@@ -97,5 +88,12 @@
                 window.location.href="../php/rewardlist.php?"+num.toString();
             }
         });
+       $(".btn").click(function(e){
+       	    var id = $(this).attr("id");
+             document.cookie="prize_id="+id.toString();
+             document.cookie="prize_name="+<?php echo "'".$name."'" ?>;
+             console.log("prize_id="+id.toString());
+
+         })
     </script>
 </body>

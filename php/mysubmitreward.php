@@ -44,7 +44,7 @@
                     echo "<td>" . $row["file_name"] . "</td>";
                     echo "<td>" . $row["submit_time"] . "</td>";
                     echo "<td>" . $row["state"] . "</td>";
-                    echo "<td><a href='submitsituation.php'>查看</a></td>";
+                    echo "<td><a href='submitsituation.php?".$row["prize_id"]."'>查看</a></td>";
                     echo "</tr>";
                 }
               ?>

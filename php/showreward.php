@@ -15,11 +15,28 @@
 </head>
 <body>
   <?php include("nav.php")?>
+<?php
+    include("nav.php");
+    include("./ajax_php/connect.php");
+       $id=$_COOKIE["prize_id"];
+       //查找申请表信息
+       $sql="select * from reward where id=".$id;
+       $res = $db->query($sql);
+       while ($row = $res->fetch_array() ) {
+           $name =  $row['prize_name'];
+           $start_time =  $row['start_time'];
+           $end_time = $row['end_time'];
+           $money = $row['money'];
+           $content = $row['content'];
+           $address = $row['address'];
+       }
 
+
+  ?>
   <div class="container" style="margin-top: 50px;" id="showmain">
     <div class="page-header">
       <div class="container">
-        <h2>一等奖学金</h2>
+        <h2><?php echo $name ?></h2>
         <!-- <p>管理人员基本信息; 操作包含编辑、删除; 切换页面以显示相关信息。</p> -->
       </div>
     </div>
@@ -30,27 +47,21 @@
     <div class="panel panel-default" style="margin-top: 50px;">
       <div class="panel-body">
         <div class="showitem">
-          <h4>简介：</h4>
+          <h4>简介：<?php echo $content ?></h4>
         </div>
-         <br>
-          <div class="showitem">
-            <h4>对象：</h4>
-          </div>
+
           <br>
           <div class="showitem">
-            <h4>申请时间：</h4>
+            <h4>申请时间：<?php echo $start_time."~".$end_time ?></h4>
           </div>
            <br>
           <div class="showitem">
-            <h4>奖励金额：</h4>
+            <h4>奖励金额：<?php echo $money ?></h4>
           </div>
            <br>
-          <div class="showitem">
-            <h4>发布人：</h4>
-          </div>
-           <br>
+
             <div class="showitem">
-          <h4>详细资料：</h4>
+          <h4>详细资料：<a href=<?php echo $address ?>>奖学金文件</a></h4>
           </div>
       </div>
     </div>

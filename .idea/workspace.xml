@@ -2,17 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dd4ad8e6-e51e-4407-b402-e8fcb5de5b47" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/js/jquery.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js/xlPaging.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/php/ajax_php/_submitApprove.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/php/ajax_php/_submitReward.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/php/ajax_php/upload_file.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/rewardlist.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/rewardlist.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/rewardlist.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/rewardlist.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/nav.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/nav.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/submitapprove.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/submitapprove.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/submitreward.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/submitreward.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/xlPaging.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/xlPaging.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/php/mysubmitreward.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/mysubmitreward.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/php/rewardlist.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/rewardlist.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/php/showreward.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/showreward.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/php/submitapprove.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/submitapprove.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/php/submitreward.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/submitreward.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/php/submitsituation.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/submitsituation.php" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -26,60 +28,57 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/php/rewardlist.php">
+        <entry file="file://$PROJECT_DIR$/php/submitreward.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="350">
-              <caret line="97" column="13" selection-start-line="97" selection-start-column="13" selection-end-line="97" selection-end-column="13" />
+            <state relative-caret-position="426">
+              <caret line="63" column="19" selection-start-line="63" selection-start-column="19" selection-end-line="63" selection-end-column="19" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/css/index.css">
+        <entry file="file://$PROJECT_DIR$/php/ajax_php/upload_file.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="587">
-              <caret line="74" selection-start-line="74" selection-end-line="74" />
+            <state relative-caret-position="175">
+              <caret line="17" column="18" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/css/rewardlist.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="447">
-              <caret line="100" lean-forward="true" selection-start-line="59" selection-end-line="100" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/php/myapprovereward.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-280">
-              <caret line="39" column="50" selection-start-line="39" selection-start-column="50" selection-end-line="39" selection-end-column="50" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/php/nav.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-313">
-              <caret line="18" column="55" selection-start-line="18" selection-start-column="55" selection-end-line="18" selection-end-column="55" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/rewardlist.js">
+        <entry file="file://$PROJECT_DIR$/php/ajax_php/_submitApprove.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="105">
-              <caret line="3" selection-start-line="3" selection-end-line="3" />
+              <caret line="3" column="22" lean-forward="true" selection-start-line="3" selection-start-column="22" selection-end-line="3" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/php/ajax_php/_submitReward.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="175">
+              <caret line="5" column="110" selection-start-line="5" selection-start-column="110" selection-end-line="5" selection-end-column="110" />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>Button</find>
+      <find>申请</find>
+      <find>申请编号</find>
+      <find>form</find>
+      <find>in</find>
+    </findStrings>
+    <replaceStrings>
+      <replace />
+    </replaceStrings>
+    <dirStrings>
+      <dir>D:\wamp\www\mywork\php\ajax_php</dir>
+    </dirStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -90,26 +89,25 @@
         <option value="$PROJECT_DIR$/php/ajax_php/connect.php" />
         <option value="$PROJECT_DIR$/js/myapprovereward.js" />
         <option value="$PROJECT_DIR$/js/mysubmitreward.js" />
-        <option value="$PROJECT_DIR$/php/mysubmitreward.php" />
         <option value="$PROJECT_DIR$/php/myapprovereward.php" />
         <option value="$PROJECT_DIR$/js/index.js" />
         <option value="$PROJECT_DIR$/php/index.php" />
         <option value="$PROJECT_DIR$/css/rewardlist.css" />
-        <option value="$PROJECT_DIR$/js/rewardlist.js" />
-        <option value="$PROJECT_DIR$/php/submitapprove.php" />
-        <option value="$PROJECT_DIR$/php/rewardlist.php" />
         <option value="$PROJECT_DIR$/php/nav.php" />
         <option value="$PROJECT_DIR$/css/index.css" />
-      </list>
-    </option>
-  </component>
-  <component name="ProjectConfigurationFiles">
-    <option name="files">
-      <list>
-        <option value="$PROJECT_DIR$/.idea/mywork.iml" />
-        <option value="$PROJECT_DIR$/.idea/vcs.xml" />
-        <option value="$PROJECT_DIR$/.idea/misc.xml" />
-        <option value="$PROJECT_DIR$/.idea/modules.xml" />
+        <option value="$PROJECT_DIR$/js/submitapprove.js" />
+        <option value="$PROJECT_DIR$/php/ajax_php/_submitApprove.php" />
+        <option value="$PROJECT_DIR$/js/xlPaging.js" />
+        <option value="$PROJECT_DIR$/php/submitapprove.php" />
+        <option value="$PROJECT_DIR$/php/mysubmitreward.php" />
+        <option value="$PROJECT_DIR$/php/submitsituation.php" />
+        <option value="$PROJECT_DIR$/php/rewardlist.php" />
+        <option value="$PROJECT_DIR$/php/ajax_php/_submitReward.php" />
+        <option value="$PROJECT_DIR$/php/showreward.php" />
+        <option value="$PROJECT_DIR$/js/rewardlist.js" />
+        <option value="$PROJECT_DIR$/js/submitreward.js" />
+        <option value="$PROJECT_DIR$/php/submitreward.php" />
+        <option value="$PROJECT_DIR$/php/ajax_php/upload_file.php" />
       </list>
     </option>
   </component>
@@ -125,6 +123,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -135,28 +134,24 @@
             <path>
               <item name="mywork" type="b2602c69:ProjectViewProjectNode" />
               <item name="mywork" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mywork" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mywork" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="php" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="mywork" type="b2602c69:ProjectViewProjectNode" />
               <item name="mywork" type="462c0819:PsiDirectoryNode" />
               <item name="php" type="462c0819:PsiDirectoryNode" />
+              <item name="ajax_php" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
@@ -184,12 +179,16 @@
       <updated>1567955194656</updated>
       <workItem from="1567955204115" duration="4416000" />
       <workItem from="1568021039909" duration="6875000" />
-      <workItem from="1568094184180" duration="4125000" />
+      <workItem from="1568094184180" duration="4263000" />
+      <workItem from="1568186876362" duration="28000" />
+      <workItem from="1568376760923" duration="3591000" />
+      <workItem from="1568387765272" duration="6943000" />
+      <workItem from="1568424352624" duration="7676000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15416000" />
+    <option name="totallyTimeSpent" value="33792000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="878" extended-state="6" />
@@ -246,18 +245,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/Documents/Tencent Files/963750882/FileRecv/Mail_contact.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3885" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/php/mysubmitreward.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1365">
-          <caret line="48" column="17" lean-forward="true" selection-start-line="48" selection-start-column="17" selection-end-line="48" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$USER_HOME$/Documents/Tencent Files/963750882/FileRecv/Mail_contact.php" />
     <entry file="file://$PROJECT_DIR$/js/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
@@ -284,37 +272,66 @@
     <entry file="file://$PROJECT_DIR$/css/showreward.css">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/php/submitsituation.php">
+    <entry file="file://$PROJECT_DIR$/css/rewardlist.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-525" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/php/submitapprove.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="19" column="7" selection-start-line="19" selection-start-column="7" selection-end-line="19" selection-end-column="36" />
+        <state relative-caret-position="3500">
+          <caret line="100" selection-start-line="59" selection-end-line="100" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/php/submitreward.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/php/showreward.php">
+    <entry file="file://$PROJECT_DIR$/css/index.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1575" />
+        <state relative-caret-position="27">
+          <caret line="22" column="14" lean-forward="true" selection-start-line="22" selection-start-column="14" selection-end-line="22" selection-end-column="14" />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/php/nav.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-313">
+        <state relative-caret-position="611">
           <caret line="18" column="55" selection-start-line="18" selection-start-column="55" selection-end-line="18" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/xlPaging.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="587">
+          <caret line="141" column="34" selection-start-line="140" selection-start-column="5" selection-end-line="141" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/personal.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1524">
+          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/mysubmitreward.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="226">
+          <caret line="46" column="78" selection-start-line="46" selection-start-column="78" selection-end-line="46" selection-end-column="78" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/php/myapprovereward.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-280">
-          <caret line="39" column="50" selection-start-line="39" selection-start-column="50" selection-end-line="39" selection-end-column="50" />
+        <state relative-caret-position="191">
+          <caret line="49" column="80" selection-start-line="49" selection-start-column="62" selection-end-line="49" selection-end-column="80" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/submitsituation.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="331">
+          <caret line="94" column="28" selection-start-line="94" selection-start-column="28" selection-end-line="94" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/submitapprove.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="700">
+          <caret line="110" column="12" lean-forward="true" selection-start-line="110" selection-start-column="12" selection-end-line="110" selection-end-column="12" />
         </state>
       </provider>
     </entry>
@@ -325,24 +342,59 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/js/submitapprove.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="261">
+          <caret line="9" column="13" lean-forward="true" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/submitreward.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="6" column="34" selection-start-line="6" selection-start-column="34" selection-end-line="6" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/php/rewardlist.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="97" column="13" selection-start-line="97" selection-start-column="13" selection-end-line="97" selection-end-column="13" />
+        <state relative-caret-position="261">
+          <caret line="90" column="35" lean-forward="true" selection-start-line="90" selection-start-column="35" selection-end-line="90" selection-end-column="35" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/rewardlist.css">
+    <entry file="file://$PROJECT_DIR$/php/showreward.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="447">
-          <caret line="100" lean-forward="true" selection-start-line="59" selection-end-line="100" />
+        <state relative-caret-position="140">
+          <caret line="19" column="31" lean-forward="true" selection-start-line="19" selection-start-column="31" selection-end-line="19" selection-end-column="31" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/index.css">
+    <entry file="file://$PROJECT_DIR$/php/ajax_php/_submitReward.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="587">
-          <caret line="74" selection-start-line="74" selection-end-line="74" />
+        <state relative-caret-position="175">
+          <caret line="5" column="110" selection-start-line="5" selection-start-column="110" selection-end-line="5" selection-end-column="110" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/ajax_php/_submitApprove.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="3" column="22" lean-forward="true" selection-start-line="3" selection-start-column="22" selection-end-line="3" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/submitreward.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="426">
+          <caret line="63" column="19" selection-start-line="63" selection-start-column="19" selection-end-line="63" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/ajax_php/upload_file.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="17" column="18" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
         </state>
       </provider>
     </entry>
