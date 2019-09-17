@@ -17,7 +17,8 @@
   <script src="../../js/submitreward.js"></script>
 </head>
 <body>
-  <?php include("nav.php")?>
+  <?php include("nav.php");
+  ?>
 
   <div class="container" style="margin-top: 50px;" id="submitmain">
     <div class="page-header">
@@ -59,7 +60,7 @@
             </div>
           </div>
         </div>
-        <form action="./ajax_php/upload_file.php" method="post"
+        <form action="./upload_file.php" method="post"
                       enctype="multipart/form-data">
         <div class="row" style="margin-top: 30px;padding-right: 1.5%;padding-left: 1.5%;">
           <div class ="col-md-12">

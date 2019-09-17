@@ -8,34 +8,10 @@
 
   <!-- Bootstrap -->
   <link href="../../css/bootstrap.min.css" rel="stylesheet">
-  <!-- <link rel="stylesheet" type="text/css" href="../css/frame.css"> -->
+  <!-- <link rel="stylesheet" type="text/css" href="../../css/frame.css"> -->
   <link rel="stylesheet" type="text/css" href="../../css/rewardlist.css">
   <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css">
-  <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
-  <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
-  <script src="../../js/bootstrap.min.js"></script>
-  <script src="../../js/rewardlist.js"></script>
-  <script src="../../js/jquery.min.js"></script>
-  <script src="../../js/xlPaging.js"></script>
-  <script>
-        var now = window.location.search.substring(1);
-        now = parseInt(now);
-        $("#page").paging({
-            nowPage: now,
-            pageNum: <?php echo ($total+4)/5 ?>,
-            buttonNum: 5,
-            callback: function (num) {
-                window.location.href="rewardlist.php?"+num.toString();
-            }
-        });
-       $(".btn").click(function(e){
-            var id = $(this).attr("id");
-             document.cookie="prize_id="+id.toString();
-             document.cookie="prize_name="+<?php echo "'".$name."'" ?>;
-             console.log("prize_id="+id.toString());
 
-         })
-  </script>
 </head>
 <body>
   <?php
@@ -95,5 +71,28 @@
       </div>
     </div>
   </div>
-  
+    <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+    <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+    <script src="../../js/bootstrap.min.js"></script>
+    <script src="../../js/rewardlist.js"></script>
+    <script src="../../js/xlPaging.js"></script>
+    <script>
+        var now = window.location.search.substring(1);
+        now = parseInt(now);
+        $("#page").paging({
+            nowPage: now,
+            pageNum: <?php echo ($total+4)/5 ?>,
+            buttonNum: 5,
+            callback: function (num) {
+                window.location.href="./rewardlist.php?"+num.toString();
+            }
+        });
+       $(".btn").click(function(e){
+       	    var id = $(this).attr("id");
+             document.cookie="prize_id="+id.toString();
+             document.cookie="student_id=2017212212001";
+             document.cookie="prize_name="+<?php echo "'".$name."'" ?>;
+
+         })
+    </script>
 </body>
