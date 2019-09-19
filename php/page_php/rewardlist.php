@@ -81,7 +81,7 @@
         now = parseInt(now);
         $("#page").paging({
             nowPage: now,
-            pageNum: <?php echo ($total+4)/5 ?>,
+            pageNum: parseInt(<?php echo ($total+4)/5 ?>),
             buttonNum: 5,
             callback: function (num) {
                 window.location.href="./rewardlist.php?"+num.toString();
