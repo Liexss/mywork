@@ -17,8 +17,7 @@
   <script src="../../js/showreward.js"></script>
 </head>
 <body>
-  <?php include("nav.php")?>
-<?php
+  <?php
     include("nav.php");
     include("../ajax_php/connect.php");
        $id=$_COOKIE["prize_id"];
@@ -71,3 +70,4 @@
     </div>
   </div>
 </body>
+</html>

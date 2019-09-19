@@ -1,0 +1,36 @@
+body{ 
+  padding-top: 40px;
+  background-color:#DCDCDC;
+  margin-bottom: 50px;
+}
+#mainber{
+	border-radius: 5px;
+	padding-top: 30px;
+	padding-bottom: 30px;
+	background-color: white;
+	width: 80%;
+}
+.jumbotron{
+    background-color:#343d46;
+    color: white;
+    height:100%;
+}
+#lefter{
+/*	width: 30%;*/
+	display: inline-block;
+}
+
+.input-group{
+	padding-left: 10px;
+	padding-top: 8px;
+}
+
+.input-group-addon{
+  font-weight: bold;
+}
+
+
+.btn{
+	margin-top: 10px;
+	margin-bottom: 5px;
+}

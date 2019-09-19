@@ -10,11 +10,12 @@ $(document).ready(function() {
 		 $.ajax({
 			 type:'post',
 			 data:{id:id,res:res},
-			 url:'../php/ajax_php/_submitApprove.php',
+			 url:'../../php/ajax_php/_submitApprove.php',
 			 success: function(msg){
 			 	console.log('successful');
 			 	console.log(msg);
-				 //window.location.reload(true);
+			 	window.alert("提交成功");
+				window.location.href="myapprovereward.php";
 			 }
 		 })
 	 })

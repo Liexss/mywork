@@ -1,7 +1,3 @@
-<?php
-session_start();
-?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,9 +8,6 @@ session_start();
     <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css">    
     <!-- <link rel="stylesheet" type="text/css" href="../css/frame.css"> -->
     <link rel="stylesheet" type="text/css" href="../../css/query.css">
-    <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
-    <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
-    <script src="../../js/bootstrap.min.js"></script>
 </head>
 <body>
     <?php include("nav.php")?>
@@ -28,9 +21,11 @@ session_start();
       <div id="searchNav" class="page-header">
         <h4 style="display: inline-block;">查询 <small>根据字段</small></h4>
         <select id="option" class="selectpicker form-control">
-          <option value="1">姓名</option>
-          <option value="2">居住地</option>
-          <option value="3">联系电话</option>
+          <option value="1">学号</option>
+          <option value="2">姓名</option>
+          <option value="3">学院</option>
+          <option value="4">专业</option>
+          <option value="5">班级</option>
         </select>
         <input id="search" class="form-control" type="text" name="Search">
         <button id="searchBtn" type="button" class="btn btn-primary" onclick="queryUser()">查询</button>
@@ -39,16 +34,19 @@ session_start();
       <form>
         <table id="queTable" class="table table-striped">
           <tr>
-            <td>是否为管理员</td>
-              <td>姓名</td>
-              <td>性别</td>
-              <td>年龄</td>
-              <td>居住地</td>
-              <td>电话</td>
-              <td>操作</td>
-            </tr>
+            <td>学号</td>
+            <td>姓名</td>
+            <td>学院</td>
+            <td>专业</td>
+            <td>班级</td>
+          </tr>
         </table>
       </form> 
     </div> 
+    <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+    <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+    <script src="../../js/bootstrap.min.js"></script>
+
+    <script src="../../js/admin_query.js"></script>
 </body>
 </html>

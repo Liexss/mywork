@@ -17,7 +17,8 @@
   <script src="../../js/submitreward.js"></script>
 </head>
 <body>
-  <?php include("nav.php")?>
+  <?php include("nav.php");
+  ?>
 
   <div class="container" style="margin-top: 50px;" id="submitmain">
     <div class="page-header">
@@ -31,7 +32,7 @@
       <li role="presentation" class="active"><a href="submitreward.php">我要申请</a></li>
     </ul>
     <div class="row" id="addsubmit">
-        <div class="row">
+        <!-- <div class="row">
           <div class ="col-md-6" style="padding-left: 2.5%;">
             <div class="input-group" style="margin-top: 30px; ">
               <span class="input-group-addon" id="basic-addon1">姓名</span>
@@ -58,30 +59,29 @@
               <input type="text" class="form-control" name="Username" id="Username">
             </div>
           </div>
-        </div>
-        <form action="./ajax_php/upload_file.php" method="post"
-                      enctype="multipart/form-data">
-        <div class="row" style="margin-top: 30px;padding-right: 1.5%;padding-left: 1.5%;">
-          <div class ="col-md-12">
-            <div class="form-group">
-              <textarea class="form-control" placeholder="概要" rows="3" style="resize: none; height: 200px;" id='content' name='content'></textarea>
+        </div> -->
+        <form action="./upload_file.php" method="post" enctype="multipart/form-data">
+          <div class="row" style="margin-top: 30px;padding-right: 1.5%;padding-left: 1.5%;">
+            <div class ="col-md-12">
+              <div class="form-group">
+                <textarea class="form-control" placeholder="概要" rows="3" style="resize: none; height: 200px;" id='content' name='content'></textarea>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="row">
-          <div class="col-md-12" style="padding-left: 2.5%;">
-            <div class="form-group">
-              <label for="exampleInputFile">资料上传</label>
-              <input type="file" id="file" name='file'>
+          <div class="row">
+            <div class="col-md-12" style="padding-left: 2.5%;">
+              <div class="form-group">
+                <label for="exampleInputFile">资料上传</label>
+                <input type="file" id="file" name='file'>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="col-md-2 col-md-offset-10">
-             <button type="submit" class="btn btn-default" name="btnsubmit" id="btnsubmit">提交申请</button>
+          <div class="row">
+            <div class="col-md-2 col-md-offset-10">
+               <button type="submit" class="btn btn-default" name="btnsubmit" id="btnsubmit">提交申请</button>
+            </div>
           </div>
-        </div>
         <form>
     </div>
   </div>
