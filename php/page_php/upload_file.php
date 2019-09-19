@@ -55,7 +55,7 @@ if ($_FILES["file"]["type"] == "application/zip"){
     else
       {
       /*若不存在，文件移动到指定位置*/
-      include 'connect.php';
+      include '../ajax_php/connect.php';
       $sql = "insert into reward_apply (student_id,submit_time,content,file_name,address) values ('".$student_id."','".date("Y-m-d h:i:s")."','".$content."','".$name."','../../file/" . $_FILES["file"]["name"]."')";
       $result  = $db->query($sql);
       move_uploaded_file($_FILES["file"]["tmp_name"],

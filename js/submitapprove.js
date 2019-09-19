@@ -10,7 +10,7 @@ $(document).ready(function() {
 		 $.ajax({
 			 type:'post',
 			 data:{id:id,res:res},
-			 url:'../php/ajax_php/_submitApprove.php',
+			 url:'../../php/ajax_php/_submitApprove.php',
 			 success: function(msg){
 			 	console.log('successful');
 			 	console.log(msg);
