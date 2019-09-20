@@ -16,7 +16,14 @@
       <div class="collapse navbar-collapse" id="bs-example">
         <ul class="nav navbar-nav" id="ulbs">
           <li id="index"><a href="index.php">公告首页</a></li>
-          <li id="rewardlist"><a href="rewardlist.php?1">奖助金列表</a></li>
+          <li class="dropdown" id="reward">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">奖学金管理 <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li id="rewardlist"><a href="rewardlist.php?1">奖学金列表</a></li>
+              <li role="separator" class="divider"></li>
+              <li role="separator"><a href="addreward.php">添加奖学金</a></li>
+            </ul>
+          </li>
           <li class="dropdown" id="people">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">人员管理 <span class="caret"></span></a>
             <ul class="dropdown-menu">

@@ -61,7 +61,7 @@
           </div>
         </div> -->
         <form action="./upload_file.php" method="post" enctype="multipart/form-data">
-          <div class="row" style="margin-top: 30px;padding-right: 1.5%;padding-left: 1.5%;">
+          <div class="row" style="margin-top: 10px;padding-right: 1.5%;padding-left: 1.5%;">
             <div class ="col-md-12">
               <div class="form-group">
                 <textarea class="form-control" placeholder="概要" rows="3" style="resize: none; height: 200px;" id='content' name='content'></textarea>

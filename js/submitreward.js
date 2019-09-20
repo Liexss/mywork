@@ -1,6 +1,6 @@
 $(document).ready(function() {
-	 $("#rewardlist").siblings('li').removeClass('active');
-	 $("#rewardlist").addClass('active');
+	 $("#reward").siblings('li').removeClass('active');
+	 $("#reward").addClass('active');
 	$("#btnsubmit").click(function(){
 		var content = $('#content').val();
 		document.cookie="student_id=2017212212001";

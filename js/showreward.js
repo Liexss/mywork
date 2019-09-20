@@ -1,4 +1,4 @@
 $(document).ready(function() {
-	 $("#rewardlist").siblings('li').removeClass('active');
-	 $("#rewardlist").addClass('active');
+	 $("#reward").siblings('li').removeClass('active');
+	 $("#reward").addClass('active');
 });

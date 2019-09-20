@@ -20,7 +20,7 @@
   ?>
   <div class="jumbotron">
       <div class="container">
-        <h1>奖学金列表</h1>
+        <h2>奖学金列表</h2>
         <p>你可以在这里选择奖学金，查看或申请</p>
       </div>
   </div>
