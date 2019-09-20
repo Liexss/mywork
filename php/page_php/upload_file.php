@@ -47,7 +47,8 @@ if ($_FILES["file"]["type"] == "application/zip"){
 //    echo "Size: " . ($_FILES["file"]["size"] / 1024) . " Kb<br />";
 //    echo "Temp file: " . $_FILES["file"]["tmp_name"] . "<br />";
     /*文件是否存在的判断*/
-    if (file_exists("../../file/" . $_FILES["file"]["name"]))
+    $fname = iconv('utf-8', 'gb2312//ignore', $_FILES["file"]["name"]);
+    if (file_exists("../../file/" . $fname))
       {
       /*若文件存在，输出存在提示*/
       echo "申请失败，文件名已存在";
@@ -56,10 +57,10 @@ if ($_FILES["file"]["type"] == "application/zip"){
       {
       /*若不存在，文件移动到指定位置*/
       include '../ajax_php/connect.php';
-      $sql = "insert into reward_apply (student_id,submit_time,content,file_name,address) values ('".$student_id."','".date("Y-m-d h:i:s")."','".$content."','".$name."','../../file/" . $_FILES["file"]["name"]."')";
+      $sql = "insert into reward_apply (student_id,submit_time,content,file_name,address) values ('".$student_id."','".date("Y-m-d h:i:s")."','".$content."','".$name."','../../file/" . $fname."')";
       $result  = $db->query($sql);
       move_uploaded_file($_FILES["file"]["tmp_name"],
-      "../../file/" . $_FILES["file"]["name"]);
+      "../../file/" . $fname);
       echo "申请成功";
       }
     }
