@@ -35,10 +35,6 @@
   <div class="container">
       <div class="row">
         <div class="col-md-2">
-          <div class="form-inline">
-              <button type="button" class="btn btn-default" id="releasebtn">发布公告</button>
-
-          </div>
         </div>
 
         <div class="col-md-10">
