@@ -14,14 +14,19 @@ body{
     color: white;
     height:100%;
 }
-.table{
-  margin-bottom: 0px;
+#homepage{
+  padding-top: 20px;
+  padding-left: 1.5%;
+  padding-right: 1.5%;
+  background-color: white;
+  border-radius: 4px;
 }
-
-td{
-  border: 4px solid #fff;
+#homepage a{
+  text-decoration: none;
 }
-
-form{
-  border: 2px solid;
+.input-group{
+  margin-top: 20px;
+}
+.table-bordered>thead>tr>th, .table-bordered>tbody>tr>th, .table-bordered>tfoot>tr>th, .table-bordered>thead>tr>td, .table-bordered>tbody>tr>td, .table-bordered>tfoot>tr>td{
+  border: 2px solid black;
 }

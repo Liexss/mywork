@@ -27,7 +27,7 @@
           <li class="active">查询结果</li>
     </ol>
     <div class="row">
-        <div class=" panel" style="margin:20px 15px 0px 15px;">
+        <div class="panel">
           <div class="panel-heading">
             <h3 class="panel-title">公告列表</h3>
           </div>
@@ -84,7 +84,7 @@
 </html>
     <?php
       function Show(){
-        $type="0";
+        $type="1";
         include_once("../ajax_php/connect.php");
         $db = db_connection("localhost","root","","money");
         //$id=$_GET['id'];

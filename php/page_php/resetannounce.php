@@ -37,7 +37,7 @@
         <div class="row" style="margin-top: 20px;">
           <div class="col-md-10"  id="submitfile">
               <input type="file" name="file" id="file" />
-              <a id="ensol" style="text-decoration:none;">1111</a>
+              <a id="ensol" style="text-decoration:none;"></a>
           </div>
           <div class="col-md-2">
               <button type="button" class="btn btn-default" id="annconbtn">确认发布</button>

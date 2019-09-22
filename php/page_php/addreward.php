@@ -9,6 +9,7 @@
   <!-- Bootstrap -->
   <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
   <!-- <link rel="stylesheet" type="text/css" href="../css/frame.css"> -->
+  <link href="../../css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
   <link rel="stylesheet" type="text/css" href="../../css/addreward.css">
  
   <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css">
@@ -16,7 +17,6 @@
   <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
   <script src="../../js/bootstrap.min.js"></script>
   <script type="text/javascript" src="../../js/bootstrap-datetimepicker.js" charset="UTF-8"></script>
-
   <script src="../../js/addreward.js"></script>
 </head>
 <body>

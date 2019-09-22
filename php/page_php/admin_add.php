@@ -53,7 +53,6 @@
 
     <div id="righter">
       <img id="Img" src="../../image/photo.png" alt="image">
-      <input id="fileInput" type="file" name="">
       <div>
         <button type="button" class="btn btn-success" onclick="addUser()">添加</button>
       </div>

@@ -19,8 +19,8 @@
   <?php include("nav.php")?>
   <div class="jumbotron">
       <div class="container">
-        <h1>我的申请</h1>
-        <p>你可以在这里查看历史申请状态</p>
+        <h1>发布公告</h1>
+        <p>你可以在这里发布公告，上传附件</p>
       </div>
   </div>
   <div class="container" id="myannounce">
