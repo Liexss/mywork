@@ -5,7 +5,7 @@
 	$search=$obj->Sinput;
 	$option=$obj->Oinput;
 
-	$db = mysqli_connect("localhost","root","123456","item");
+	include("connect.php");
 
 	if($option==1)
 	{
