@@ -39,8 +39,10 @@
       <div class="panel-body">
         <ol class="rewardol">
         <?php
+            date_default_timezone_set('PRC'); 
             include("../ajax_php/connect.php");
 
+            $showTime =  date("Y-m-d h:i:s");
             $sql="select count(*) from reward where is_post=1";
             $res = $db->query($sql);
              while ($row = $res->fetch_array() ) {
@@ -52,18 +54,25 @@
              $backward = $forward+4;
              if($backward>$total)
                 $backward = $total;
-            $sql="select * from reward where is_post=1 limit ".$forward.",".$backward;
+            $sql="select * from reward where is_post=1 order by start_time desc limit ".$forward.",".$backward;
             $res = $db->query($sql);
             while ($row = $res->fetch_array() ) {
-            $name = $row["prize_name"];
-                    echo '<li class="item">';
-                    echo '<div class="row">';
-                    echo '<div class="col-md-9 col-md-offset-1" class="group">';
-                    echo "<span>" .$row["prize_name"]. "</span>";
-                    echo '<p>'.$row['start_time'].' ~ '.$row['end_time'].'</p></div>';
-                    echo ' <div class="col-md-2">';
-                    echo '<a href="showreward.php?'.$row['id'].'"><button type="button" class="btn" id='.$row['id'].'>申请</button></a>';
-                    echo '</div></div></li>';
+
+              $name = $row["prize_name"];
+              echo '<li class="item">';
+              echo '<div class="row">';
+              echo '<div class="col-md-9 col-md-offset-1" class="group">';
+              echo "<span>" .$row["prize_name"]. "</span>";
+              echo '<p>开始时间：'.$row['start_time'].' </p>';
+              echo '<p>结束时间：'.$row['end_time'].'</p></div>';
+              echo ' <div class="col-md-2">';
+              if($row['start_time']>$showTime || $row['end_time']<$showTime){
+                echo '<a href="#"><button type="button" class="btn" id='.$row['id'].' disabled>已过期</button></a>';
+              }
+              else{
+              echo '<a href="showreward.php?'.$row['id'].'"><button type="button" class="btn" id='.$row['id'].'>申请</button></a>';
+            }
+              echo '</div></div></li>';
             }
         ?>
         </ol>
