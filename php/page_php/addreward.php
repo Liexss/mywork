@@ -92,7 +92,6 @@
 
 <script>
   $(document).ready(function () {
- 
       $('.form_datetime').datetimepicker({
         format: "yyyy-mm-dd hh:00:00",
         startDate: new Date(),

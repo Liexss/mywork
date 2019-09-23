@@ -39,9 +39,9 @@
       <div class="panel-body">
         <ol class="rewardol">
         <?php
-            date_default_timezone_set('PRC'); 
+            
             include("../ajax_php/connect.php");
-
+            date_default_timezone_set('PRC'); 
             $showTime =  date("Y-m-d h:i:s");
             $sql="select count(*) from reward where is_post=1";
             $res = $db->query($sql);
