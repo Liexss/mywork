@@ -33,6 +33,7 @@
                 <tr>
                   <th>申报编号</th>
                   <th>申报奖项</th>
+                  <!-- <th>奖项编号</th> -->
                   <th>申报时间</th>
                   <th>审批状态</th>
                   <th></th>
@@ -40,19 +41,20 @@
               </thead>
               <tbody>
               <?php
-
+                $teacher_id="20181211";
                 include("../ajax_php/connect.php");
-                $sql="select * from reward_apply";
+                $sql="select a.prize_name,a.id,b.id,b.submit_time,b.state,b.end_time from reward a,reward_apply b,teacher c where a.id=b.prize_id and a.teacher_id=c.teacher_id and c.teacher_id=".$teacher_id;
                 $res = $db->query($sql);
                 while ($row = $res->fetch_array() ) {
                     echo "<tr>";
-                        echo "<td>" . $row["prize_id"] . "</td>";
-                        echo "<td>" . $row["file_name"] . "</td>";
-                        echo "<td>" . $row["submit_time"] . "</td>";
-                        echo "<td>" . $row["state"] . "</td>";
+                        echo "<td>" . $row[2] . "</td>";
+                        echo "<td>" . $row[0] . "</td>";
+                        // echo "<td>" . $row[1] . "</td>";
+                        echo "<td>" . $row[3] . "</td>";
+                        echo "<td style='"."padding-left:20px;"."'>" . $row[4] . "</td>";
                         //将申请编号传入url
-                        echo "<td><a href='submitapprove.php?".$row['prize_id']."'>查看</a></td>";
-                         echo "</tr>";
+                        echo "<td><a href='submitapprove.php?id=".$row[2]."'>查看</a></td>";
+                        echo "</tr>";
                 }
               ?>
               </tbody>

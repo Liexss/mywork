@@ -1,43 +1,37 @@
-<?php
-
-$name = $_POST["name"];
-$money = $_POST["money"];
-$content = $_POST["content"];
-$begintime = $_POST["begintime"];
-$endtime = $_POST["endtime"];
-
-if ($_FILES["file"]["type"] == "application/zip"){
-  if ($_FILES["file"]["error"] > 0){
-    echo "Return Code: " . $_FILES["file"]["error"] . "<br />";
-    }
-  else{
-//    echo "Upload: " . $_FILES["file"]["name"] . "<br />";
-//    echo "Type: " . $_FILES["file"]["type"] . "<br />";
-//    echo "Size: " . ($_FILES["file"]["size"] / 1024) . " Kb<br />";
-//    echo "Temp file: " . $_FILES["file"]["tmp_name"] . "<br />";
-    /*文件是否存在的判断*/
-    $fname = iconv('utf-8', 'gb2312//ignore', $_FILES["file"]["name"]);
-    if (file_exists("../../file/" . $fname))
-      {
-      /*若文件存在，输出存在提示*/
-      echo "0:添加失败，文件已存在";
-      }
-    else
-      {
-      /*若不存在，文件移动到指定位置*/
-      include 'connect.php';
-      $sql = "insert into reward (prize_name,money,content,start_time,end_time,address) values ('".$name."','".$money."','".$content."','".$begintime."','".$endtime."','../../file/" . $fname."')";
-      $result  = $db->query($sql);
-      move_uploaded_file($_FILES["file"]["tmp_name"],
-      "../../file/" . $fname);
-      echo "1:添加成功";
-      }
-    }
+<?php 
+  include("../ajax_php/connect.php");
+  $db=db_connection("localhost","root","","money");
+  $sql1="select * from reward order by id desc";
+  $result1=mysqli_query($db,$sql1);
+  $num=1;
+  if($result1){
+    $row=mysqli_fetch_array($result1);
+    $num=$row[0]+1;
   }
-else
-  {
-  /*输出文件类型或大小不合法的提示*/
-  echo "0:添加失败，请上传zip格式的压缩包";
+  $id=$num;
+  $name=$db->real_escape_string($_POST['name']);
+  $teacher_id=$db->real_escape_string($_POST['teacher_id']);
+  $money=$db->real_escape_string($_POST['money']);
+  $begintime=$db->real_escape_string($_POST['begintime']);
+  $endtime=$db->real_escape_string($_POST['endtime']);
+  $enclosure=$db->real_escape_string($_POST['enclosure']);
+  $content=$db->real_escape_string($_POST['content']);
+  $sql="insert into reward(id,prize_name,money,is_post,content,start_time,end_time,teacher_id";
+  $str="values(".$id.",'".$name."','".$money."',1,'".$content."',"."'".$begintime."','".$endtime."','".$teacher_id."'";
+  if($_POST['enclosure']!=""){
+    $sql=$sql.","."address";
+    $str=$str.","."'".$enclosure."'";
   }
-
+  $sql=$sql.")".$str.")";
+  $response = array();
+  $result=mysqli_query($db,$sql);
+  $response['sql']=$sql;
+  $response['id']=$id;
+  if($result){
+      $response['isSuccess']=true;
+  }
+    else {
+      $response['isSuccess']=false;
+  }
+  echo json_encode($response);
 ?>

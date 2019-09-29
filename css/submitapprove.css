@@ -14,3 +14,6 @@ body{
   border-radius: 6px;
 }
 
+#gra a{
+	text-decoration: none;
+}

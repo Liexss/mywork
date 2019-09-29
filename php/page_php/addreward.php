@@ -46,10 +46,27 @@
           </div>
       </div>
       <div class="row">
+        <div class=" col-md-6" style="padding-left: 2.5%;margin-top: 30px;">
+          <div class="input-group">
+            <span class="input-group-addon" id="basic-addon1">审批人</span>
+                <select class="form-control" id="selteacher">
+                  <?php
+                    include("../ajax_php/connect.php");
+                    $sql="select * from teacher";
+                    $res = $db->query($sql);
+                    while ($row = $res->fetch_array() ) {
+                         echo"<option id='".$row['teacher_id']."'>"."教师编号:".$row['teacher_id']."--".$row['name']."</option>";
+                    }
+                  ?>
+                </select>
+            </div>
+        </div>   
+      </div>
+      <div class="row">
         <div class="form-group" style="padding-left: 2.5%;margin-top: 30px;">
                 <div class="input-group date form_datetime col-md-6" data-date="1979-09-16T05:25:07Z" data-date-format="dd MM yyyy - HH:ii p" data-link-field="dtp_input1">
                     <span class="input-group-addon">起始时间</span>
-                    <input id ="begintime" name ="begintime" class="form-control" type="text" value="">
+                    <input id ="begintime" name ="begintime" class="form-control" type="text"  name="" value="">
                     <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
                 </div>
                 <input type="hidden" id="dtp_input1" value="" /><br/>
@@ -94,7 +111,7 @@
   $(document).ready(function () {
  
       $('.form_datetime').datetimepicker({
-        format: "yyyy-mm-dd hh:00:00",
+        format: "yyyy-mm-dd hh:ii:00",
         startDate: new Date(),
         autoclose: true,
         todayBtn: true,

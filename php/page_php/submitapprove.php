@@ -20,32 +20,43 @@
   <?php
     include("nav.php");
     include("../ajax_php/connect.php");
-       $id=$_SERVER["QUERY_STRING"];
-       //查找申请表信息
-       $sql="select * from reward_apply where prize_id=".$id;
-       $res = $db->query($sql);
-       while ($row = $res->fetch_array() ) {
-           $time =  $row['submit_time'];
-           $content = $row['content'];
-           $address = $row['address'];
-       }
-        //查找对应学生信息
-       $sql="select * from student where student_id = (select student_id from reward_apply where prize_id=".$id.")";
-        $res = $db->query($sql);
-        while ($row = $res->fetch_array() ) {
-            $name =  $row['name'];
-            $college = $row['college'];
-            $dept_name = $row['dept_name'];
-            $class = $row['class'];
-
-        }
+       $id=$_GET['id'];
+         //查找申请表信息
+         $sql="select * from reward_apply where id=".$id;
+        // echo $sql;
+         $res = $db->query($sql);
+         while ($row = $res->fetch_array() ) {
+             $time =  $row['submit_time'];
+             $end_time=$row['end_time'];
+             $content = $row['content'];
+             $address = $row['address'];
+             $state = $row['state'];
+             $prize_id=$row['prize_id'];
+         }
+          //查找对应学生信息
+         $sql="select * from student where student_id = (select student_id from reward_apply where id=".$id.")";
+          $res = $db->query($sql);
+          while ($row = $res->fetch_array() ) {
+              $name =  $row['name'];
+              $college = $row['college'];
+              $dept_name = $row['dept_name'];
+              $class = $row['class'];
+          }
+          $sql="select a.name from teacher as a left join reward as b on a.teacher_id=b.teacher_id where b.id=".$prize_id;
+          $res = $db->query($sql);
+          while ($row = $res->fetch_array() ) {
+              $people =  $row['name'];
+          }   
 
   ?>
   <div class="container" id="submitapprove">
       <div class="page-header">
         <div class="container">
-          <h2 id='id'>申请编号：<?php echo $id ?></h2>
-          <p>时间：<?php echo $time ?></p>
+          <h2>申请编号：<?php echo $id ?></h2>
+          <p>奖项编号：<?php echo $prize_id ?></p>
+          <p>申请时间：<?php echo $time ?></p>
+          <p>审批时间：<?php echo $end_time ?></p>
+          <p>审批人：<?php echo $people ?></p>
         </div>
       </div>
       <div class="row">
@@ -90,18 +101,18 @@
           <div class ="col-md-6" style="padding-left: 2.5%;">
             <div class="input-group" style="margin-top: 30px;">
               <span class="input-group-addon" id="basic-addon1">审核状态</span>
-              <select class="form-control" id = 'select'>
-                <option>通过</option>
-                <option>未通过</option>
+              <select class="form-control" id = 'sel'>
+                <option value="通过">通过</option>
+                <option value="未通过">未通过</option>
               </select>
             </div>
           </div>
         </div>
         <div class="row">
-          <div class ="col-md-6"  style="margin-top: 30px;padding-left: 2.5%;">
+          <div class ="col-md-6"  style="margin-top: 30px;padding-left: 2.5%;" id="worditem">
             <div id="gra">
                附件：
-              <a href=<?php echo $address ?>>上传资料</a>
+              <a id="ensol" href=<?php echo $address ?>>上传资料</a>
             </div>
           </div>
         </div>
@@ -114,3 +125,23 @@
       </div>
   </div>
 </body>
+
+<?php 
+        echo"<script>";
+        // echo"console.log('11".$row[1]."11');";
+        if($address==""){
+          echo"$('#worditem').hide();";
+        }
+        else {
+          echo"$('#ensol').html('".substr($address,30)."');";
+          echo"$('#ensol').attr('download','".substr($address,30)."');";
+          echo"$('#ensol').attr('href','".$address."');";
+        }
+        if($state!="待审批"){
+          echo"$('#sel').val('".$state."');";
+          echo"$('#sel').attr('disabled',true);";
+          echo"$('#btnsubmit').hide();";
+        }
+        echo"$('#btnsubmit').attr('value',".$id.");";
+        echo"</script>";
+?>

@@ -70,8 +70,8 @@
           echo"$('#conensol').hide();";
         }
         else {
-          echo"$('#ensol').html('".substr($row[5],11)."');";
-          echo"$('#ensol').attr('download','".$row[5]."');";
+          echo"$('#ensol').html('".substr($row[5],30)."');";
+          echo"$('#ensol').attr('download','".substr($row[5],30)."');";
           echo"$('#ensol').attr('href','".$row[5]."');";
         }
         echo"$('#anntitle').val('".$row[0]."');";

@@ -13,3 +13,6 @@ body{
   padding-bottom: 30px;
   border-radius: 6px;
 }
+#worditem a{
+	text-decoration: none;
+}

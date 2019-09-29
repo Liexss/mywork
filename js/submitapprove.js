@@ -4,9 +4,9 @@ $(document).ready(function() {
 
 
 	 $("#btnsubmit").click(function(){
-		 var id = $('#id').text().split('：')[1];
-		 var res = $('#select').val();
-		 console.log(id+res);
+		 var id = $(this).attr('value');
+		 var res = $('#sel').val();
+		 console.log(res);
 		 $.ajax({
 			 type:'post',
 			 data:{id:id,res:res},

@@ -20,7 +20,7 @@
   <?php
     include("nav.php");
     include("../ajax_php/connect.php");
-       $id=$_COOKIE["prize_id"];
+       $id=$_GET['id'];
        //查找申请表信息
        $sql="select * from reward where id=".$id;
        $res = $db->query($sql);
@@ -31,7 +31,13 @@
            $money = $row['money'];
            $content = $row['content'];
            $address = $row['address'];
+           $id = $row['id'];
        }
+       $sql="select a.name from teacher as a left join reward as b on a.teacher_id=b.teacher_id where b.id=".$id;
+          $res = $db->query($sql);
+          while ($row = $res->fetch_array() ) {
+              $people =  $row['name'];
+          }   
 
 
   ?>
@@ -43,14 +49,19 @@
       </div>
     </div>
     <ul class="nav nav-tabs">
-      <li role="presentation" class="active"><a href="showreward.php">奖学金简介</a></li>
-      <li role="presentation"><a href="submitreward.php">我要申请</a></li>
+      <li role="presentation" class="active"><a id="showrewarli" href="showreward.php">奖学金简介</a></li>
+      <li role="presentation"><a id="submitrewardli" href="submitreward.php">我要申请</a></li>
     </ul>
     <div class="panel panel-default" style="margin-top: 50px;">
       <div class="panel-body">
         <div class="showitem">
           <h4>简介：<?php echo $content ?></h4>
         </div>
+
+          <br>
+          <div class="showitem">
+          <h4>奖项编号：<?php echo $id ?></h4>
+          </div>
 
           <br>
           <div class="showitem">
@@ -61,9 +72,12 @@
             <h4>奖励金额：<?php echo $money ?></h4>
           </div>
            <br>
-
-            <div class="showitem">
-          <h4>详细资料：<a href=<?php echo $address ?>>奖学金文件</a></h4>
+          <div class="showitem">
+            <h4>审批人：<?php echo $people ?></h4>
+          </div>
+           <br>
+          <div class="showitem" id="worditem">
+            <h4>详细资料：<a id="ensol">奖学金文件</a></h4>
           </div>
       </div>
     </div>
@@ -71,3 +85,32 @@
   </div>
 </body>
 </html>
+<?php 
+        echo"<script>";
+        // echo"console.log('11".$row[1]."11');";
+        if($address==""){
+          echo"$('#worditem').hide();";
+        }
+        else {
+          echo"$('#ensol').html('".substr($address,30)."');";
+          echo"$('#ensol').attr('download','".$address."');";
+          echo"$('#ensol').attr('href','".$address."');";
+        }
+        echo"$('#showrewarli').attr('href','showreward.php?id=".$id."');";
+        echo"$('#submitrewardli').attr('href','submitreward.php?id=".$id."');";
+        echo"$('#submitrewardli').click(function(){";
+        date_default_timezone_set('PRC'); 
+        $showTime =  date("Y-m-d H:i:s");
+        //echo $showTime;
+        // echo"console.log('".$showTime."');";
+        if($end_time <$showTime){
+            echo" event.preventDefault();";
+            echo" alert('已结束，无法申请');";
+        }
+        else if($start_time>$showTime){
+            echo" event.preventDefault();";
+            echo" alert('未开始，无法申请');";
+        }
+        echo"});";
+        echo"</script>";
+?>

@@ -39,10 +39,9 @@
       <div class="panel-body">
         <ol class="rewardol">
         <?php
-            date_default_timezone_set('PRC'); 
+            
             include("../ajax_php/connect.php");
-
-            $showTime =  date("Y-m-d h:i:s");
+            //echo $showTime;
             $sql="select count(*) from reward where is_post=1";
             $res = $db->query($sql);
              while ($row = $res->fetch_array() ) {
@@ -62,16 +61,13 @@
               echo '<li class="item">';
               echo '<div class="row">';
               echo '<div class="col-md-9 col-md-offset-1" class="group">';
-              echo "<span>" .$row["prize_name"]. "</span>";
+              echo "<span>".$row["prize_name"]. "</span>";
+              echo '<p>奖项编号：'.$row['id'].' </p>';
               echo '<p>开始时间：'.$row['start_time'].' </p>';
               echo '<p>结束时间：'.$row['end_time'].'</p></div>';
               echo ' <div class="col-md-2">';
-              if($row['start_time']>$showTime || $row['end_time']<$showTime){
-                echo '<a href="#"><button type="button" class="btn" id='.$row['id'].' disabled>已过期</button></a>';
-              }
-              else{
-              echo '<a href="showreward.php?'.$row['id'].'"><button type="button" class="btn" id='.$row['id'].'>申请</button></a>';
-            }
+              echo '<a id="delebtn"><button type="button" class="btn btn-danger delete" id='.$row['id'].'>删除</button></a>';
+              echo '<a href="showreward.php?id='.$row['id'].'"><button type="button" class="btn" id='.$row['id'].'>申请</button></a>';
               echo '</div></div></li>';
             }
         ?>

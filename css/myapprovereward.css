@@ -13,3 +13,6 @@ body{
 	background-color: white;
 	border-radius: 5px;
 }
+#datatable a{
+	text-decoration: none;
+}
