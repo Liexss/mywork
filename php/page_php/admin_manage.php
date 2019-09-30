@@ -1,3 +1,6 @@
+<?php
+  session_start(); 
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,7 +26,6 @@
 	<div class="container">
 		<div class="row" id="homepage" >
 			   <table class="table table-bordered" id="homepagetable">
-			      	<?php include("../ajax_php/connect.php");?>
 		    		<?php
 		    			$sql="select * from student where is_post=1";
 		    			$result=mysqli_query($db,$sql);
@@ -98,7 +100,6 @@
 <?php
 
 function Show(){
-	include_once("../ajax_php/connect.php");
 	$db = db_connection("localhost","root","","money");
 	$query = "select * from student where is_post = 1";
 	$result = mysqli_query($db,$query);

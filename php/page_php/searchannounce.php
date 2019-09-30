@@ -84,7 +84,6 @@
     <?php
       function Show(){
         $type="1";
-        include_once("../ajax_php/connect.php");
         $db = db_connection("localhost","root","","money");
         //$id=$_GET['id'];
         $l=$_SESSION['display_seaannnum']*($_SESSION['page_seaannnum']-1);
@@ -123,7 +122,6 @@
       }
 
       function Show_page(){
-        include_once("../ajax_php/connect.php");
         $db=db_connection("localhost", "root", "", "money");
         $content=$_GET['content'];
         $query2 = "select b.theme,a.name,b.time,b.announce_id from teacher as a right join announce as b on a.teacher_id=b.user_id where b.is_post=1 and a.is_post=1 and (b.theme "."like '%".$content."%' or  a.name "."like '%".$content."%') order by time desc";

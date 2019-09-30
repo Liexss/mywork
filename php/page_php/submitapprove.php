@@ -1,3 +1,6 @@
+<?php
+  session_start(); 
+?>
 <!DOCTYPE html>
 <html  lang="zh-CN">
 <head>
@@ -19,7 +22,6 @@
 <body>
   <?php
     include("nav.php");
-    include("../ajax_php/connect.php");
        $id=$_GET['id'];
          //查找申请表信息
          $sql="select * from reward_apply where id=".$id;

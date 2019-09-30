@@ -1,3 +1,6 @@
+<?php
+  session_start(); 
+?>
 <!DOCTYPE html>
 <html  lang="zh-CN">
 <head>
@@ -51,7 +54,7 @@
             <span class="input-group-addon" id="basic-addon1">审批人</span>
                 <select class="form-control" id="selteacher">
                   <?php
-                    include("../ajax_php/connect.php");
+                    
                     $sql="select * from teacher";
                     $res = $db->query($sql);
                     while ($row = $res->fetch_array() ) {

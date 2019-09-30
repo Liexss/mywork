@@ -106,9 +106,7 @@
 <?php
 
       function Show(){
-        include_once("../ajax_php/connect.php");
         $db = db_connection("localhost","root","","money");
-        $type="1";
         $l=$_SESSION['display_annnum']*($_SESSION['page_annnum']-1);
         //$r=$_SESSION['display_annnum']*$_SESSION['page_annnum'];
         $query = "select b.theme,a.name,b.time,b.announce_id from teacher as a right join announce as b on a.teacher_id=b.user_id where b.is_post=1 and a.is_post=1 order by time desc limit ".$l.",". $_SESSION['display_annnum'];
@@ -119,7 +117,7 @@
             echo"<li class='list-group-item'>";
             echo" <div class='row'>";
             echo"<div class='col-md-2'>";
-            echo"<a style='text-decoration: none;' href='showannounce.php?id={$row[3]}'>{$row[0]}</a>";
+            echo"<a target='_blank' style='text-decoration: none;' href='showannounce.php?id={$row[3]}'>{$row[0]}</a>";
             echo"</div>";
             echo"<div class='col-md-2 col-md-offset-4'>";
             echo"<p>{$row[2]}</p>";
@@ -128,7 +126,7 @@
             echo"<p>{$row[1]}</p>";
             echo"</div>";
 
-            if($type=="1")
+            if($_SESSION['type']==2)
             {
               echo"<div class='col-md-1'>";
               echo"<a style='text-decoration: none;' href='resetannounce.php?id={$row[3]}' id='{$row[3]}' href='#' >编辑</a>";
@@ -145,7 +143,6 @@
       }
 
       function Show_page(){
-        include_once("../ajax_php/connect.php");
         $db = db_connection("localhost","root","","money");
         $query = "select b.theme,a.name,b.time,b.announce_id from teacher as a right join announce as b on a.teacher_id=b.user_id where b.is_post=1 and a.is_post=1 order by time desc";
         $result=mysqli_query($db,$query);

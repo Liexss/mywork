@@ -1,3 +1,14 @@
+<?php 
+session_start();
+$db = mysqli_connect("localhost","root","","money");
+$select = "select * from student where student_id=".$_SESSION['enter_id'];
+
+$result = mysqli_query($db,$select);
+$attr=$result->fetch_row();
+
+$password=$attr[1];
+
+?>
 <!DOCTYPE html>
 <html  lang="zh-CN">
 <head>
@@ -9,9 +20,7 @@
   <link rel="stylesheet" href="../../css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css">
   <link rel="stylesheet" type="text/css" href="../../css/mypassword.css">
-  <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
-  <script src="../../js/bootstrap.min.js"></script>
-  <script src="../../js/mypassword.js"></script>
+
 </head>
 <body>
   <?php include("nav.php")?>
@@ -23,20 +32,24 @@
   </div>
   <div id='mainber' class="container">
       <h4 style="font-weight: bold; display: inline-block;">密码修改</h4>
-
-      <div class="form-group">
-        <label for="newPasswordLabel">New password</label>
-        <input type="password" class="form-control" id="newPasswordInput" placeholder="请输入新密码">
-      </div>
-
       <div class="form-group">
         <label for="initialPasswordLabel">Initial password</label>
-        <input type="password" class="form-control" id="initialPasswordInput" placeholder="请输入原密码">
+        <input type="password" class="form-control" id="initialPasswordInput" placeholder="请输入原密码" autocomplete="off">
+      </div>
+      <div class="form-group">
+        <label for="newPasswordLabel">New password</label>
+        <input type="password" class="form-control" id="newPasswordInput" placeholder="请输入新密码" autocomplete="off">
       </div>
 
       <div class="form-group">
         <label for="newPasswordAgainLabel">Re-enter password</label>
-        <input type="password" class="form-control" id="newPasswordAgainInput" placeholder="请输入再次输入密码">
+        <input type="password" class="form-control" id="newPasswordAgainInput" placeholder="请输入再次输入密码" autocomplete="off">
       </div>
+
+      <button type="button" class="btn btn-success" onclick="changePassword(<?php echo "'$password'"; ?>)" style="margin-bottom: 10px;">更改</button>
   </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+  <script src="../../js/bootstrap.min.js"></script>
+  <script src="../../js/mypassword.js"></script>
 </body>

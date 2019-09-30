@@ -10,8 +10,8 @@
     <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css">
 
-	<link rel="stylesheet" type="text/css" href="Css/frame.css">
-	<link rel="stylesheet" type="text/css" href="Css/form.css">
+	<link rel="stylesheet" type="text/css" href="css/frame.css">
+	<link rel="stylesheet" type="text/css" href="css/form.css">
 	<link rel="stylesheet" type="text/css" href="Login/background.css">
 
 </head>
@@ -59,20 +59,20 @@
 	                        <label for="checkbox1"></label>
 	                    </div>
 	                    <span class="text">Remember me</span>
-	                    <button type="submit" class="btn btn-default" id="btnlogin" onClick="enter()">登录</button>
+	                    <button type="button" class="btn btn-default" id="btnlogin" onClick="enter()">登录</button>
 	                </div>
 	            </form>
 	        </div>
 	    </div>
 	</div>
-	<nav class="navbar navbar-fixed-bottom">
-	   <p>Copyright @ 2019, Hangzhou Normal University , All rights reserved.</p>
-	</nav>
+	<!-- <nav class="navbar navbar-fixed-bottom">
+	   <p>Copyright @ 2019, Hangzhou Normal University.</p>
+	</nav> -->
 	
     <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
     <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="Login/login.js"></script>
-    <script type="text/javascript">
+    <!-- <script type="text/javascript">
     	var storage = window.localStorage;
     	
     	// window.alert(storage["is_check"]);
@@ -85,5 +85,5 @@
 		    $("#account").val("");
 		    $("#password").val("");
 		}
-    </script>
+    </script> -->
 </body>

@@ -1,3 +1,6 @@
+<?php
+  session_start(); 
+?>
 <!DOCTYPE html>
 <html  lang="zh-CN">
 <head>
@@ -42,7 +45,6 @@
               <tbody>
               <?php
                 $student_id="2017212212001";
-                include("../ajax_php/connect.php");
                 $sql="select a.prize_name,a.id,b.id,b.submit_time,b.state,b.end_time from reward a,reward_apply b,teacher c where a.id=b.prize_id and a.teacher_id=c.teacher_id and b.student_id=".$student_id;
                 $res = $db->query($sql);
                 while ($row = $res->fetch_array() ) {
@@ -53,7 +55,7 @@
                         echo "<td>" . $row[3] . "</td>";
                         echo "<td style='"."padding-left:20px;"."'>" . $row[4] . "</td>";
                         //将申请编号传入url
-                        echo "<td><a href='submitsituation.php?id=".$row[2]."'>查看</a></td>";
+                        echo "<td><a target='_blank' href='submitsituation.php?id=".$row[2]."'>查看</a></td>";
                         echo "</tr>";
                 }
               ?>

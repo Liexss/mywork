@@ -1,4 +1,4 @@
-  <nav class="navbar navbar-default navbar-fixed-top">
+<nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
     <div class="container-fluid">
       <!-- Brand and toggle get grouped for better mobile display -->
@@ -16,30 +16,60 @@
       <div class="collapse navbar-collapse" id="bs-example">
         <ul class="nav navbar-nav" id="ulbs">
           <li id="index"><a href="index.php">公告首页</a></li>
-          <li class="dropdown" id="reward">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">奖学金管理 <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li id="rewardlist"><a href="rewardlist.php?1">奖学金列表</a></li>
-              <li role="separator" class="divider"></li>
-              <li role="separator"><a href="addreward.php">添加奖学金</a></li>
-            </ul>
-          </li>
-          <li class="dropdown" id="people">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">人员管理 <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li id="admin_query"><a href="admin_query.php">人员查询</a></li>
-              <li role="separator" class="divider"></li>
-              <li id="admin_add"><a href="admin_add.php">人员添加</a></li>
-              <li role="separator" class="divider"></li>
-              <li id="admin_manage"><a href="admin_manage.php">人员列表</a></li>
-            </ul>
-          </li>
-          <li id="releaseannounce"><a href="releaseannounce.php">发布公告</a></li>
-          <li id="myapprovereward"><a href="myapprovereward.php">我的审批</a></li>
-          <li id="mysubmitreward"><a href="mysubmitreward.php">我的申请</a></li>
+          <?php 
+              if($_SESSION['type']==2) {
+                echo"<li class='dropdown' id='reward'>";
+                  echo"<a href='#'' class='dropdown-toggle' data-toggle='dropdown' role='button' aria-haspopup='true' aria-expanded='false'>奖学金管理 <span class='caret'></span></a>";
+                  echo"<ul class='dropdown-menu'>";
+                    echo"<li id='rewardlist'><a href='rewardlist.php?1'>奖学金列表</a></li>";
+                      echo"<li role='separator' class='divider'></li>";
+                      echo"<li role='separator'><a href='addreward.php'>添加奖学金</a></li>";
+                  echo"</ul>";
+                echo"</li>";
+              } 
+              else if($_SESSION['type']==1){
+                 echo"<li id='reward'><a href='rewardlist.php?1'>奖学金列表</a></li>";
+              }
+          ?>
+          <?php
+            if($_SESSION['type']==2){
+              echo"<li class='dropdown' id='people'>";
+              echo"<a href='#' class='dropdown-toggle' data-toggle='dropdown' role='button' aria-haspopup='true' aria-expanded='false'>人员管理 <span class='caret'></span></a>";
+              echo"<ul class='dropdown-menu'>";
+              echo"<li id='admin_query'><a href='admin_query.php'>人员查询</a></li>";
+              echo"<li role='separator' class='divider'></li>";
+              echo"<li id='admin_add'><a href='admin_add.php'>人员添加</a></li>";
+              echo"<li role='separator' class='divider'></li>";
+              echo"<li id='admin_manage'><a href='admin_manage.php'>人员列表</a></li>";
+              echo"</ul>";
+              echo"</li>";
+            }
+            if($_SESSION['type']==2){
+              echo"<li id='releaseannounce'><a href='releaseannounce.php'>发布公告</a></li>";
+            }
+            if($_SESSION['type']==2){
+              echo"<li id='myapprovereward'><a href='myapprovereward.php'>我的审批</a></li>";
+            }
+            else if($_SESSION['type']==1){
+              echo"<li id='mysubmitreward'><a href='mysubmitreward.php'>我的申请</a></li>";
+            }
+          ?>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li id="personal"><a href="personal.php">刘兴松</a></li>
+          <li id="personal"><a href="personal.php">
+            <?php
+              include("../ajax_php/connect.php");
+              if($_SESSION['type']==1){
+                $sql="select name from student where student_id='".$_SESSION['enter_id']."'";
+              } 
+              else{
+                $sql="select name from teacher where teacher_id='".$_SESSION['enter_id']."'";
+              }
+            $res = $db->query($sql);
+            $row = $res->fetch_array();
+            echo $row[0];
+            ?>
+            </a></li>
         </ul>
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->

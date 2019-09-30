@@ -1,12 +1,12 @@
 <?php 
-	// session_start();
+	session_start();
 	header('Content-Type:application/json; charset=utf-8');
 	$json=file_get_contents("php://input");
 	$obj=json_decode($json);
 	$account=$obj->account;
 	$password=$obj->password;
 
-	// $db = mysqli_connect("localhost","root","","zhou3db25");
+	$db = mysqli_connect("localhost","root","","money");
 
 	$update = "select * from student where student_id='$account' and is_post = 1";
 	$result = mysqli_query($db,$update);
@@ -17,7 +17,8 @@
 	{
 		$attr=$result->fetch_row();
 		if($attr[1]==$password){
-			$_SESSION['enter_id']=0;
+			$_SESSION['enter_id']=$account;
+			$_SESSION['type']=1;
 			$flag=1;
 		}
 	}
@@ -28,10 +29,11 @@
 	{
 		$attr=$result->fetch_row();
 		if($attr[1]==$password){
-			$_SESSION['enter_id']=1;
+			$_SESSION['enter_id']=$account;
+			$_SESSION['type']=2;
 			$flag=1;
 		}
 	}
 
-	echo json_encode(array("id"=>$attr[1],"flag"=>$flag));
+	echo json_encode(array("id"=>$update,"flag"=>$flag));
 ?>

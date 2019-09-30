@@ -1,3 +1,6 @@
+<?php
+  session_start(); 
+?>
 <!DOCTYPE html>
 <html  lang="zh-CN">
 <head>
@@ -43,7 +46,6 @@
 </body>
 </html>
 <?php
-        include_once("../ajax_php/connect.php");
         $db = db_connection("localhost","root","","money");
         $id=$_GET['id'];
         $sql="select b.theme,a.name,b.content,b.time,b.announce_id,b.enclosure from teacher as a right join announce as b on a.teacher_id=b.user_id where b.announce_id=".$id;

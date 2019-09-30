@@ -1,3 +1,6 @@
+<?php
+  session_start();
+?>
 <!DOCTYPE html>
 <html  lang="zh-CN">
 <head>
@@ -40,7 +43,6 @@
         <ol class="rewardol">
         <?php
             
-            include("../ajax_php/connect.php");
             //echo $showTime;
             $sql="select count(*) from reward where is_post=1";
             $res = $db->query($sql);
@@ -66,8 +68,10 @@
               echo '<p>开始时间：'.$row['start_time'].' </p>';
               echo '<p>结束时间：'.$row['end_time'].'</p></div>';
               echo ' <div class="col-md-2">';
-              echo '<a id="delebtn"><button type="button" class="btn btn-danger delete" id='.$row['id'].'>删除</button></a>';
-              echo '<a href="showreward.php?id='.$row['id'].'"><button type="button" class="btn" id='.$row['id'].'>申请</button></a>';
+              if($_SESSION['type']==2){
+                echo '<a id="delebtn"><button type="button" class="btn btn-danger delete" id='.$row['id'].'>删除</button></a>';
+              }
+              echo '<a target="_blank" href="showreward.php?id='.$row['id'].'"><button type="button" class="btn" id='.$row['id'].'>申请</button></a>';
               echo '</div></div></li>';
             }
         ?>
