@@ -47,3 +47,9 @@ function enter(){
     });
   }
 }
+$(document).ready(function() {
+  $('#forgetpass').click(function(){
+    event.preventDefault();
+    alert('请联系管理员 QQ:888888888');
+  });
+});

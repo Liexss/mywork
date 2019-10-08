@@ -1,5 +1,9 @@
 <?php
-  session_start(); 
+  session_start();
+  if(!isset($_SESSION['type'])||!isset($_SESSION['enter_id'])){
+    header('location:../../index.php');
+    exit();  
+  } 
 ?>
 <!DOCTYPE html>
 <html  lang="zh-CN">
@@ -123,6 +127,5 @@
         minView: 0
        });
   });
- 
 </script>
 </html>

@@ -1,3 +1,7 @@
+<?php 
+	session_start();
+	
+?>
 <!DOCTYPE html>
 <html  lang="zh-CN">
 <head>
@@ -51,10 +55,9 @@
 	                <div class="form-group help">
 	                    <input class="form-control" id="password" type="password" placeholder="Password">
 	                    <i class="fa fa-lock"></i>
-	                    <a href="#" class="fa fa-question-circle"></a>
 	                </div>
 	                <div class="form-group">
-	                    <span class="text">Remember me</span>
+	                    <a id="forgetpass"href="#"><span class="text">Forget Password?</span></a>
 	                    <button type="button" class="btn btn-default" id="btnlogin" onClick="enter()">登录</button>
 	                </div>
 	            </form>

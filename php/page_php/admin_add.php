@@ -1,6 +1,10 @@
 
 <?php
   session_start(); 
+  if(!isset($_SESSION['type'])||!isset($_SESSION['enter_id'])){
+    header('location:../../index.php');
+    exit();  
+  }
 ?>
 <!DOCTYPE html>
 <html>
@@ -68,4 +72,5 @@
 
   <script src="../../js/admin_add.js"></script>
 </body>
+
 </html>

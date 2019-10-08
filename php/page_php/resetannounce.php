@@ -1,10 +1,14 @@
 <?php
   session_start(); 
+  if(!isset($_SESSION['type'])||!isset($_SESSION['enter_id'])){
+    header('location:../../index.php');
+    exit();  
+  }
 ?>
 <!DOCTYPE html>
 <html  lang="zh-CN">
 <head>
-    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css">
     <link rel="stylesheet" href="../../css/resetannounce.css" type="text/css">
     <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->

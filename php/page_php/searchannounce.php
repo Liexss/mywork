@@ -1,5 +1,9 @@
 <?php
   session_start();
+  if(!isset($_SESSION['type'])||!isset($_SESSION['enter_id'])){
+    header('location:../../index.php');
+    exit();  
+  }
   $_SESSION['display_seaannnum']=7;
   $_SESSION['page_seaanntot']=0;
   $content=$_GET['content'];

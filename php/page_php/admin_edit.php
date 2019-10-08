@@ -1,5 +1,9 @@
 <?php
 session_start();
+if(!isset($_SESSION['type'])||!isset($_SESSION['enter_id'])){
+    header('location:../../index.php');
+    exit();  
+}
 include_once("../ajax_php/connect.php");
 $db = db_connection("localhost","root","","money");
 $select = "select * from student where student_id=".$_SESSION['enter_id'];

@@ -1,5 +1,9 @@
 <?php
   session_start();
+  if(!isset($_SESSION['type'])||!isset($_SESSION['enter_id'])){
+    header('location:../../index.php');
+    exit();  
+  }
 ?>
 <!DOCTYPE html>
 <html  lang="zh-CN">
@@ -10,7 +14,7 @@
   <title>杭师大奖助管理系统</title>
 
   <!-- Bootstrap -->
-  <link href="../../css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
   <!-- <link rel="stylesheet" type="text/css" href="../../css/frame.css"> -->
   <link rel="stylesheet" type="text/css" href="../../css/rewardlist.css">
   <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css">

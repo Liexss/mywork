@@ -56,7 +56,6 @@
           ?>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <!-- <li><span class="glyphicon glyphicon-off" style="padding-top: 40px;"></span></li> -->
           <li id="personal"><a href="personal.php">
             <?php
               include("../ajax_php/connect.php");
@@ -71,6 +70,7 @@
             echo $row[0];
             ?>
             </a></li>
+            <li><a href="exit.php" id="exit"><span class="glyphicon glyphicon-off" style="padding-top: 1px;"></span></a></li>
         </ul>
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->

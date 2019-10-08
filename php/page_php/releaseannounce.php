@@ -1,6 +1,10 @@
 
 <?php
   session_start(); 
+  if(!isset($_SESSION['type'])||!isset($_SESSION['enter_id'])){
+    header('location:../../index.php');
+    exit();  
+  }
 ?>
 <!DOCTYPE html>
 <html  lang="zh-CN">
@@ -8,7 +12,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="../../css/bootstrap.min.css" rel="stylesheet"> 
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css">
     <link rel="stylesheet" href="../../css/releaseannounce.css" type="text/css">
     <!-- <link rel="stylesheet" type="text/css" href="../css/frame.css"> -->

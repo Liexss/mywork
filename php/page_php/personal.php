@@ -1,17 +1,38 @@
 <?php 
 session_start();
-$db = mysqli_connect("localhost","root","","money");
-$select = "select * from student where student_id=".$_SESSION['enter_id'];
 
-$result = mysqli_query($db,$select);
-$attr=$result->fetch_row();
+if(!isset($_SESSION['type'])||!isset($_SESSION['enter_id'])){
+    header('location:../../index.php');
+    exit();  
+  }
+  
 
-$account=$attr[0];
-$password=$attr[1];
-$name=$attr[6];
-$college=$attr[2];
-$dept=$attr[4];
-$class=$attr[3];
+if($_SESSION['type']==1){
+  $db = mysqli_connect("localhost","root","","money");
+  $select = "select * from student where student_id=".$_SESSION['enter_id'];
+
+  $result = mysqli_query($db,$select);
+  $attr=$result->fetch_row();
+
+  $account=$attr[0];
+  $password=$attr[1];
+  $name=$attr[6];
+  $college=$attr[2];
+  $dept=$attr[4];
+  $class=$attr[3];
+}else{
+  $db = mysqli_connect("localhost","root","","money");
+  $select = "select * from teacher where teacher_id=".$_SESSION['enter_id'];
+
+  $result = mysqli_query($db,$select);
+  $attr=$result->fetch_row();
+
+  $account=$attr[0];
+  $password=$attr[1];
+  $name=$attr[2];
+  $college=$attr[3];
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -22,7 +43,7 @@ $class=$attr[3];
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>杭师大奖助管理系统</title>
 
-  <link href="../../css/bootstrap.min.css" rel="stylesheet"> 
+  <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css">
   <link rel="stylesheet" type="text/css" href="../../css/personal.css">
 
@@ -38,26 +59,44 @@ $class=$attr[3];
   <div id='mainber' class="container">
       <h4 style="font-weight: bold; display: inline-block;">个人信息</h4>
       <table id='Info' class="table table-striped">
-        <tr>
-          <td>账号</td>
-          <?php echo "<td>$account</td>"; ?>
-        </tr>
-        <tr>
-          <td>真实姓名</td>
-          <?php echo "<td>$name</td>"; ?>
-        </tr>
-        <tr>
-          <td>班级</td>
-          <?php echo "<td>$class</td>"; ?>
-        </tr>
-        <tr>
-          <td>学院</td>
-          <?php echo "<td>$college</td>"; ?>
-        </tr>
-        <tr>
-          <td>专业</td>
-          <?php echo "<td>$dept</td>"; ?>
-        </tr>
+        <?php 
+          if($_SESSION['type']==1){
+            echo "<tr>";
+            echo "<td>账号</td>";
+            echo "<td>$account</td>";
+            echo "</tr>";
+            echo "<tr>";
+            echo "<td>真实姓名</td>";
+            echo "<td>$name</td>";
+            echo "</tr>";
+            echo "<tr>";
+            echo "<td>班级</td>";
+            echo "<td>$class</td>";
+            echo "</tr>";
+            echo "<tr>";
+            echo "<td>学院</td>";
+            echo "<td>$college</td>";
+            echo "</tr>";
+            echo "<tr>";
+            echo "<td>专业</td>";
+            echo "<td>$dept</td>";
+            echo "</tr>";
+          }else{
+            echo "<tr>";
+            echo "<td>账号</td>";
+            echo "<td>$account</td>";
+            echo "</tr>";
+            echo "<tr>";
+            echo "<td>真实姓名</td>";
+            echo "<td>$name</td>";
+            echo "</tr>";
+            echo "<tr>";
+            echo "<td>学院</td>";
+            echo "<td>$college</td>";
+            echo "</tr>";
+          }
+        ?>
+        
       </table>
 
   </div>
