@@ -16,9 +16,16 @@ function enter(){
   // }
 
   if($account==""||$password=="")
-    window.alert("è´¦å·æˆ–å¯†ç ä¸èƒ½ä¸ºç©º");
+    window.alert("ÕËºÅ»òÃÜÂë²»ÄÜÎª¿Õ");
   else
   {
+    
+   // var encrypt = new JSEncrypt();
+   // encrypt.setPublicKey($('#pubkey').val());
+   // $account = encrypt.encrypt($account);
+   // $password = encrypt.encrypt($password);
+    //Ç°¶Ë¼ÓÃÜ±¸ÓÃ
+
     $.ajax({
       type:"post",
       url:"Login/enterJudge.php",
@@ -36,7 +43,7 @@ function enter(){
           // console.log(data.id);
           window.location="php/page_php/index.php";
         }else
-          window.alert("è´¦å·æˆ–å¯†ç é”™è¯¯");
+          window.alert("ÕËºÅ»òÃÜÂë´íÎó");
       },
       error:function(data){
           // var json =  JSON.stringify(data);
@@ -50,6 +57,6 @@ function enter(){
 $(document).ready(function() {
   $('#forgetpass').click(function(){
     event.preventDefault();
-    alert('è¯·è”ç³»ç®¡ç†å‘˜ QQ:888888888');
+    alert('ÇëÁªÏµ¹ÜÀíÔ± QQ:888888888');
   });
 });
