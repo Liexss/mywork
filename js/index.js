@@ -80,6 +80,10 @@ $(document).ready(function() {
 			alert("查询关键字不得为空");
 			return false;
 		}
-		$(location).attr('href', 'searchannounce.php?content='+$("#searchann").val());
+		$date=new Date();
+		$oldday=new Date($date.getTime()-1);
+		document.cookie='_'+$("#searchann").val()+'='+'haha'+';expires='+$oldday.toUTCString();
+		// setcookie('_'+$("#searchann").val(), ' ', -1);
+		window.open('searchannounce.php?content='+$("#searchann").val());
 	});
 });

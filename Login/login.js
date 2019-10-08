@@ -1,7 +1,6 @@
 function enter(){
   $account=$("#account").val();
   $password=$("#password").val();
-  $is_check=document.getElementById("checkbox1").checked;
 
   // window.alert($is_check);
   // var storage = window.localStorage;

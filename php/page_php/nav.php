@@ -56,6 +56,7 @@
           ?>
         </ul>
         <ul class="nav navbar-nav navbar-right">
+          <!-- <li><span class="glyphicon glyphicon-off" style="padding-top: 40px;"></span></li> -->
           <li id="personal"><a href="personal.php">
             <?php
               include("../ajax_php/connect.php");

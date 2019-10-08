@@ -1,6 +1,8 @@
 $(document).ready(function() {
 	$("#index").siblings('li').removeClass('active');
 	$("#index").addClass('active');
+	$content=document.getElementById("myannounce").getAttribute("value");
+	// console.log($content);
     prePage =function(){
     	event.preventDefault();
 		$.ajax({
@@ -10,7 +12,7 @@ $(document).ready(function() {
 			dataType:"json",
 			success:function(data){
 				// window.alert(JSON.stringify(data))
-				window.location="searchannounce.php";
+				window.location="searchannounce.php?content="+$content;
 		    },
 		    error:function(){
 		    	window.alert("error");
@@ -27,7 +29,7 @@ $(document).ready(function() {
 			dataType:"json",
 			success:function(data){
 				// window.alert(JSON.stringify(data))
-				window.location="searchannounce.php";
+				window.location="searchannounce.php?content="+$content;
 		    },
 		    error:function(){
 		    	window.alert("error");
@@ -44,7 +46,8 @@ $(document).ready(function() {
 			dataType:"json",
 			success:function(data){
 				// window.alert(JSON.stringify(data))
-				window.location="searchannounce.php";
+				// setCookie('_'+$content, ' ', -1);
+				window.location="searchannounce.php?content="+$content;
 		    },
 		    error:function(){
 		    	window.alert("error");

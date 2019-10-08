@@ -28,16 +28,6 @@
       </div>
   </div>
   <div class="container">
-    <div class="row">
-        <div class="col-md-12">
-          <div class="form-inline">
-            <div class="col-md-3 col-md-offset-5" id="searchoose">
-            </div>
-            <input type="text" class="form-control" id="searchann" placeholder="输入关键字">
-            <button type="button" class="btn btn-success" id="searchbtn">search</button>
-          </div>
-        </div>
-    </div>
     <div class="panel panel-default">
       <div class="panel-body">
         <ol class="rewardol">

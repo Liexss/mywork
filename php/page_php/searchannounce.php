@@ -2,9 +2,11 @@
   session_start();
   $_SESSION['display_seaannnum']=7;
   $_SESSION['page_seaanntot']=0;
-  if(!isset($_SESSION['page_seaannnum']))
+  $content=$_GET['content'];
+  if(!isset($_SESSION['page_seaannnum'])||!isset($_COOKIE['_'.$content])){
     $_SESSION['page_seaannnum']=1;
-  $_SESSION['page_seaannnum']=1;
+    setcookie('_'.$content,1);
+  }
 ?>
 <!DOCTYPE html>
 <html  lang="zh-CN">
@@ -20,7 +22,7 @@
 </head>
 <body>
   <?php include("nav.php") ?>
-  <div class="container" id="myannounce">
+  <div class="container" id="myannounce" value=<?php echo $content?>>
     <ol class="breadcrumb" >
           <li><a href="index.php">公告首页</a></li>
           <li class="active">查询结果</li>
@@ -84,10 +86,10 @@
     <?php
       function Show(){
         $type="1";
+        $content=$_GET['content'];
         $db = db_connection("localhost","root","","money");
         //$id=$_GET['id'];
         $l=$_SESSION['display_seaannnum']*($_SESSION['page_seaannnum']-1);
-        $content=$_GET['content'];
         $query1 = "select b.theme,a.name,b.time,b.announce_id from teacher as a right join announce as b on a.teacher_id=b.user_id where b.is_post=1 and a.is_post=1 and (b.theme "."like '%".$content."%' or a.name "."like '%".$content."%') order by time desc limit ".$l.",". $_SESSION['display_seaannnum'];
         //echo $query1;
         $result=mysqli_query($db,$query1);
@@ -96,7 +98,7 @@
             echo"<li class='list-group-item'>";
             echo" <div class='row'>";
             echo"<div class='col-md-2'>";
-            echo"<a style='text-decoration: none;' href='showannounce.php?id={$row[3]}'>{$row[0]}</a>";
+            echo"<a target='_blank' style='text-decoration: none;' href='showannounce.php?id={$row[3]}'>{$row[0]}</a>";
             echo"</div>";
             echo"<div class='col-md-2 col-md-offset-4'>";
             echo"<p>{$row[2]}</p>";
@@ -108,7 +110,7 @@
             if($type=="1")
             {
               echo"<div class='col-md-1'>";
-              echo"<a style='text-decoration: none;' href='resetannounce.php?id={$row[3]}' id='{$row[3]}' href='#' >编辑</a>";
+              echo"<a target='_blank' style='text-decoration: none;' href='resetannounce.php?id={$row[3]}' id='{$row[3]}' href='#' >编辑</a>";
               echo"</div>";
 
               echo"<div class='col-md-1'>";

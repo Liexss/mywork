@@ -4,7 +4,6 @@
   $_SESSION['page_anntot']=0;
   if(!isset($_SESSION['page_annnum']))
     $_SESSION['page_annnum']=1;
-
 ?>
 <!DOCTYPE html>
 <html  lang="zh-CN">
@@ -15,7 +14,7 @@
   <title>杭师大奖助管理系统</title>
 
   <!-- Bootstrap -->
-  <link href="../../css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
   <!-- <link rel="stylesheet" type="text/css" href="../css/frame.css"> -->
   <link rel="stylesheet" type="text/css" href="../../css/index.css">
   <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css">
@@ -129,7 +128,7 @@
             if($_SESSION['type']==2)
             {
               echo"<div class='col-md-1'>";
-              echo"<a style='text-decoration: none;' href='resetannounce.php?id={$row[3]}' id='{$row[3]}' href='#' >编辑</a>";
+              echo"<a target='_blank' style='text-decoration: none;' href='resetannounce.php?id={$row[3]}' id='{$row[3]}' href='#' >编辑</a>";
               echo"</div>";
 
               echo"<div class='col-md-1'>";

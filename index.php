@@ -41,7 +41,7 @@
 
 	<div class="container" id="login">
 	    <div class="row">
-	        <div class="col-md-offset-4 col-md-7">
+	        <div class="col-md-offset-4 col-md-6">
 	            <form class="form-horizontal">
 	                <span class="heading">欢迎登录</span>
 	                <div class="form-group">
@@ -54,10 +54,6 @@
 	                    <a href="#" class="fa fa-question-circle"></a>
 	                </div>
 	                <div class="form-group">
-	                    <div class="main-checkbox">
-	                        <input type="checkbox" id="checkbox1" name="check">
-	                        <label for="checkbox1"></label>
-	                    </div>
 	                    <span class="text">Remember me</span>
 	                    <button type="button" class="btn btn-default" id="btnlogin" onClick="enter()">登录</button>
 	                </div>
