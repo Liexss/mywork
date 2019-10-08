@@ -11,7 +11,7 @@
 	$dept=$obj->dept;
 	$college=$obj->college;
 
-	$db = mysqli_connect("localhost","root","123456","item");
+	$db = mysqli_connect("localhost","root","","money");
 	$select = "select count(*) from student where student_id='$account'";
 	$result = mysqli_query($db,$select);
 	$attr=$result->fetch_row();

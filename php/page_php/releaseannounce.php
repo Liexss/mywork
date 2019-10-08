@@ -5,6 +5,12 @@
     header('location:../../index.php');
     exit();  
   }
+  if($_SESSION['type']==1){
+    @header("http/1.1 404 not found"); 
+    @header("status: 404 not found"); 
+    include("Error404.php");
+    exit(); 
+  }
 ?>
 <!DOCTYPE html>
 <html  lang="zh-CN">

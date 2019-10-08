@@ -4,6 +4,31 @@
     header('location:../../index.php');
     exit();  
   }
+  if($_SESSION['type']==1){
+    @header("http/1.1 404 not found"); 
+    @header("status: 404 not found"); 
+    include("Error404.php");
+    exit(); 
+  }
+  include_once("../ajax_php/connect.php");
+  date_default_timezone_set('PRC'); 
+  $showTime =  date("Y-m-d H:i:s");
+  $id=$_GET['id'];
+       //查找申请表信息
+  $sql="select * from reward where id=".$id;
+  $res = $db->query($sql);
+
+  while ($row = $res->fetch_array() ) {
+      $name =  $row['prize_name'];
+      $start_time =  $row['start_time'];
+      $end_time = $row['end_time'];
+  }
+  if($end_time <$showTime||$start_time>$showTime){
+    @header("http/1.1 404 not found"); 
+    @header("status: 404 not found"); 
+    include("Error404.php");
+    exit(); 
+  }
 ?>
 <!DOCTYPE html>
 <html  lang="zh-CN">
@@ -26,15 +51,6 @@
 <body>
   <?php
     include("nav.php");
-       $id=$_GET['id'];
-       //查找申请表信息
-       $sql="select * from reward where id=".$id;
-       $res = $db->query($sql);
-       while ($row = $res->fetch_array() ) {
-           $name =  $row['prize_name'];
-       }
-
-
   ?>
   <div class="container" style="margin-top: 50px;" id="submitmain">
     <div class="page-header">

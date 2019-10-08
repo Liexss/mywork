@@ -96,7 +96,7 @@ function addUser(){
 	if(choose)
 	{
 		$.ajax({
-			url:"ajax_php/addUser.php",
+			url:"../ajax_php/addUser.php",
 			type:"post",
 			data:JSON.stringify({account:account,password:password,name:name,college:college,dept:dept,class:Class}),
 			contentType:false,
