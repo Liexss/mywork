@@ -20,32 +20,30 @@
 
 </head>
 <body>
-	<div class="perspective-text">
+	<div class="perspective-text" style="margin-left: 0;">
 	    <div class="perspective-line">  
 	        <p></p>
-	        <p>HZNU</p>
+	        <p>Rich and strong</p>
 	    </div>
 	    <div class="perspective-line">
-	        <p>HZNU</p>
-	        <p>Grant</p>
+	        <p>Rich and strong</p>
+	        <p>Democratic</p>
 	    </div>
 	    <div class="perspective-line">
-	        <p>Grant</p>
-	        <p>Management</p>
+	        <p>Democratic</p>
+	        <p>Civilization</p>
 	    </div>
 	    <div class="perspective-line">
-	        <p>Management</p>
-	        <p>System</p>
+	        <p>Civilization</p>
+	        <p>Harmonious</p>
 	    </div>
 	    <div class="perspective-line">
-	        <p>System</p>
+	        <p>Harmonious</p>
 	        <p></p>
 	    </div>
 	</div>
 
-	<div class="container" id="login">
-	    <div class="row">
-	        <div class="col-md-offset-4 col-md-6">
+	<div id="login">
 	            <form class="form-horizontal">
 	                <span class="heading">欢迎登录</span>
 	                <div class="form-group">
@@ -61,8 +59,6 @@
 	                    <button type="button" class="btn btn-default" id="btnlogin" onClick="enter()">登录</button>
 	                </div>
 	            </form>
-	        </div>
-	    </div>
 	</div>
 	<!-- <nav class="navbar navbar-fixed-bottom">
 	   <p>Copyright @ 2019, Hangzhou Normal University.</p>

@@ -67,7 +67,8 @@ body {
 }
 
 #login{
-    margin-top: 10%;
+    margin: 10% auto;
+    width: 450px;
 }
 
 @media (max-width: 996px) { 
