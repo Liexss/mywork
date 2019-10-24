@@ -1,15 +1,18 @@
 <?php
   session_start(); 
   if(!isset($_SESSION['type'])||!isset($_SESSION['enter_id'])){
-    header('location:../../index.php');
-    exit();  
+    header('location:exit.php');
+    exit();
   }
+  include("../ajax_php/connect.php");
+  include("judgeid.php");
   if($_SESSION['type']==1){
     @header("http/1.1 404 not found"); 
     @header("status: 404 not found"); 
     include("Error404.php");
     exit(); 
   }
+ 
 ?>
 <!DOCTYPE html>
 <html>
@@ -62,21 +65,32 @@
 		                        echo"<span class='input-group-addon'>人员编号</span>";
 		                        echo"<input id='Username{$row[0]}' type='text' class='form-control' value='{$row[0]}' disabled='disabled' aria-describedby='basic-addon1'>";
 		                        echo"</div>";
-		                        echo"<div class='input-group'>";
+		                        echo"<div class='input-group inputone'>";
 		                        echo"<span class='input-group-addon'>姓名(必填)</span>";
 		                        echo"<input id='name{$row[0]}' type='text' class='form-control' value='{$row[6]}' aria-describedby='basic-addon1'>";
 		                        echo"</div>";
-		                        echo"<div class='input-group'>";
+		                        echo"<div class='input-group inputone'>";
 		                        echo"<span class='input-group-addon'>学院(非必填)</span>";
 		                        echo"<input id='college{$row[0]}' type='text' class='form-control' value='{$row[2]}' aria-describedby='basic-addon1'>";
 		                        echo"</div>";
-		                        echo"<div class='input-group'>";
+		                        echo"<div class='input-group inputone'>";
 		                        echo"<span class='input-group-addon'>班级(非必填)</span>";
 		                        echo"<input id='class{$row[0]}' type='text' class='form-control' value='{$row[3]}' aria-describedby='basic-addon1'>";
 		                        echo"</div>";
-		                        echo"<div class='input-group'>";
+		                        echo"<div class='input-group inputone'>";
 		                        echo"<span class='input-group-addon'>专业(非必填)</span>";
 		                        echo"<input id='dept_name{$row[0]}' type='text' class='form-control' value='{$row[4]}' aria-describedby='basic-addon1'>";
+		                        echo"</div>";
+		                        echo"<div class='well well-lg'>";
+		                        echo"<p>修改密码(非必填)</p>";
+		                        echo"<div class='input-group'>";
+		                        echo"<span class='input-group-addon'>新密码</span>";
+		                        echo"<input id='password{$row[0]}' type='text' class='form-control' value='' aria-describedby='basic-addon1'>";
+		                        echo"</div>";
+		                        echo"<div class='input-group inputone'>";
+		                        echo"<span class='input-group-addon'>确认密码</span>";
+		                        echo"<input id='repassword{$row[0]}' type='text' class='form-control' value='' aria-describedby='basic-addon1'>";
+		                        echo"</div>";
 		                        echo"</div>";
 		                        echo"</div>";
 		                        echo"<div class='modal-footer'>";

@@ -2,8 +2,8 @@
 <?php
   session_start(); 
   if(!isset($_SESSION['type'])||!isset($_SESSION['enter_id'])){
-    header('location:../../index.php');
-    exit();  
+    header('location:exit.php');
+    exit(); 
   }
   if($_SESSION['type']==1){
     @header("http/1.1 404 not found"); 
@@ -11,6 +11,8 @@
     include("Error404.php");
     exit(); 
   }
+  include("../ajax_php/connect.php");
+  include("judgeid.php");
 ?>
 <!DOCTYPE html>
 <html  lang="zh-CN">

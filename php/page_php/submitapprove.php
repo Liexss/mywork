@@ -1,15 +1,44 @@
 <?php
   session_start(); 
   if(!isset($_SESSION['type'])||!isset($_SESSION['enter_id'])){
-    header('location:../../index.php');
-    exit();  
+    header('location:exit.php');
+    exit();
   }
+  include("../ajax_php/connect.php");
+  include("judgeid.php");
   if($_SESSION['type']==1){
     @header("http/1.1 404 not found"); 
     @header("status: 404 not found"); 
     include("Error404.php");
     exit(); 
   }
+
+  $id=$_GET['id'];
+   $sql="select * from reward_apply where id=".$id;
+   $res = $db->query($sql);
+   if(mysqli_num_rows($res) < 1){
+      @header("http/1.1 404 not found"); 
+      @header("status: 404 not found"); 
+      include("Error404.php");
+      exit(); 
+  }
+   while ($row = $res->fetch_array() ) {
+       $prize_id=$row['prize_id'];
+   }
+    //查找对应学生信息
+    $sql="select a.teacher_id from teacher as a left join reward as b on a.teacher_id=b.teacher_id where b.id=".$prize_id;
+    $res = $db->query($sql);
+    while ($row = $res->fetch_array() ) {
+         $account=$row['teacher_id'];
+     }
+    if ($account!=$_SESSION['enter_id']) {
+      @header("http/1.1 404 not found"); 
+      @header("status: 404 not found"); 
+      include("Error404.php");
+      exit(); 
+    }
+    
+
 ?>
 <!DOCTYPE html>
 <html  lang="zh-CN">

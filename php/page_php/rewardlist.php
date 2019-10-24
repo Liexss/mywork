@@ -1,9 +1,11 @@
 <?php
   session_start();
   if(!isset($_SESSION['type'])||!isset($_SESSION['enter_id'])){
-    header('location:../../index.php');
-    exit();  
+    header('location:exit.php');
+    exit(); 
   }
+  include("../ajax_php/connect.php");
+  include("judgeid.php");
 ?>
 <!DOCTYPE html>
 <html  lang="zh-CN">

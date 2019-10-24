@@ -1,8 +1,8 @@
 <?php
   session_start();
   if(!isset($_SESSION['type'])||!isset($_SESSION['enter_id'])){
-    header('location:../../index.php');
-    exit();  
+    header('location:exit.php');
+    exit(); 
   }
   if($_SESSION['type']==1){
     @header("http/1.1 404 not found"); 
@@ -12,11 +12,21 @@
   }
   $_SESSION['display_seaannnum']=7;
   $_SESSION['page_seaanntot']=0;
+  if(!isset($_GET['content'])){//判断所需要的参数是否存在，isset用来检测变量是否设置，返回true or false
+    @header("http/1.1 404 not found"); 
+    @header("status: 404 not found"); 
+    include("Error404.php");
+    exit(); 
+  }
+  // $content=urldecode($_GET['content']);
   $content=$_GET['content'];
+  $content=urldecode($content);
   if(!isset($_SESSION['page_seaannnum'])||!isset($_COOKIE['_'.$content])){
     $_SESSION['page_seaannnum']=1;
     setcookie('_'.$content,1);
   }
+  include("../ajax_php/connect.php");
+  include("judgeid.php");
 ?>
 <!DOCTYPE html>
 <html  lang="zh-CN">
@@ -31,7 +41,7 @@
     <script src="../../js/searchannounce.js" type="text/javascript"></script>
 </head>
 <body>
-  <?php include("nav.php") ?>
+  <?php include("nav.php"); ?>
   <div class="container" id="myannounce" value=<?php echo $content?>>
     <ol class="breadcrumb" >
           <li><a href="index.php">公告首页</a></li>
@@ -97,7 +107,9 @@
       function Show(){
         $type="1";
         $content=$_GET['content'];
+        $content=urldecode($content);
         $db = db_connection("localhost","root","","money");
+        $content=$db->real_escape_string($content);
         //$id=$_GET['id'];
         $l=$_SESSION['display_seaannnum']*($_SESSION['page_seaannnum']-1);
         $query1 = "select b.theme,a.name,b.time,b.announce_id from teacher as a right join announce as b on a.teacher_id=b.user_id where b.is_post=1 and a.is_post=1 and (b.theme "."like '%".$content."%' or a.name "."like '%".$content."%') order by time desc limit ".$l.",". $_SESSION['display_seaannnum'];
@@ -136,6 +148,8 @@
       function Show_page(){
         $db=db_connection("localhost", "root", "", "money");
         $content=$_GET['content'];
+        $content=urldecode($content);
+        $content=$db->real_escape_string($content);
         $query2 = "select b.theme,a.name,b.time,b.announce_id from teacher as a right join announce as b on a.teacher_id=b.user_id where b.is_post=1 and a.is_post=1 and (b.theme "."like '%".$content."%' or  a.name "."like '%".$content."%') order by time desc";
         $result=mysqli_query($db,$query2);
         $_SESSION['page_seaanntot']=(int)($result->num_rows/$_SESSION['display_seaannnum']);

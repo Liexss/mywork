@@ -58,16 +58,15 @@
         <ul class="nav navbar-nav navbar-right">
           <li id="personal"><a href="personal.php">
             <?php
-              include("../ajax_php/connect.php");
               if($_SESSION['type']==1){
-                $sql="select name from student where student_id='".$_SESSION['enter_id']."'";
+                $sqll="select name from student where student_id='".$_SESSION['enter_id']."'";
               } 
               else{
-                $sql="select name from teacher where teacher_id='".$_SESSION['enter_id']."'";
+                $sqll="select name from teacher where teacher_id='".$_SESSION['enter_id']."'";
               }
-            $res = $db->query($sql);
-            $row = $res->fetch_array();
-            echo $row[0];
+            $ress = $db->query($sqll);
+            $roww = $ress->fetch_array();
+            echo $roww[0];
             ?>
             </a></li>
             <li><a href="exit.php" id="exit"><span class="glyphicon glyphicon-off" style="padding-top: 1px;"></span></a></li>

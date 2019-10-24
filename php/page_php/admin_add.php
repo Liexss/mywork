@@ -2,10 +2,11 @@
 <?php
   session_start(); 
   if(!isset($_SESSION['type'])||!isset($_SESSION['enter_id'])){
-    header('localtion:../../index.php');
-    exit();  
+    header('location:exit.php');
+    exit(); 
   }
-
+  include("../ajax_php/connect.php");
+  include("judgeid.php");
   if($_SESSION['type']==1){
     @header("http/1.1 404 not found"); 
     @header("status: 404 not found"); 

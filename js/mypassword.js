@@ -8,7 +8,7 @@ function changePassword($password){
 	var newPasswordAgain=$("#newPasswordAgainInput").val();
 	var myPassword=$password;
 
-	// console.log($password);
+	console.log($password);
 	var flag=1;
 	if(initialPassword!=myPassword){
 		window.alert("原密码错误");

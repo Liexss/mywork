@@ -1,4 +1,10 @@
 $(document).ready(function() {
+	function urlencode (str) {  
+    str = (str + '').toString();   
+
+    return encodeURIComponent(str).replace(/!/g, '%21').replace(/'/g, '%27').replace(/\(/g, '%28').  
+    replace(/\)/g, '%29').replace(/\*/g, '%2A').replace(/%20/g, '+');  
+	}
 	$("#index").siblings('li').removeClass('active');
 	$("#index").addClass('active');
     $("#releasebtn").click(function(){
@@ -84,6 +90,7 @@ $(document).ready(function() {
 		$oldday=new Date($date.getTime()-1);
 		document.cookie='_'+$("#searchann").val()+'='+'haha'+';expires='+$oldday.toUTCString();
 		// setcookie('_'+$("#searchann").val(), ' ', -1);
-		window.open('searchannounce.php?content='+$("#searchann").val());
+		// console.log(urlencode($("#searchann").val().toString()));
+		window.open('searchannounce.php?content='+urlencode($("#searchann").val().toString()));
 	});
 });

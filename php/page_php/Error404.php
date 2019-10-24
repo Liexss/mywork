@@ -15,7 +15,11 @@
 
 </head>
 <body>
-  <h>你没有权限访问该页面</h>
+  <h1>4</h1>
+  <h1>0</h1>
+  <h1>4</h1>
+  <h2>page not found</h2>
+  <h1>??</h1>
 </body>
 <script src="../../js/Error404.js"></script>
 </html>

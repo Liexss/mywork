@@ -1,38 +1,13 @@
 <?php 
-session_start();
+  session_start();
 
-if(!isset($_SESSION['type'])||!isset($_SESSION['enter_id'])){
-    header('location:../../index.php');
-    exit();  
+  if(!isset($_SESSION['type'])||!isset($_SESSION['enter_id'])){
+    header('location:exit.php');
+    exit();
   }
+  include("../ajax_php/connect.php");
+  include("judgeid.php");
   
-
-if($_SESSION['type']==1){
-  $db = mysqli_connect("localhost","root","","money");
-  $select = "select * from student where student_id=".$_SESSION['enter_id'];
-
-  $result = mysqli_query($db,$select);
-  $attr=$result->fetch_row();
-
-  $account=$attr[0];
-  $password=$attr[1];
-  $name=$attr[6];
-  $college=$attr[2];
-  $dept=$attr[4];
-  $class=$attr[3];
-}else{
-  $db = mysqli_connect("localhost","root","","money");
-  $select = "select * from teacher where teacher_id=".$_SESSION['enter_id'];
-
-  $result = mysqli_query($db,$select);
-  $attr=$result->fetch_row();
-
-  $account=$attr[0];
-  $password=$attr[1];
-  $name=$attr[2];
-  $college=$attr[3];
-}
-
 ?>
 
 <!DOCTYPE html>
@@ -60,6 +35,30 @@ if($_SESSION['type']==1){
       <h4 style="font-weight: bold; display: inline-block;">个人信息</h4>
       <table id='Info' class="table table-striped">
         <?php 
+        if($_SESSION['type']==1){
+          $select = "select * from student where student_id=".$_SESSION['enter_id'];
+
+          $result = mysqli_query($db,$select);
+          $attr=$result->fetch_row();
+
+          $account=$attr[0];
+          $password=$attr[1];
+          $name=$attr[6];
+          $college=$attr[2];
+          $dept=$attr[4];
+          $class=$attr[3];
+        }else{
+          $select = "select * from teacher where teacher_id=".$_SESSION['enter_id'];
+
+          $result = mysqli_query($db,$select);
+          $attr=$result->fetch_row();
+
+          $account=$attr[0];
+          $password=$attr[1];
+          $name=$attr[2];
+          $college=$attr[3];
+        }
+
           if($_SESSION['type']==1){
             echo "<tr>";
             echo "<td>账号</td>";

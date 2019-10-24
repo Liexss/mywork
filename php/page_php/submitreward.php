@@ -1,23 +1,29 @@
 <?php
   session_start(); 
   if(!isset($_SESSION['type'])||!isset($_SESSION['enter_id'])){
-    header('location:../../index.php');
-    exit();  
+    header('location:exit.php');
+    exit(); 
   }
+  include("../ajax_php/connect.php");
+  include("judgeid.php");
   if($_SESSION['type']==1){
     @header("http/1.1 404 not found"); 
     @header("status: 404 not found"); 
     include("Error404.php");
     exit(); 
   }
-  include_once("../ajax_php/connect.php");
   date_default_timezone_set('PRC'); 
   $showTime =  date("Y-m-d H:i:s");
   $id=$_GET['id'];
        //查找申请表信息
-  $sql="select * from reward where id=".$id;
+  $sql="select * from reward where id=".$id." and is_post=1";
   $res = $db->query($sql);
-
+  if(mysqli_num_rows($res) < 1){  
+    @header("http/1.1 404 not found"); 
+    @header("status: 404 not found"); 
+    include("Error404.php");
+    exit(); 
+  }
   while ($row = $res->fetch_array() ) {
       $name =  $row['prize_name'];
       $start_time =  $row['start_time'];

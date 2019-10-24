@@ -27,6 +27,9 @@ $(".editque").click(function(){
     if( $("#name"+$str).val()==""){
     	alert("姓名不能为空");
     }
+    else if($("$password"+$str).val()!=$("$repassword"+$str).val()){
+    	alert("密码不一致");
+    }
     else {
 	    $data = {
 	              'student_id':$str,

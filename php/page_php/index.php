@@ -1,13 +1,15 @@
 <?php
   session_start();
   if(!isset($_SESSION['type'])||!isset($_SESSION['enter_id'])){
-    header('location:../../index.php');
-    exit();  
+    header('location:exit.php');
+    exit();
   }
   $_SESSION['display_annnum']=7;
   $_SESSION['page_anntot']=0;
   if(!isset($_SESSION['page_annnum']))
     $_SESSION['page_annnum']=1;
+  include("../ajax_php/connect.php");
+  include("judgeid.php");
 ?>
 <!DOCTYPE html>
 <html  lang="zh-CN">

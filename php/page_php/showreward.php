@@ -1,9 +1,11 @@
 <?php
   session_start(); 
   if(!isset($_SESSION['type'])||!isset($_SESSION['enter_id'])){
-    header('location:../../index.php');
-    exit();  
+    header('location:exit.php');
+    exit(); 
   }
+  include("../ajax_php/connect.php");
+  include("judgeid.php");
 ?>
 <!DOCTYPE html>
 <html  lang="zh-CN">
@@ -25,11 +27,17 @@
 </head>
 <body>
   <?php
-    include("nav.php");
        $id=$_GET['id'];
        //查找申请表信息
-       $sql="select * from reward where id=".$id;
+       $sql="select * from reward where id=".$id." and is_post=1";
        $res = $db->query($sql);
+       $res = $db->query($sql);
+       if(mysqli_num_rows($res) < 1){
+            @header("http/1.1 404 not found"); 
+            @header("status: 404 not found"); 
+            include("Error404.php");
+            exit(); 
+       }
        while ($row = $res->fetch_array() ) {
            $name =  $row['prize_name'];
            $start_time =  $row['start_time'];
@@ -39,11 +47,12 @@
            $address = $row['address'];
            $id = $row['id'];
        }
-       $sql="select a.name from teacher as a left join reward as b on a.teacher_id=b.teacher_id where b.id=".$id;
+       $sql="select a.name from teacher as a left join reward as b on a.teacher_id=b.teacher_id where b.id=".$id." and b.is_post=1";
           $res = $db->query($sql);
           while ($row = $res->fetch_array() ) {
               $people =  $row['name'];
           }   
+         include("nav.php");
 
 
   ?>

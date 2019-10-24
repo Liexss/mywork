@@ -1,8 +1,26 @@
 <?php
   session_start(); 
   if(!isset($_SESSION['type'])||!isset($_SESSION['enter_id'])){
-    header('location:../../index.php');
-    exit();  
+    header('location:exit.php');
+    exit(); 
+  }
+  include("../ajax_php/connect.php");
+  include("judgeid.php");
+  $id=$_GET['id'];
+  $sql="select * from student where student_id = (select student_id from reward_apply where id=".$id.")";
+  $result = mysqli_query($db,$sql);
+  if(mysqli_num_rows($result) < 1){
+      @header("http/1.1 404 not found"); 
+      @header("status: 404 not found"); 
+      include("Error404.php");
+      exit(); 
+  }
+  $attr=$result->fetch_row();
+  if ($attr[0]!=$_SESSION['enter_id']) {
+    @header("http/1.1 404 not found"); 
+    @header("status: 404 not found"); 
+    include("Error404.php");
+    exit(); 
   }
 ?>
 <!DOCTYPE html>

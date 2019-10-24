@@ -1,9 +1,11 @@
 <?php
   session_start(); 
   if(!isset($_SESSION['type'])||!isset($_SESSION['enter_id'])){
-    header('location:../../index.php');
-    exit();  
+    header('location:exit.php');
+    exit();
   }
+  include("../ajax_php/connect.php");
+  include("judgeid.php");
 ?>
 <!DOCTYPE html>
 <html  lang="zh-CN">
@@ -48,8 +50,8 @@
               </thead>
               <tbody>
               <?php
-                $student_id="2017212212001";
-                $sql="select a.prize_name,a.id,b.id,b.submit_time,b.state,b.end_time from reward a,reward_apply b,teacher c where a.id=b.prize_id and a.teacher_id=c.teacher_id and b.student_id=".$student_id;
+                // $student_id="2017212212001";
+                $sql="select a.prize_name,a.id,b.id,b.submit_time,b.state,b.end_time from reward a,reward_apply b,teacher c where a.id=b.prize_id and a.teacher_id=c.teacher_id and b.student_id=".$_SESSION['enter_id'];
                 $res = $db->query($sql);
                 while ($row = $res->fetch_array() ) {
                     echo "<tr>";
