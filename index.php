@@ -60,7 +60,10 @@
 	                </div>
 	            </form>
 	</div>
-	<textarea id="pubkey" rows="8" cols="100" hidden>MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC8JU1nBDZ5PgRNAxksTC/MlaBX37vjTH84ppzmuEpH7e6G43QXd7Zof8apIJ4efk6Uiw2/OJfkyMGDsAJTv/zWnuKm6UeyBYxtgP5JFGtTMKTBVuGzH8UzYWdPzybIOCmj55Qku3nYEZyro38dGhSFLSPaU3eoY1tblm5ZFJ+8ewIDAQAB</textarea>
+	<textarea id="pubkey" rows="8" cols="100" hidden>MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDJTiKycVtES2IKw7Dn4nJ7fy2r
+KFsIfY5fZYRYR32W2VFxW0O4ncC2g2KNSA37FzRQka7Q9X/Km7rQh0AfobiY5D/V
+ZHdnTeyUC9vxM6HUvwKYekMLfXSIaB5YuUBD1R8rNrRlLbwolrN1A/rPGdgtprPD
+uRLIaWistwUAdOIH1QIDAQAB</textarea>
 	<!-- <nav class="navbar navbar-fixed-bottom">
 	   <p>Copyright @ 2019, Hangzhou Normal University.</p>
 	</nav> -->

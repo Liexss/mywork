@@ -18,7 +18,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
@@ -75,10 +75,14 @@
       </div>
     </div>
   </div>
+  <textarea id="pubkey" rows="8" cols="100" hidden>MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDJTiKycVtES2IKw7Dn4nJ7fy2r
+KFsIfY5fZYRYR32W2VFxW0O4ncC2g2KNSA37FzRQka7Q9X/Km7rQh0AfobiY5D/V
+ZHdnTeyUC9vxM6HUvwKYekMLfXSIaB5YuUBD1R8rNrRlLbwolrN1A/rPGdgtprPD
+uRLIaWistwUAdOIH1QIDAQAB</textarea>
 
   <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
   <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-
+  <script src="../../jsencrypt-master/bin/jsencrypt.min.js"></script>
   <script src="../../js/admin_add.js"></script>
 </body>
 

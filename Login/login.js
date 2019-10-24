@@ -14,16 +14,18 @@ function enter(){
   //   storage["password"] = ""; 
   //   storage["is_check"] = $is_check; 
   // }
+  
+
 
   if($account==""||$password=="")
     window.alert("账号或密码不能为空");
   else
   {
-    
-   // var encrypt = new JSEncrypt();
-   // encrypt.setPublicKey($('#pubkey').val());
-   // $account = encrypt.encrypt($account);
-   // $password = encrypt.encrypt($password);
+   var encrypt = new JSEncrypt();
+   encrypt.setPublicKey($('#pubkey').val());
+   $password = encrypt.encrypt($password);
+   //$password=encodeURI($password).replace(/\+/g, '%2B');
+   console.log($password);
     //前端加密备用
 
     $.ajax({
@@ -46,9 +48,9 @@ function enter(){
           window.alert("账号或密码错误");
       },
       error:function(data){
-          // var json =  JSON.stringify(data);
+           var json =  JSON.stringify(data);
 
-          // console.log(json);
+           console.log(json);
           window.alert("Error");
       }
     });
