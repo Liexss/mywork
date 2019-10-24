@@ -60,12 +60,14 @@
 	                </div>
 	            </form>
 	</div>
+	<textarea id="pubkey" rows="8" cols="100" hidden>MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC8JU1nBDZ5PgRNAxksTC/MlaBX37vjTH84ppzmuEpH7e6G43QXd7Zof8apIJ4efk6Uiw2/OJfkyMGDsAJTv/zWnuKm6UeyBYxtgP5JFGtTMKTBVuGzH8UzYWdPzybIOCmj55Qku3nYEZyro38dGhSFLSPaU3eoY1tblm5ZFJ+8ewIDAQAB</textarea>
 	<!-- <nav class="navbar navbar-fixed-bottom">
 	   <p>Copyright @ 2019, Hangzhou Normal University.</p>
 	</nav> -->
 	
     <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
     <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="jsencrypt-master/bin/jsencrypt.min.js"></script>
     <script type="text/javascript" src="Login/login.js"></script>
     <!-- <script type="text/javascript">
     	var storage = window.localStorage;
