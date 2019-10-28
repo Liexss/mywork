@@ -60,10 +60,6 @@
 	                </div>
 	            </form>
 	</div>
-	<textarea id="pubkey" rows="8" cols="100" hidden>MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDJTiKycVtES2IKw7Dn4nJ7fy2r
-KFsIfY5fZYRYR32W2VFxW0O4ncC2g2KNSA37FzRQka7Q9X/Km7rQh0AfobiY5D/V
-ZHdnTeyUC9vxM6HUvwKYekMLfXSIaB5YuUBD1R8rNrRlLbwolrN1A/rPGdgtprPD
-uRLIaWistwUAdOIH1QIDAQAB</textarea>
 	<!-- <nav class="navbar navbar-fixed-bottom">
 	   <p>Copyright @ 2019, Hangzhou Normal University.</p>
 	</nav> -->
@@ -71,6 +67,7 @@ uRLIaWistwUAdOIH1QIDAQAB</textarea>
     <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
     <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
     <script src="jsencrypt-master/bin/jsencrypt.min.js"></script>
+    <script src="js/My-Encryption.js" type="text/javascript" charset="utf-8"></script>
     <script type="text/javascript" src="Login/login.js"></script>
     <!-- <script type="text/javascript">
     	var storage = window.localStorage;
