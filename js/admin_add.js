@@ -4,48 +4,44 @@ function addUser(){
 	var account=$("#account").val();
 	var password=$("#password").val();
 	var name=$("#name").val();
-	var college=$("#college").val();
-	var dept=$("#dept").val();
 	var Class=$("#Class").val();
 
-
-	console.log(account);
-	console.log(password);
-	console.log(name);
-	console.log(college);
-	console.log(dept);
-	console.log(Class);
-
-	if(account=="")
-	{
-		$("#accountInput").removeClass("has-success has-feedback");
-		$("#accountSpan").removeClass("glyphicon glyphicon-ok");
-		$("#accountInput").addClass("has-warning has-feedback");
-		$("#accountSpan").addClass("glyphicon glyphicon-warning-sign");
-	}else
+	var reg = new RegExp(/^[a-zA-Z0-9]+$/u);
+	var flag=1;
+	if(reg.test(account)&& account.length>=6 && account.length<=16)
 	{
 		$("#accountInput").removeClass("has-error has-feedback");
 		$("#accountSpan").removeClass("glyphicon glyphicon-remove");
 		$("#accountInput").addClass("has-success has-feedback");
 		$("#accountSpan").addClass("glyphicon glyphicon-ok");
+	}else
+	{
+		flag=0;
+		$("#accountInput").removeClass("has-success has-feedback");
+		$("#accountSpan").removeClass("glyphicon glyphicon-ok");
+		$("#accountInput").addClass("has-error has-feedback");
+		$("#accountSpan").addClass("glyphicon glyphicon-remove");
 	}
 
-	if(password=="")
-	{
-		$("#passwordInput").removeClass("has-success has-feedback");
-		$("#passwordSpan").removeClass("glyphicon glyphicon-ok");
-		$("#passwordInput").addClass("has-warning has-feedback");
-		$("#passwordSpan").addClass("glyphicon glyphicon-warning-sign");
-	}else
+	var reg2 = new RegExp(/^[0-9]*$/);
+	if(reg2.test(password)&&password.length>=3 && password.length<=10)
 	{
 		$("#passwordInput").removeClass("has-error has-feedback");
 		$("#passwordSpan").removeClass("glyphicon glyphicon-remove");
 		$("#passwordInput").addClass("has-success has-feedback");
 		$("#passwordSpan").addClass("glyphicon glyphicon-ok");
+	}else
+	{
+		flag=0;
+		$("#passwordInput").removeClass("has-success has-feedback");
+		$("#passwordSpan").removeClass("glyphicon glyphicon-ok");
+		$("#passwordInput").addClass("has-error has-feedback");
+		$("#passwordSpan").addClass("glyphicon glyphicon-remove");
 	}
 
 	if(name=="")
 	{
+		flag=0;
 		$("#nameInput").removeClass("has-success has-feedback");
 		$("#nameSpan").removeClass("glyphicon glyphicon-ok");
 		$("#nameInput").addClass("has-error has-feedback");
@@ -58,36 +54,9 @@ function addUser(){
 		$("#nameSpan").addClass("glyphicon glyphicon-ok");
 	}
 
-	if(college=="")
-	{
-		$("#collegeInput").removeClass("has-success has-feedback");
-		$("#collegeSpan").removeClass("glyphicon glyphicon-ok");
-		$("#collegeInput").addClass("has-error has-feedback");
-		$("#collegeSpan").addClass("glyphicon glyphicon-remove");
-	}else
-	{
-		$("#collegeInput").removeClass("has-error has-feedback");
-		$("#collegeSpan").removeClass("glyphicon glyphicon-remove");
-		$("#collegeInput").addClass("has-success has-feedback");
-		$("#collegeSpan").addClass("glyphicon glyphicon-ok");
-	}
-
-	if(dept=="")
-	{
-		$("#deptInput").removeClass("has-success has-feedback");
-		$("#deptSpan").removeClass("glyphicon glyphicon-ok");
-		$("#deptInput").addClass("has-warning has-feedback");
-		$("#deptSpan").addClass("glyphicon glyphicon-warning-sign");
-	}else
-	{
-		$("#deptInput").removeClass("has-warning has-feedback");
-		$("#deptSpan").removeClass("glyphicon glyphicon-warning-sign");
-		$("#deptInput").addClass("has-success has-feedback");
-		$("#deptSpan").addClass("glyphicon glyphicon-ok");
-	}
-
 	if(Class=="")
 	{
+		flag=0;
 		$("#classInput").removeClass("has-success has-feedback");
 		$("#classSpan").removeClass("glyphicon glyphicon-ok");
 		$("#classInput").addClass("has-warning has-feedback");
@@ -101,7 +70,7 @@ function addUser(){
 	}
 
 	var choose=window.confirm("是否添加");
-	if(choose)
+	if(choose&&flag)
 	{
 		var encrypt = new JSEncrypt();
 	   encrypt.setPublicKey($('#pubkey').val());
@@ -111,11 +80,11 @@ function addUser(){
 		$.ajax({
 			url:"../ajax_php/addUser.php",
 			type:"post",
-			data:JSON.stringify({account:account,password:password,name:name,college:college,dept:dept,class:Class}),
+			data:JSON.stringify({account:account,password:password,name:name,class:Class}),
 			contentType:false,
 			processData:false,
 			success:function(data){
-				// console.log(data);
+				console.log(data);
 				window.alert("编辑成功!");
 				window.location="admin_manage.php";
 			},
@@ -123,5 +92,7 @@ function addUser(){
 				window.alert("error");
 			}
 		});
+	}else{
+		window.alert("请确认自己的信息");
 	}
 }

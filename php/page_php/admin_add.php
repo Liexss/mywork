@@ -55,19 +55,26 @@
                 <input id="name" type="text" class="form-control">
             </div>
 
-            <div id="collegeInput" class="input-group">
-                <span class="input-group-addon">学院<span id="collegeSpan"></span></span>
-                <input id="college" type="text" class="form-control">
-            </div>
-
-            <div id="deptInput" class="input-group">
-                <span class="input-group-addon">专业<span id="deptSpan"></span></span>
-                <input id="dept" type="text" class="form-control">
-            </div>
-
             <div id="classInput" class="input-group">
                 <span class="input-group-addon">班级<span id="classSpan"></span></span>
-                <input id="Class" type="text" class="form-control">
+                <select class="form-control" id="Class">
+                    <?php
+                        $sql="select * from class";
+                        $res = mysqli_query($db,$sql);
+                        while ($row = $res->fetch_array() ) {
+                            $sel="select * from dept where dept_id =".$row[2];
+                            $rsl = mysqli_query($db,$sel);
+                            $attr=$rsl->fetch_row();
+                            $dept=$attr[1];
+
+                            $sel="select * from college where college_id =".$attr[2];
+                            $rsl = mysqli_query($db,$sel);
+                            $attr=$rsl->fetch_row();
+                            $college=$attr[1];
+                             echo"<option value='".$row['class_id']."'>".$college.$dept.$row['class_name']."</option>";
+                        }
+                    ?>
+                </select>
             </div>
         </div>
 

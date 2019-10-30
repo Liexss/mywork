@@ -31,20 +31,19 @@ gl5DBWDZPTcL3OE=
 	$password=sha1($password);
 
 	$account=$obj->account;
-	$dept=$obj->dept;
-	$college=$obj->college;
+	$class=$obj->class;
 
 	$db = mysqli_connect("localhost","root","","money");
-	$select = "select count(*) from student where student_id='".$account."'";
+	$select = "select count(*) from student where student_id='".$account."'and is_post=1";
 	$result = mysqli_query($db,$select);
 	$attr=$result->fetch_row();
 	if($attr[0]!="0")
 		$flag=0;
 	else
 	{
-		$update = "insert into student (student_id,password,college,class,dept_name,name,is_post) values ('".$account."','".$password."','".$college."','".$class."','".$dept."','".$name."',1)";
+		$update = "insert into student (student_id,password,class,is_post,name) values ('".$account."','".$password."','".$class."',1,'".$name."')";
 		$result = mysqli_query($db,$update);
 	}
 	
-	echo json_encode(array("flag"=>$flag));
+	echo json_encode(array("flag"=>$flag,"result"=>$update));
 ?>

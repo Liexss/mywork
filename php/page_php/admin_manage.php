@@ -47,12 +47,27 @@
 	    			echo"<tr><th>人员编号</th><th>姓名</th><th>学院</th><th>班级</th><th>专业</th><th>操作</th></tr>";
 	    			if($result){
 	    				while($row=$result->fetch_row()){
+	    					$select="select * from class where class_id=".$row[2];
+							$res=mysqli_query($db,$select);
+							$beau=$res->fetch_row();
+							$class=$beau[1];
+
+							$select="select * from dept where dept_id=".$beau[2];
+							$res=mysqli_query($db,$select);
+							$beau=$res->fetch_row();
+							$dept_name=$beau[1];
+
+							$select="select * from college where college_id=".$beau[2];
+							$res=mysqli_query($db,$select);
+							$beau=$res->fetch_row();
+							$college=$beau[1];
+
 	    					echo"<tr>";
 	    					echo"<th>{$row[0]}</th>";
 	    					echo"<th>{$row[4]}</th>";
-	    					echo"<th></th>";
-	    					echo"<th>{$row[2]}</th>";
-	    					echo"<th></th>";
+	    					echo"<th>$college</th>";
+	    					echo"<th>$class</th>";
+	    					echo"<th>$dept_name</th>";
 	    					echo"<th><a href='#' class='edit' id='{$row[0]}' data-toggle='modal' data-target='#myModal{$row[0]}'>编辑</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href='#' class='delete' id='{$row[0]}'>删除</a></th>";
 	                        echo"</tr>";
 	                        echo"<div class='modal fade' id='myModal{$row[0]}' tabindex='-1' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true'>";
@@ -67,24 +82,34 @@
 	                        echo"<span class='input-group-addon'>人员编号</span>";
 	                        echo"<input id='Username{$row[0]}' type='text' class='form-control' value='{$row[0]}' disabled='disabled' aria-describedby='basic-addon1'>";
 	                        echo"</div>";
+
 	                        echo"<div class='input-group inputone'>";
 	                        echo"<span class='input-group-addon'>姓名(必填)</span>";
 	                        echo"<input id='name{$row[0]}' type='text' class='form-control' value='{$row[6]}' aria-describedby='basic-addon1'>";
 	                        echo"</div>";
+
 	                        echo"<div class='input-group inputone'>";
-	                        echo"<span class='input-group-addon'>学院(非必填)</span>";
-	                        echo"<input id='college{$row[0]}' type='text' class='form-control' value='{$row[2]}' aria-describedby='basic-addon1'>";
+	                        echo"<span class='input-group-addon'>班级(必填)</span>";
+	                        echo"<select class='form-control' id='class{$row[0]}'>";
+	                        $sq="select * from class";
+	                        $re = mysqli_query($db,$sq);
+	                        while ($Row = $re->fetch_array() ) {
+	                            $sel="select * from dept where dept_id =".$Row[2];
+	                            $rsl = mysqli_query($db,$sel);
+	                            $Attr=$rsl->fetch_row();
+	                            $dep=$Attr[1];
+
+	                            $sel="select * from college where college_id =".$Attr[2];
+	                            $rsl = mysqli_query($db,$sel);
+	                            $Attr=$rsl->fetch_row();
+	                            $coll=$Attr[1];
+	                             echo"<option value='".$Row['class_id']."'>".$coll.$dep.$Row['class_name']."</option>";
+	                        }
+	                        echo "</select>";
 	                        echo"</div>";
-	                        echo"<div class='input-group inputone'>";
-	                        echo"<span class='input-group-addon'>班级(非必填)</span>";
-	                        echo"<input id='class{$row[0]}' type='text' class='form-control' value='{$row[3]}' aria-describedby='basic-addon1'>";
-	                        echo"</div>";
-	                        echo"<div class='input-group inputone'>";
-	                        echo"<span class='input-group-addon'>专业(非必填)</span>";
-	                        echo"<input id='dept_name{$row[0]}' type='text' class='form-control' value='{$row[4]}' aria-describedby='basic-addon1'>";
-	                        echo"</div>";
+	                        
 	                        echo"<div class='well well-lg'>";
-	                        echo"<p>修改密码(非必填)</p>";
+	                        echo"<p>修改密码(必填)</p>";
 	                        echo"<div class='input-group'>";
 	                        echo"<span class='input-group-addon'>新密码</span>";
 	                        echo"<input id='password{$row[0]}' type='text' class='form-control' value='' aria-describedby='basic-addon1'>";
@@ -121,30 +146,3 @@
 	<script src="../../js/admin_manage.js"></script>
 </body>
 </html>
-
-<?php
-
-function Show(){
-	$db = db_connection("localhost","root","","money");
-	$query = "select * from student where is_post = 1";
-	$result = mysqli_query($db,$query);
-	if($result)
-	{
-		while($attr=$result->fetch_row())
-		{
-			echo "<tr>";
-			echo "<td>$attr[0]</td>";
-			echo "<td>$attr[6]</td>";
-			echo "<td>$attr[2]</td>";
-			echo "<td>$attr[4]</td>";
-			echo "<td>$attr[3]</td>";
-			echo "<td>";
-			echo "<a class='glyphicon glyphicon-file' onclick='editUser($attr[0])'></a>";
-			echo "<a class='glyphicon glyphicon-trash' onclick='deleteUser($attr[0])'></a>";
-			echo "</td>";
-			echo "</tr>";
-		}
-	}
-}
-
-?>

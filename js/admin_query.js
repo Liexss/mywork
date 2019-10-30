@@ -30,7 +30,6 @@ function queryUser(){
 					$("#queTable").empty();
 					$("#queTable").html("<tr><td>学号</td>"+"<td>姓名</td>"+"<td>学院</td>"+"<td>专业</td>"+"<td>班级</td></tr>");
 					$(data).each(function(i,values){
-
 						$("#queTable").append(
 							"<tr><td>"+values.student_id+"</td>"
 							+"<td>"+values.name+"</td>"
@@ -40,7 +39,6 @@ function queryUser(){
 						);
 					});
 					window.alert("Search success");
-					// window.location="../html/que.html";
 				}
 		    },
 		    error:function(){

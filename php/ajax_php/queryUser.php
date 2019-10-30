@@ -7,71 +7,44 @@
 
 	include("connect.php");
 
-	if($option==1)
-	{
-		$select = "select * from student where student_id like '%$search%'";
-		$result = mysqli_query($db,$select);
-
-		$array=array();
-		$inum=0;
-
-		while ($row=$result->fetch_assoc()){
-		    $array[$inum]=$row;
-		    $inum++;
-		}
-		echo json_encode($array);
-	}else if($option==2)
-	{
-		$select = "select * from student where name like '%$search%'";
-		$result = mysqli_query($db,$select);
-
-		$array=array();
-		$inum=0;
-
-		while ($row=$result->fetch_assoc()){
-		    $array[$inum]=$row;
-		    $inum++;
-		}
-		echo json_encode($array);
-	}else if($option==3)
-	{
-		$select = "select * from student where college like '%$search%'";
-		$result = mysqli_query($db,$select);
-
-		$array=array();
-		$inum=0;
-
-		while ($row=$result->fetch_assoc()){
-		    $array[$inum]=$row;
-		    $inum++;
-		}
-		echo json_encode($array);
-	}else if($option==4)
-	{
-		$select = "select * from student where dept_name like '%$search%'";
-		$result = mysqli_query($db,$select);
-
-		$array=array();
-		$inum=0;
-
-		while ($row=$result->fetch_assoc()){
-		    $array[$inum]=$row;
-		    $inum++;
-		}
-		echo json_encode($array);
-	}else if($option==5)
-	{
-		$select = "select * from student where class like '%$search%'";
-		$result = mysqli_query($db,$select);
-
-		$array=array();
-		$inum=0;
-
-		while ($row=$result->fetch_assoc()){
-		    $array[$inum]=$row;
-		    $inum++;
-		}
-		echo json_encode($array);
+	$select="";
+	if($option==1){
+		$select = "select * from student where student_id like '%$search%' and is_post=1";
+	}else if($option==2){
+		$select = "select * from student where name like '%$search%' and is_post=1";
+	}else if($option==3){
+		$select="select * from student where class in (select class_id from class where dept_id in(
+select dept_id from dept where college_id in(select college_id from college where college_name like '%$search%')))and is_post=1;
+";
+	}else if($option==4){
+		$select="select * from student where class in (select class_id from class where dept_id in (select dept_id from dept where dept_name like '%$search%')) and is_post=1";
+	}else if($option==5){
+		$select="select * from student where class in (select class_id from class where class_name like '%$search%') and is_post=1";
 	}
 
+	$result = mysqli_query($db,$select);
+	$array=array();
+	$inum=0;
+
+	while ($row=$result->fetch_assoc()){
+		$sql="select * from class where class_id=".$row['class'];
+		$res=mysqli_query($db,$sql);
+		$beau=$res->fetch_row();
+		$class=$beau[1];
+
+		$sql="select * from dept where dept_id=".$beau[2];
+		$res=mysqli_query($db,$sql);
+		$beau=$res->fetch_row();
+		$dept_name=$beau[1];
+
+		$sql="select * from college where college_id=".$beau[2];
+		$res=mysqli_query($db,$sql);
+		$beau=$res->fetch_row();
+		$college=$beau[1];
+
+	    $array[$inum]=array("student_id"=>$row['student_id'],"name"=>$row['name'],"class"=>$class,"dept_name"=>$dept_name,"college"=>$college);
+	    
+	    $inum++;
+	}
+	echo json_encode($array);
 ?>
