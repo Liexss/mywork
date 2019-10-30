@@ -1,18 +1,26 @@
 body{ 
-  padding-top: 50px;
-  background-color:#DCDCDC;
-  margin-bottom: 50px;
+      padding-top: 50px;
+      background-color:#DCDCDC;
+      margin-bottom: 50px;
 }
 .page-header{
-  background-color:#343d46;
-  color: white;
-  height:100%;
+    background-color:#343d46;
+    color: white;
+    height:100%;
 }
 #submitmain{
 	background-color: white;
 	padding-bottom: 30px;
 	border-radius: 6px;
 }
+
+@media (max-width: 996px) { 
+    #submitmain{
+        margin-left: 2%;
+        margin-right: 2%;
+    }
+}
+
 #addsubmit{
-  margin-top: 50px;
+    margin-top: 50px;
 }

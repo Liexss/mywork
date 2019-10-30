@@ -3,16 +3,19 @@ body{
   background-color:#DCDCDC;
   margin-bottom: 50px;
 }
+
 .jumbotron{
     background-color:#343d46;
     color: white;
     height:100%;
 }
+
 .panel{
 	margin-top: 20px;
 	background-color: white;
-  border-radius: 5px;
+    border-radius: 5px;
 }
+
 .rewardol{
 	margin-top:10px;
 	list-style:none;
@@ -29,17 +32,17 @@ p{
 .rewardol .item{
 	background: #fdfdfd;
 	box-shadow: 0 5px 6px 0 rgba(146,166,231,.13);
-  padding-top:30px;
-  padding-bottom:30px;
+    padding-top:30px;
+    padding-bottom:30px;
 	border-radius: 2px;
 	margin-bottom: 15px;
 }
 .item p{
-  margin-top: 5px;
+    margin-top: 5px;
 }
 .item a{
-  text-decoration: none;
-  color:inherit;
+    text-decoration: none;
+    color:inherit;
 }
 .rewardol .btn{
 	margin-top: 5px;

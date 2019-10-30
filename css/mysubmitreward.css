@@ -14,6 +14,14 @@ body{
 	background-color: white;
 	border-radius: 5px;
 }
+
+@media (max-width: 996px) { 
+    #mysubmitrewardmain{
+        margin-left: 2%;
+        margin-right: 2%;
+    }
+}
+
 #datatable a{
 	text-decoration: none;
 }

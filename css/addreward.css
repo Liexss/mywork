@@ -1,7 +1,7 @@
 body{ 
-  padding-top: 40px;
-  background-color:#DCDCDC;
-  margin-bottom: 50px;
+    padding-top: 40px;
+    background-color:#DCDCDC;
+    margin-bottom: 50px;
 }
 .jumbotron{
     background-color:#343d46;
@@ -15,7 +15,19 @@ body{
 	margin-bottom: 10px;
 }
 #showaddreward{
-  background-color: white;
-  padding-bottom: 30px;
-  border-radius: 6px;
+    background-color: white;
+    padding-bottom: 30px;
+    border-radius: 6px;
 }
+
+@media (max-width: 996px) { 
+    #showaddreward{
+        margin-left: 2%;
+        margin-right: 2%;
+    }
+
+    .row{
+        width: 96%;
+    }
+}
+

@@ -17,6 +17,13 @@ body{
 	margin-bottom: 50px;
 }
 
+@media (max-width: 996px) { 
+    #myannounce{
+        margin-left: 2%;
+        margin-right: 2%;
+    }
+}
+
 #annconbtn{
 	margin-top: 10px;
 }

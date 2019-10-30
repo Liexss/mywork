@@ -9,6 +9,23 @@ body{
 	padding-bottom: 30px;
 	background-color: white;
 }
+
+@media (max-width: 996px) { 
+    #mainber{
+        margin-left: 2%;
+        margin-right: 2%;
+    }
+
+	#righter{
+		margin-top: 10px;
+		width: 5%;
+	}
+
+    #Img{
+    	display: none;
+    }
+}
+
 .jumbotron{
     background-color:#343d46;
     color: white;
@@ -19,12 +36,29 @@ body{
 	display: inline-block;
 }
 
+@media (max-width: 996px) { 
+    #lefter{
+		width: 55%;
+		display: inline-block;
+	}
+}
+
 #righter{
 	float: right;
 	background-color: white;
 	margin-top: 20px;
 	margin-right: 35%;
 }
+
+@media (max-width: 996px) { 
+
+	#righter{
+		margin-top: 1%;
+		margin-right: 15%;
+		width: 5%;
+	}
+}
+
 
 #Img{
 	width: 100px;

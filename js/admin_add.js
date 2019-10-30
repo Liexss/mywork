@@ -8,6 +8,14 @@ function addUser(){
 	var dept=$("#dept").val();
 	var Class=$("#Class").val();
 
+
+	console.log(account);
+	console.log(password);
+	console.log(name);
+	console.log(college);
+	console.log(dept);
+	console.log(Class);
+
 	if(account=="")
 	{
 		$("#accountInput").removeClass("has-success has-feedback");

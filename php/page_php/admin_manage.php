@@ -1,17 +1,19 @@
 <?php
-  session_start(); 
-  if(!isset($_SESSION['type'])||!isset($_SESSION['enter_id'])){
-    header('location:exit.php');
-    exit();
-  }
-  include("../ajax_php/connect.php");
-  include("judgeid.php");
-  if($_SESSION['type']==1){
-    @header("http/1.1 404 not found"); 
-    @header("status: 404 not found"); 
-    include("Error404.php");
-    exit(); 
-  }
+	session_start(); 
+  	if(!isset($_SESSION['type'])||!isset($_SESSION['enter_id'])){
+    	header('location:exit.php');
+    	exit();
+  	}
+  
+  	include("../ajax_php/connect.php");
+  	include("judgeid.php");
+  
+  	if($_SESSION['type']==1){
+    	@header("http/1.1 404 not found"); 
+    	@header("status: 404 not found"); 
+    	include("Error404.php");
+    	exit(); 
+  	}
  
 ?>
 <!DOCTYPE html>
@@ -30,87 +32,86 @@
 <body>
 	<?php include("nav.php")?>
 	<div class="jumbotron">
-      <div class="container">
-        <h2>人员信息管理</h2>
-        <p>管理人员基本信息; 操作包含编辑、删除; 切换页面以显示相关信息。</p>
-      </div>
+     	<div class="container">
+        	<h2>人员信息管理</h2>
+        	<p>管理人员基本信息; 操作包含编辑、删除; 切换页面以显示相关信息。</p>
+      	</div>
     </div>
 
 	<div class="container">
 		<div class="row" id="homepage" >
-			   <table class="table table-bordered" id="homepagetable">
-		    		<?php
-		    			$sql="select * from student where is_post=1";
-		    			$result=mysqli_query($db,$sql);
-		    			echo"<tr><th>人员编号</th><th>姓名</th><th>学院</th><th>班级</th><th>专业</th><th>操作</th></tr>";
-		    			if($result){
-		    				while($row=$result->fetch_row()){
-		    					echo"<tr>";
-		    					echo"<th>{$row[0]}</th>";
-		    					echo"<th>{$row[6]}</th>";
-		    					echo"<th>{$row[2]}</th>";
-		    					echo"<th>{$row[3]}</th>";
-		    					echo"<th>{$row[4]}</th>";
-		    					echo"<th><a href='#' class='edit' id='{$row[0]}' data-toggle='modal' data-target='#myModal{$row[0]}'>编辑</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href='#' class='delete' id='{$row[0]}'>删除</a></th>";
-		                        echo"</tr>";
-		                        echo"<div class='modal fade' id='myModal{$row[0]}' tabindex='-1' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true'>";
-		                        echo"<div class='modal-dialog'>";
-		                        echo"<div class='modal-content'>";
-		                        echo"<div class='modal-header'>";
-		                        echo"<button type='button' class='close' data-dismiss='modal' aria-hidden='true'>&times;</button>";
-		                        echo"<h4 class='modal-title' id='myModalLabel'>修改信息</h4>";
-		                        echo"</div>";
-		                        echo"<div class='modal-body'>";
-		                        echo"<div class='input-group'>";
-		                        echo"<span class='input-group-addon'>人员编号</span>";
-		                        echo"<input id='Username{$row[0]}' type='text' class='form-control' value='{$row[0]}' disabled='disabled' aria-describedby='basic-addon1'>";
-		                        echo"</div>";
-		                        echo"<div class='input-group inputone'>";
-		                        echo"<span class='input-group-addon'>姓名(必填)</span>";
-		                        echo"<input id='name{$row[0]}' type='text' class='form-control' value='{$row[6]}' aria-describedby='basic-addon1'>";
-		                        echo"</div>";
-		                        echo"<div class='input-group inputone'>";
-		                        echo"<span class='input-group-addon'>学院(非必填)</span>";
-		                        echo"<input id='college{$row[0]}' type='text' class='form-control' value='{$row[2]}' aria-describedby='basic-addon1'>";
-		                        echo"</div>";
-		                        echo"<div class='input-group inputone'>";
-		                        echo"<span class='input-group-addon'>班级(非必填)</span>";
-		                        echo"<input id='class{$row[0]}' type='text' class='form-control' value='{$row[3]}' aria-describedby='basic-addon1'>";
-		                        echo"</div>";
-		                        echo"<div class='input-group inputone'>";
-		                        echo"<span class='input-group-addon'>专业(非必填)</span>";
-		                        echo"<input id='dept_name{$row[0]}' type='text' class='form-control' value='{$row[4]}' aria-describedby='basic-addon1'>";
-		                        echo"</div>";
-		                        echo"<div class='well well-lg'>";
-		                        echo"<p>修改密码(非必填)</p>";
-		                        echo"<div class='input-group'>";
-		                        echo"<span class='input-group-addon'>新密码</span>";
-		                        echo"<input id='password{$row[0]}' type='text' class='form-control' value='' aria-describedby='basic-addon1'>";
-		                        echo"</div>";
-		                        echo"<div class='input-group inputone'>";
-		                        echo"<span class='input-group-addon'>确认密码</span>";
-		                        echo"<input id='repassword{$row[0]}' type='text' class='form-control' value='' aria-describedby='basic-addon1'>";
-		                        echo"</div>";
-		                        echo"</div>";
-		                        echo"</div>";
-		                        echo"<div class='modal-footer'>";
-		                        echo"<button type='button' class='btn btn-default myclose' data-dismiss='modal'>关闭</button>";
-		                        echo"<button type='button' class='btn btn-primary editque' id='{$row[0]}'>提交更改</button>";
-		                        echo"</div>";
-		                        echo"</div><!-- /.modal-content -->";
-		                        echo"</div><!-- /.modal -->";
-		                        echo"</div>";
-		    				}
-		    			}
-
-		    		?>
-				</table>
-			</div>
+			<table class="table table-bordered" id="homepagetable">
+	    		<?php
+	    			$sql="select * from student where is_post=1";
+	    			$result=mysqli_query($db,$sql);
+	    			echo"<tr><th>人员编号</th><th>姓名</th><th>学院</th><th>班级</th><th>专业</th><th>操作</th></tr>";
+	    			if($result){
+	    				while($row=$result->fetch_row()){
+	    					echo"<tr>";
+	    					echo"<th>{$row[0]}</th>";
+	    					echo"<th>{$row[4]}</th>";
+	    					echo"<th></th>";
+	    					echo"<th>{$row[2]}</th>";
+	    					echo"<th></th>";
+	    					echo"<th><a href='#' class='edit' id='{$row[0]}' data-toggle='modal' data-target='#myModal{$row[0]}'>编辑</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href='#' class='delete' id='{$row[0]}'>删除</a></th>";
+	                        echo"</tr>";
+	                        echo"<div class='modal fade' id='myModal{$row[0]}' tabindex='-1' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true'>";
+	                        echo"<div class='modal-dialog'>";
+	                        echo"<div class='modal-content'>";
+	                        echo"<div class='modal-header'>";
+	                        echo"<button type='button' class='close' data-dismiss='modal' aria-hidden='true'>&times;</button>";
+	                        echo"<h4 class='modal-title' id='myModalLabel'>修改信息</h4>";
+	                        echo"</div>";
+	                        echo"<div class='modal-body'>";
+	                        echo"<div class='input-group'>";
+	                        echo"<span class='input-group-addon'>人员编号</span>";
+	                        echo"<input id='Username{$row[0]}' type='text' class='form-control' value='{$row[0]}' disabled='disabled' aria-describedby='basic-addon1'>";
+	                        echo"</div>";
+	                        echo"<div class='input-group inputone'>";
+	                        echo"<span class='input-group-addon'>姓名(必填)</span>";
+	                        echo"<input id='name{$row[0]}' type='text' class='form-control' value='{$row[6]}' aria-describedby='basic-addon1'>";
+	                        echo"</div>";
+	                        echo"<div class='input-group inputone'>";
+	                        echo"<span class='input-group-addon'>学院(非必填)</span>";
+	                        echo"<input id='college{$row[0]}' type='text' class='form-control' value='{$row[2]}' aria-describedby='basic-addon1'>";
+	                        echo"</div>";
+	                        echo"<div class='input-group inputone'>";
+	                        echo"<span class='input-group-addon'>班级(非必填)</span>";
+	                        echo"<input id='class{$row[0]}' type='text' class='form-control' value='{$row[3]}' aria-describedby='basic-addon1'>";
+	                        echo"</div>";
+	                        echo"<div class='input-group inputone'>";
+	                        echo"<span class='input-group-addon'>专业(非必填)</span>";
+	                        echo"<input id='dept_name{$row[0]}' type='text' class='form-control' value='{$row[4]}' aria-describedby='basic-addon1'>";
+	                        echo"</div>";
+	                        echo"<div class='well well-lg'>";
+	                        echo"<p>修改密码(非必填)</p>";
+	                        echo"<div class='input-group'>";
+	                        echo"<span class='input-group-addon'>新密码</span>";
+	                        echo"<input id='password{$row[0]}' type='text' class='form-control' value='' aria-describedby='basic-addon1'>";
+	                        echo"</div>";
+	                        echo"<div class='input-group inputone'>";
+	                        echo"<span class='input-group-addon'>确认密码</span>";
+	                        echo"<input id='repassword{$row[0]}' type='text' class='form-control' value='' aria-describedby='basic-addon1'>";
+	                        echo"</div>";
+	                        echo"</div>";
+	                        echo"</div>";
+	                        echo"<div class='modal-footer'>";
+	                        echo"<button type='button' class='btn btn-default myclose' data-dismiss='modal'>关闭</button>";
+	                        echo"<button type='button' class='btn btn-primary editque' id='{$row[0]}'>提交更改</button>";
+	                        echo"</div>";
+	                        echo"</div><!-- /.modal-content -->";
+	                        echo"</div><!-- /.modal -->";
+	                        echo"</div>";
+	    				}
+	    			}
+	    		?>
+			</table>
+		</div>
 	</div>
 	<div class="footer">
 		<nav aria-label="Page navigation" style="text-align: center">
-		  <ul class="pagination">
-		  </ul>
+		 	<ul class="pagination">
+		 	</ul>
 		</nav>
 	</div>
 

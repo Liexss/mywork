@@ -1,17 +1,29 @@
 body{ 
-  padding-top: 70px;
-  background-color:#DCDCDC;
-  margin-bottom: 50px;
+    padding-top: 70px;
+    background-color:#DCDCDC;
+    margin-bottom: 50px;
 }
 .page-header{
-  background-color:#343d46;
-  color: white;
-  height:100%;
+    background-color:#343d46;
+    color: white;
+    height:100%;
 }
 #submitapprove{
-  background-color: white;
-  padding-bottom: 30px;
-  border-radius: 6px;
+    background-color: white;
+    padding-bottom: 30px;
+    border-radius: 6px;
+}
+
+@media (max-width: 996px) { 
+    #submitapprove{
+        margin-left: 2%;
+        margin-right: 2%;
+    }
+
+    .row{
+        margin-left: 0.5%;
+        margin-right: 0.5%;
+    }
 }
 
 #gra a{

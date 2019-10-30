@@ -4,7 +4,6 @@
     header('location:exit.php');
     exit(); 
   }
-  include('judgeid.php');
   if($_SESSION['type']==1){
     @header("http/1.1 404 not found"); 
     @header("status: 404 not found"); 

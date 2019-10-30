@@ -13,6 +13,14 @@ body{
   padding-bottom: 30px;
   border-radius: 6px;
 }
+
+@media (max-width: 996px) { 
+    #showmain{
+        margin-left: 2%;
+        margin-right: 2%;
+    }
+}
+
 #worditem a{
 	text-decoration: none;
 }

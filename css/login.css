@@ -1,8 +1,10 @@
 body{ 
-  padding-top: 70px;
-  background-color:#DCDCDC;
-  margin-bottom: 50px;
+    padding-top: 70px;
+    background-color:#DCDCDC;
+    margin-bottom: 50px;
 }
+
+/*form*/
 .form-bg{
     background: #00b4ef;
 }
@@ -119,6 +121,8 @@ body{
     text-transform: capitalize;
     transition: all 0.5s ease 0s;
 }
+
+
 footer{
     position: absolute;  
     bottom: 0;
@@ -132,6 +136,7 @@ footer p{
     text-align: center;
     margin:0;
 }
+
 #login{
     margin-top: 10%;
 }
