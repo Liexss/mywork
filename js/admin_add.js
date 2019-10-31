@@ -72,10 +72,9 @@ function addUser(){
 	var choose=window.confirm("是否添加");
 	if(choose&&flag)
 	{
-		var encrypt = new JSEncrypt();
-	   encrypt.setPublicKey($('#pubkey').val());
-	   password = encrypt.encrypt(password);
-	   console.log(password);
+		
+	   password = myEncryption(password);
+	   //console.log(password);
 	    //前端加密备用
 		$.ajax({
 			url:"../ajax_php/addUser.php",
