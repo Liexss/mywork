@@ -1,4 +1,4 @@
-function enter(){
+ï»¿function enter(){
     $account=$("#account").val();
     $password=$("#password").val();
 
@@ -18,13 +18,13 @@ function enter(){
 
 
     if($account==""||$password=="")
-        window.alert("ÕËºÅ»òÃÜÂë²»ÄÜÎª¿Õ");
+        window.alert("è´¦å·æˆ–å¯†ç ä¸èƒ½ä¸ºç©º");
     else
     {
         $password = myEncryption($password);
         //$password=encodeURI($password).replace(/\+/g, '%2B');
         //console.log($password);
-        //Ç°¶Ë¼ÓÃÜ±¸ÓÃ
+        //å‰ç«¯åŠ å¯†å¤‡ç”¨
 
         $.ajax({
             type:"post",
@@ -43,7 +43,7 @@ function enter(){
                 // console.log(data.id);
                 window.location="php/page_php/index.php?pagenum=1";
             }else
-                window.alert("ÕËºÅ»òÃÜÂë´íÎó");
+                window.alert("è´¦å·æˆ–å¯†ç é”™è¯¯");
             },
             error:function(data){
                 var json =  JSON.stringify(data);
@@ -58,6 +58,6 @@ function enter(){
 $(document).ready(function() {
     $('#forgetpass').click(function(){
         event.preventDefault();
-        alert('ÇëÁªÏµ¹ÜÀíÔ± QQ:888888888');
+        alert('è¯·è”ç³»ç®¡ç†å‘˜ QQ:888888888');
     });
 });
