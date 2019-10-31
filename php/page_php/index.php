@@ -9,8 +9,9 @@
     include("../ajax_php/connect.php");
     include("judgeid.php");
     $pagenum=$_GET['pagenum'];
-    if(!isset($_GET['pagenum'])){//判断所需要的参数是否存在，isset用来检测变量是否设置，返回true or false
+    if(!isset($_GET['pagenum'])||!is_numeric($_GET['pagenum'])){//判断所需要的参数是否存在，isset用来检测变量是否设置，返回true or false
         header('location:index.php?pagenum=1');
+        ob_end_flush();
         exit(); 
     }
 ?>
@@ -89,6 +90,13 @@
                     // echo $res;
                     while ($row = $res->fetch_array() ) {
                         $total = $row[0];
+                    }
+                    $totnumpage= ($total+12)/13;
+                    echo $totnumpage;
+                    echo $pagenum;
+                    if($totnumpage<$pagenum||$pagenum<=0){
+                        header('location:index.php?pagenum=1');
+                        exit(); 
                     }
                     $forward=(number_format($pagenum)-1)*13;
                     $sql = "select b.theme,a.name,b.time,b.announce_id from teacher as a right join announce as b on a.teacher_id=b.user_id where b.is_post=1 and a.is_post=1 order by time desc limit ".$forward.","."13";

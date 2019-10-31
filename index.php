@@ -8,6 +8,7 @@
 <head>
     <meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<title>杭师大奖助管理系统</title>
@@ -70,7 +71,7 @@
     <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
     <script src="jsencrypt-master/bin/jsencrypt.min.js"></script>
     <script src="js/My-Encryption.js" type="text/javascript" charset="utf-8"></script>
-    <script type="text/javascript" src="Login/login.js"></script>
+    <script type="text/javascript" src="Login/login.js" charset="UTF-8"></script>
 
     <!-- <script type="text/javascript">
     	var storage = window.localStorage;

@@ -11,7 +11,7 @@
     if($_SESSION['type']==1){
         @header("http/1.1 404 not found"); 
         @header("status: 404 not found"); 
-        include("Error404.php");
+        header('location:Error404.php');
         exit(); 
     }
     if(!isset($_GET['id'])||$_GET['id']==NULL){//判断所需要的参数是否存在，isset用来检测变量是否设置，返回true or false
@@ -25,7 +25,7 @@
     if(mysqli_num_rows($res) < 1){
         @header("http/1.1 404 not found"); 
         @header("status: 404 not found"); 
-        include("Error404.php");
+        header('location:Error404.php');
         exit(); 
     }
     

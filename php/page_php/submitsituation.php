@@ -18,7 +18,7 @@
     if(mysqli_num_rows($result) < 1){
         @header("http/1.1 404 not found"); 
         @header("status: 404 not found"); 
-        include("Error404.php");
+        header('location:Error404.php');
         exit(); 
     }
 
@@ -26,7 +26,7 @@
     if ($attr[0]!=$_SESSION['enter_id']) {
         @header("http/1.1 404 not found"); 
         @header("status: 404 not found"); 
-        include("Error404.php");
+        header('location:Error404.php');
         exit(); 
     }
 ?>

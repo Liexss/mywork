@@ -42,7 +42,7 @@
         if(mysqli_num_rows($res) < 1){
             @header("http/1.1 404 not found"); 
             @header("status: 404 not found"); 
-            include("Error404.php");
+            header('location:Error404.php');
             exit(); 
         }
         while ($row = $res->fetch_array() ) {

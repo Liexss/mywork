@@ -9,7 +9,7 @@ include("judgeid.php");
 if($_SESSION['type']==1){
     @header("http/1.1 404 not found"); 
     @header("status: 404 not found"); 
-    include("Error404.php");
+    header('location:Error404.php');
     exit(); 
   }
 $select = "select * from student where student_id=".$_SESSION['enter_id'];
