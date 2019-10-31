@@ -1,4 +1,5 @@
 <?php 
+  session_start();
   include("../ajax_php/connect.php");
   $db=db_connection("localhost","root","","money");
   $sql1="select * from reward_apply order by id desc";
@@ -9,7 +10,7 @@
     $num=$row[0]+1;
   }
   $id=$num;
-  $student_id="2017212212001";
+  $student_id=$_SESSION['enter_id'];
   date_default_timezone_set("PRC");
   $current_time = date("Y-m-d H:i:s");
   $enclosure=$db->real_escape_string($_POST['enclosure']);
