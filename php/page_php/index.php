@@ -6,14 +6,13 @@
         exit();
     }
 
-    $_SESSION['display_annnum']=7;
-    $_SESSION['page_anntot']=0;
-
-    if(!isset($_SESSION['page_annnum']))
-        $_SESSION['page_annnum']=1;
-
     include("../ajax_php/connect.php");
     include("judgeid.php");
+    $pagenum=$_GET['pagenum'];
+    if(!isset($_GET['pagenum'])){//判断所需要的参数是否存在，isset用来检测变量是否设置，返回true or false
+        header('location:index.php?pagenum=1');
+        exit(); 
+    }
 ?>
 
 <!DOCTYPE html>
@@ -58,7 +57,7 @@
             </div>
         </div>
 
-        <div class="row" style="margin-top: 20px;">
+        <div class="row" style="margin-top: 20px;" id="announcemain">
             <div class="panel">
 
                 <div class="panel-heading">
@@ -84,102 +83,64 @@
                             </div>
                         </div>
                     </li>
+                <?php
+                    $sql = "select count(*) from teacher as a right join announce as b on a.teacher_id=b.user_id where b.is_post=1 and a.is_post=1 order by time desc";
+                    $res = $db->query($sql);
+                    // echo $res;
+                    while ($row = $res->fetch_array() ) {
+                        $total = $row[0];
+                    }
+                    $forward=(number_format($pagenum)-1)*13;
+                    $sql = "select b.theme,a.name,b.time,b.announce_id from teacher as a right join announce as b on a.teacher_id=b.user_id where b.is_post=1 and a.is_post=1 order by time desc limit ".$forward.","."13";
+                    $result = $db->query($sql);
+                    if($result){
+                        while($row=$result->fetch_row()){
+                            echo"<li class='list-group-item'>";
+                            echo" <div class='row'>";
+                            echo"<div class='col-md-2'>";
+                            echo"<a target='_blank' style='text-decoration: none;' href='showannounce.php?id={$row[3]}'>{$row[0]}</a>";
+                            echo"</div>";
+                            echo"<div class='col-md-2 col-md-offset-4'>";
+                            echo"<p>{$row[2]}</p>";
+                            echo"</div>";
+                            echo"<div class='col-md-1'>";
+                            echo"<p>{$row[1]}</p>";
+                            echo"</div>";
 
-                    <?php
-                      Show();
-                    ?>
+                            if($_SESSION['type']==2)
+                            {
+                                echo"<div class='col-md-1'>";
+                                echo"<a target='_blank' style='text-decoration: none;' href='resetannounce.php?id={$row[3]}' id='{$row[3]}' href='#' >编辑</a>";
+                                echo"</div>";
 
-                    <li class="list-group-item" style="padding:0;">
-                      <nav aria-label="Page navigation" style="text-align: center">
-                          <ul class="footer pagination">
-                            <?php
-                                echo "<li>";
-
-                                if($_SESSION['page_annnum']!=1)
-                                echo "<a aria-label='Previous' href='#' onclick='prePage()'>";
-                                else
-                                echo "<a  href='#' aria-label='Previous'>";
-
-                                echo "<span aria-hidden='true'>&laquo;</span>";
-                                echo "</a>";
-                                echo "</li>";
-                                Show_page();
-                                echo "<li>";
-
-                                if($_SESSION['page_annnum']!=$_SESSION['page_anntot'])
-                                echo "<a aria-label='Next' href='#' onclick='nextPage()'>";
-                                else
-                                echo "<a href='#' aria-label='Next'>";
-
-                                echo "<span aria-hidden='true'>&raquo;</span>";
-                                echo "</a>";
-                                echo "</li>";
-                            ?>
-                          </ul>
-                        </nav>
-                    </li>
+                                echo"<div class='col-md-1'>";
+                                echo"<a style='text-decoration: none;' class='deleteann' id='{$row[3]}' href='#'>删除</a>";
+                                echo"</div>";
+                            }
+                            echo"</div>";
+                            echo"</li>";
+                        }
+                    }
+                ?>  
 
                 </ul>
+                <div id='page'></div>
             </div>
       </div>
     </div>
+    <script src="../../js/xlPaging.js"></script>
+    <script>
+        var now = <?php echo $pagenum;?>;
+        now = parseInt(now);
+        $("#page").paging({
+            nowPage: now,
+            pageNum: parseInt(<?php echo ($total+12)/13 ?>),
+            buttonNum: 5,
+            callback: function (num) {
+                window.location.href="./index.php?pagenum="+num.toString();
+            }
+        });
+
+    </script>
 </body>
 </html>
-
-
-<?php
-
-    function Show(){
-        $db = db_connection("localhost","root","","money");
-        $l=$_SESSION['display_annnum']*($_SESSION['page_annnum']-1);
-    
-        $query = "select b.theme,a.name,b.time,b.announce_id from teacher as a right join announce as b on a.teacher_id=b.user_id where b.is_post=1 and a.is_post=1 order by time desc limit ".$l.",". $_SESSION['display_annnum'];
-    
-        $result=mysqli_query($db,$query);
-        if($result){
-            while($row=$result->fetch_row()){
-                echo"<li class='list-group-item'>";
-                echo" <div class='row'>";
-                echo"<div class='col-md-2'>";
-                echo"<a target='_blank' style='text-decoration: none;' href='showannounce.php?id={$row[3]}'>{$row[0]}</a>";
-                echo"</div>";
-                echo"<div class='col-md-2 col-md-offset-4'>";
-                echo"<p>{$row[2]}</p>";
-                echo"</div>";
-                echo"<div class='col-md-1'>";
-                echo"<p>{$row[1]}</p>";
-                echo"</div>";
-
-                if($_SESSION['type']==2)
-                {
-                    echo"<div class='col-md-1'>";
-                    echo"<a target='_blank' style='text-decoration: none;' href='resetannounce.php?id={$row[3]}' id='{$row[3]}' href='#' >编辑</a>";
-                    echo"</div>";
-
-                    echo"<div class='col-md-1'>";
-                    echo"<a style='text-decoration: none;' class='deleteann' id='{$row[3]}' href='#'>删除</a>";
-                    echo"</div>";
-                }
-                echo"</div>";
-                echo"</li>";
-            }
-        }
-    }
-
-
-    function Show_page(){
-        $db = db_connection("localhost","root","","money");
-        $query = "select b.theme,a.name,b.time,b.announce_id from teacher as a right join announce as b on a.teacher_id=b.user_id where b.is_post=1 and a.is_post=1 order by time desc";
-        $result=mysqli_query($db,$query);
-        $_SESSION['page_anntot']=(int)($result->num_rows/$_SESSION['display_annnum']);
-        if($result->num_rows%$_SESSION['display_annnum']!=0)
-            $_SESSION['page_anntot']++;
-
-        for($i=1;$i<=$_SESSION['page_anntot'];$i++){
-            if($i==$_SESSION['page_annnum'])
-                echo "<li class='active'><a>$i</a></li>";
-            else
-            echo "<li><a href='#' onclick='toPage($i)'>$i</a></li>";
-        }
-    }
-?>

@@ -39,6 +39,7 @@ $(document).ready(function() {
 			success:function(data){
 				// window.alert(JSON.stringify(data))
 				window.location="index.php";
+
 		    },
 		    error:function(){
 		    	window.alert("error");
@@ -72,7 +73,8 @@ $(document).ready(function() {
 			dataType:"json",
 			success:function(data){
 				// window.alert(JSON.stringify(data))
-				window.location="index.php";
+				//window.location="index.php";
+				location.href="index.php";
 		    },
 		    error:function(){
 		    	window.alert("error");
@@ -88,9 +90,8 @@ $(document).ready(function() {
 		}
 		$date=new Date();
 		$oldday=new Date($date.getTime()-1);
-		document.cookie='_'+$("#searchann").val()+'='+'haha'+';expires='+$oldday.toUTCString();
 		// setcookie('_'+$("#searchann").val(), ' ', -1);
 		// console.log(urlencode($("#searchann").val().toString()));
-		window.open('searchannounce.php?content='+urlencode($("#searchann").val().toString()));
+		window.open('searchannounce.php?content='+urlencode($("#searchann").val().toString())+"&pagenum=1");
 	});
 });

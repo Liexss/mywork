@@ -14,7 +14,10 @@
         include("Error404.php");
         exit(); 
     }
-
+    if(!isset($_GET['id'])||$_GET['id']==NULL){//判断所需要的参数是否存在，isset用来检测变量是否设置，返回true or false
+        header('location:myapprovereward.php');
+        exit(); 
+    }
     $id=$_GET['id'];
     $sql="select * from reward_apply where id=".$id;
     $res = $db->query($sql);
@@ -79,19 +82,20 @@
             $address = $row['address'];
             $state = $row['state'];
             $prize_id=$row['prize_id'];
+            $student_id=$row['student_id'];
         }
         
         //查找对应学生信息
-        $sql="select * from student where student_id = (select student_id from reward_apply where id=".$id.")";
+        // $sql="select * from student where student_id = (select student_id frosm reward_apply where id=".$id.")";
+        $sql ="select e.name,a.class_name,b.dept_name,c.college_name from  student as e left join class as a on a.class_id=e.class left join dept as b on a.dept_id=b.dept_id left join college as c on b.college_id=c.college_id where e.student_id=".$student_id;
         $res = $db->query($sql);
-         
+          
         while ($row = $res->fetch_array() ) {
-            $name =  $row['name'];
-            $college = $row['college'];
-            $dept_name = $row['dept_name'];
-            $class = $row['class'];
+            $name =  $row[0];
+            $college = $row[3];
+            $dept_name = $row[2];
+            $class = $row[1];
         }
-        
         $sql="select a.name from teacher as a left join reward as b on a.teacher_id=b.teacher_id where b.id=".$prize_id;
         $res = $db->query($sql);
         while ($row = $res->fetch_array() ) {

@@ -8,6 +8,10 @@
 
     include("../ajax_php/connect.php");
     include("judgeid.php");
+    if(!isset($_GET['id'])||$_GET['id']==NULL){//判断所需要的参数是否存在，isset用来检测变量是否设置，返回true or false
+        header('location:rewardlist.php?pagenum=1');
+        exit(); 
+    }
   
     date_default_timezone_set('PRC'); 
     $showTime =  date("Y-m-d H:i:s");

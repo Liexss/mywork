@@ -46,6 +46,7 @@
                         <th>申报奖项</th>
                         <th>申报时间</th>
                         <th>审批状态</th>
+                        <th></th>
                     </tr>
                 </thead>
               
@@ -62,7 +63,7 @@
                         echo "<td>" . $row[3] . "</td>";
                         echo "<td style='"."padding-left:20px;"."'>" . $row[4] . "</td>";
                         //将申请编号传入url
-                        echo "<td><a target='_blank' href='submitsituation.php?id=".$row[2]."'>查看</a></td>";
+                        echo "<td><a target='_blank' href='submitsituation.php?id=".$row[2]."'><span class='glyphicon glyphicon-search' aria-hidden='true'></span></a></td>";
                         echo "</tr>";
                     }
                 ?>
@@ -71,3 +72,4 @@
         </div>
     </div>
 </body>
+</html>

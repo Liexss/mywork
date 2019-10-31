@@ -9,13 +9,13 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">杭师大奖助管理系统</a>
+        <a class="navbar-brand" href="index.php?pagenum=1">杭师大奖助管理系统</a>
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example">
         <ul class="nav navbar-nav" id="ulbs">
-          <li id="index"><a href="index.php">公告首页</a></li>
+          <li id="index"><a href="index.php?pagenum=1">公告首页</a></li>
           <?php 
               if($_SESSION['type']==2) {
                 echo"<li class='dropdown' id='reward'>";
@@ -28,7 +28,7 @@
                 echo"</li>";
               } 
               else if($_SESSION['type']==1){
-                 echo"<li id='reward'><a href='rewardlist.php?1'>奖学金列表</a></li>";
+                 echo"<li id='reward'><a href='rewardlist.php?pagenum=1'>奖学金列表</a></li>";
               }
           ?>
           <?php

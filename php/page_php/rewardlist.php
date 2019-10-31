@@ -6,6 +6,11 @@
     }
     include("../ajax_php/connect.php");
     include("judgeid.php");
+    $pagenum=$_GET['pagenum'];
+    if(!isset($_GET['pagenum'])){//判断所需要的参数是否存在，isset用来检测变量是否设置，返回true or false
+        header('location:rewardlist.php?pagenum=1');
+        exit(); 
+    }
 ?>
 
 <!DOCTYPE html>
@@ -45,11 +50,9 @@
                 while ($row = $res->fetch_array() ) {
                     $total = $row[0];
                 }
-                $forward=(number_format($_SERVER["QUERY_STRING"])-1)*5;
-                $backward = $forward+4;
-                if($backward>$total)
-                    $backward = $total;
-                $sql="select * from reward where is_post=1 order by start_time desc limit ".$forward.",".$backward;
+
+                $forward=(number_format($pagenum)-1)*5;
+                $sql="select * from reward where is_post=1 order by start_time desc limit ".$forward.","."5";
                 $res = $db->query($sql);
                 while ($row = $res->fetch_array() ) {
                     $name = $row["prize_name"];
@@ -79,15 +82,17 @@
     <script src="../../js/rewardlist.js"></script>
     <script src="../../js/xlPaging.js"></script>
     <script>
-        var now = window.location.search.substring(1);
+        var now = <?php echo $pagenum;?>;
         now = parseInt(now);
         $("#page").paging({
             nowPage: now,
             pageNum: parseInt(<?php echo ($total+4)/5 ?>),
             buttonNum: 5,
             callback: function (num) {
-                window.location.href="./rewardlist.php?"+num.toString();
+                window.location.href="./rewardlist.php?pagenum="+num.toString();
             }
         });
+
     </script>
 </body>
+</html>

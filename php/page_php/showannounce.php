@@ -7,6 +7,11 @@
     
     include("../ajax_php/connect.php");
     include("judgeid.php");
+    // $id=$_GET['id'];
+    if(!isset($_GET['id'])||$_GET['id']==NULL){//判断所需要的参数是否存在，isset用来检测变量是否设置，返回true or false
+        header('location:index.php?pagenum=1');
+        exit(); 
+    }
 ?>
 <!DOCTYPE html>
 <html  lang="zh-CN">
@@ -30,7 +35,8 @@
         if(mysqli_num_rows($result) < 1){
             @header("http/1.1 404 not found"); 
             @header("status: 404 not found"); 
-            include("Error404.php");
+            //include("Error404.php");
+            //header('location:Error404.php');
             exit(); 
         }
         $row=mysqli_fetch_array($result);

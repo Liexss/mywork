@@ -41,7 +41,7 @@ function enter(){
 
                 // console.log(json);
                 // console.log(data.id);
-                window.location="php/page_php/index.php";
+                window.location="php/page_php/index.php?pagenum=1";
             }else
                 window.alert("’À∫≈ªÚ√‹¬Î¥ÌŒÛ");
             },
