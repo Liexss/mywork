@@ -1,11 +1,9 @@
 <?php
     session_start();
-
     if(!isset($_SESSION['type'])||!isset($_SESSION['enter_id'])){
         header('location:exit.php');
         exit(); 
     }
-
     include("../ajax_php/connect.php");
     include("judgeid.php");
 ?>
@@ -47,7 +45,6 @@
                 while ($row = $res->fetch_array() ) {
                     $total = $row[0];
                 }
-
                 $forward=(number_format($_SERVER["QUERY_STRING"])-1)*5;
                 $backward = $forward+4;
                 if($backward>$total)
@@ -92,11 +89,5 @@
                 window.location.href="./rewardlist.php?"+num.toString();
             }
         });
-        $(".btn").click(function(e){
-       	    var id = $(this).attr("id");
-            document.cookie="prize_id="+id.toString();
-            document.cookie="student_id=2017212212001";
-            document.cookie="prize_name="+<?php echo "'".$name."'" ?>;
-        })
     </script>
 </body>

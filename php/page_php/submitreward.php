@@ -9,13 +9,6 @@
     include("../ajax_php/connect.php");
     include("judgeid.php");
   
-    if($_SESSION['type']==1){
-        @header("http/1.1 404 not found"); 
-        @header("status: 404 not found"); 
-        include("Error404.php");
-        exit(); 
-    }
-  
     date_default_timezone_set('PRC'); 
     $showTime =  date("Y-m-d H:i:s");
     $id=$_GET['id'];
