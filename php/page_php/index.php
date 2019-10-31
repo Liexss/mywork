@@ -9,7 +9,7 @@
     include("../ajax_php/connect.php");
     include("judgeid.php");
     $pagenum=$_GET['pagenum'];
-    if(!isset($_GET['pagenum'])||!is_numeric($_GET['pagenum'])){//判断所需要的参数是否存在，isset用来检测变量是否设置，返回true or false
+    if(!isset($_GET['pagenum'])||$_GET['pagenum']==NULL||!is_numeric($_GET['pagenum'])){//判断所需要的参数是否存在，isset用来检测变量是否设置，返回true or false
         header('location:index.php?pagenum=1');
         ob_end_flush();
         exit(); 

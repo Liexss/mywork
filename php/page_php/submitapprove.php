@@ -14,7 +14,7 @@
         header('location:Error404.php');
         exit(); 
     }
-    if(!isset($_GET['id'])||$_GET['id']==NULL){//判断所需要的参数是否存在，isset用来检测变量是否设置，返回true or false
+    if(!isset($_GET['id'])||!is_numeric($_GET['id'])){//判断所需要的参数是否存在，isset用来检测变量是否设置，返回true or false
         header('location:myapprovereward.php');
         exit(); 
     }
