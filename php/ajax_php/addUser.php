@@ -1,9 +1,9 @@
-
 <?php 
 	session_start();
 	header("content-type:text/html;charset=utf-8");         //设置编码
 	$json=file_get_contents("php://input");
 	$obj=json_decode($json);
+	include_once("connect.php");
 
 	$name=$obj->name;
 	$class=$obj->class;
@@ -33,7 +33,7 @@ gl5DBWDZPTcL3OE=
 	$account=$obj->account;
 	$class=$obj->class;
 
-	$db = mysqli_connect("localhost","root","","money");
+	$db = db_connection("localhost","root","","money");
 	$select = "select count(*) from student where student_id='".$account."'and is_post=1";
 	$result = mysqli_query($db,$select);
 	$attr=$result->fetch_row();

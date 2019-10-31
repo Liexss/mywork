@@ -142,7 +142,7 @@
 
 	<script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
     <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-
+	
 	<script src="../../js/admin_manage.js"></script>
 </body>
 </html>
