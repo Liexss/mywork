@@ -23,7 +23,7 @@ if($_SESSION['type']==1){
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>杭师大奖助管理系统</title>
+    <title>添加奖学金</title>
 
     <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
     <link href="../../css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">

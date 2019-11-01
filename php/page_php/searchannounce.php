@@ -26,6 +26,7 @@ if((!isset($_GET['content']))||$content==""||(!isset($_GET['pagenum']))||!is_num
 <!DOCTYPE html>
 <html  lang="zh-CN">
 <head>
+  <title>查询公告</title>
   <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css">
   <link  href="../../css/searchannounce.css" rel="stylesheet"> 

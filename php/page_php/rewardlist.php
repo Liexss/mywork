@@ -26,7 +26,7 @@ if(!isset($_GET['pagenum'])||!is_numeric($_GET['pagenum'])||$totnumpage<$pagenum
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>杭师大奖助管理系统</title>
+    <title>奖学金列表</title>
 
     <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
 
