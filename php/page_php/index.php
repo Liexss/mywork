@@ -92,8 +92,6 @@
                         $total = $row[0];
                     }
                     $totnumpage= ($total+12)/13;
-                    echo $totnumpage;
-                    echo $pagenum;
                     if($totnumpage<$pagenum||$pagenum<=0){
                         header('location:index.php?pagenum=1');
                         exit(); 
