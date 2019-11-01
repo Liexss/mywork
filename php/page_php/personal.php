@@ -48,10 +48,24 @@
 
             $account=$attr[0];
             $password=$attr[1];
-            $name=$attr[6];
-            $college=$attr[2];
-            $dept=$attr[4];
-            $class=$attr[3];
+            $name=$attr[4];
+
+            $sql="select * from class where class_id=".$attr[2];
+            $res = mysqli_query($db,$sql);
+            $Attr=$res->fetch_row();
+            $class=$Attr[1];
+            
+
+            $sql2="select * from dept where dept_id=".$Attr[2];
+            $res2 = mysqli_query($db,$sql2);
+            $Attr2=$res2->fetch_row();
+            $dept=$Attr2[1];
+
+            $sql3="select * from college where college_id=".$Attr2[2];
+            $res3 = mysqli_query($db,$sql3);
+            $Attr3=$res3->fetch_row();
+            $college=$Attr3[1];
+
         }else{
             $select = "select * from teacher where teacher_id=".$_SESSION['enter_id'];
 
@@ -61,7 +75,11 @@
             $account=$attr[0];
             $password=$attr[1];
             $name=$attr[2];
-            $college=$attr[3];
+
+            $sql="select * from college where college_id=".$attr[3];
+            $res = mysqli_query($db,$sql);
+            $Attr=$res->fetch_row();
+            $college=$Attr[1];
         }
 
         if($_SESSION['type']==1){
