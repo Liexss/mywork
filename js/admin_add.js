@@ -25,8 +25,8 @@ function addUser(){
 		$("#accountSpan").addClass("glyphicon glyphicon-remove");
 	}
 
-	var reg2 = new RegExp(/^[0-9]*$/);
-	if(reg2.test(password)&&password.length>=3 && password.length<=10)
+	var reg2 = new RegExp(/^[\u4e00-\u9fa5]+$/);
+	if(!reg2.test(password)&&password.length>=3 && password.length<=10)
 	{
 		$("#passwordInput").removeClass("has-error has-feedback");
 		$("#passwordSpan").removeClass("glyphicon glyphicon-remove");
