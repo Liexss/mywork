@@ -7,10 +7,8 @@
 	include($_SERVER['DOCUMENT_ROOT']."/mywork/php/ajax_php/My-Decrypt.php");
 	
 	$password=$obj->password;
-	$password=$db->real_escape_string($password);
 	$password=sha1(MyDecrypt($password));
 	$oldPassword=$obj->initialPassword;
-	$oldPassword=$db->real_escape_string($oldPassword);
 	$oldPassword=sha1(MyDecrypt($oldPassword));
 	$user_id=$obj->id;
 	$tag=0;
