@@ -40,7 +40,7 @@
             echo"<li role='separator' class='divider'></li>";
             echo"<li id='admin_add'><a href='admin_add.php'>人员添加</a></li>";
             echo"<li role='separator' class='divider'></li>";
-            echo"<li id='admin_manage'><a href='admin_manage.php'>人员列表</a></li>";
+            echo"<li id='admin_manage'><a href='admin_manage.php'>人员管理</a></li>";
             echo"</ul>";
             echo"</li>";
           }
