@@ -13,7 +13,6 @@
 	$oldPassword=$db->real_escape_string($oldPassword);
 	$oldPassword=sha1(MyDecrypt($oldPassword));
 	$user_id=$obj->id;
-
 	$tag=0;
 	$select = "select * from student where student_id=$user_id";
 	$res = mysqli_query($db,$select);
@@ -24,7 +23,6 @@
 		$result = mysqli_query($db,$update);
 		$tag=1;
 	}
-
 	$select = "select * from teacher where teacher_id=$user_id";
 	$res = mysqli_query($db,$select);
 	$attr=$res->fetch_row();
@@ -34,7 +32,5 @@
 		$result = mysqli_query($db,$update);
 		$tag=1;
 	}
-
-
 	echo json_encode(array("isOk"=>$tag,"flag"=>$oldPassword));
 ?>

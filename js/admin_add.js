@@ -104,29 +104,29 @@ function addUser(){
 	var choose=window.confirm("是否添加");
 	if(choose&&flag)
 	{
-		
-	   password = myEncryption(password);
-	   //console.log(password);
-	    //前端加密备用
-		$.ajax({
-			url:"../ajax_php/addUser.php",
-			type:"post",
-			data:JSON.stringify({account:account,password:password,name:name,class:Class}),
-			contentType:false,
-			processData:false,
-			success:function(data){
-				console.log(data);
-				window.alert("编辑成功!");
-				window.location="admin_manage.php";
-			},
-			error:function(){
-				window.alert("error");
-			}
-		});
-	}else{
-		$("#account").val("");
-		$("#password").val("");
-		$("#name").val("");
-		window.alert("请确认自己的信息");
+
+		password = myEncryption(password);
+//console.log(password);
+//前端加密备用
+$.ajax({
+	url:"../ajax_php/addUser.php",
+	type:"post",
+	data:JSON.stringify({account:account,password:password,name:name,class:Class}),
+	contentType:false,
+	processData:false,
+	success:function(data){
+		console.log(data);
+		window.alert("编辑成功!");
+		window.location="admin_manage.php";
+	},
+	error:function(){
+		window.alert("error");
 	}
+});
+}else{
+	$("#account").val("");
+	$("#password").val("");
+	$("#name").val("");
+	window.alert("请确认自己的信息");
+}
 }

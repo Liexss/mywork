@@ -23,7 +23,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
-    <title>杭师大奖助管理系统</title>
+    <title>人员管理</title>
 
     <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css">
@@ -38,7 +38,6 @@
         	<p>管理人员基本信息; 操作包含编辑、删除; 切换页面以显示相关信息。</p>
       	</div>
     </div>
-
 	<div class="container">
 		<div class="row" id="homepage" >
 			<table class="table table-bordered" id="homepagetable">
@@ -52,17 +51,14 @@
 							$res=mysqli_query($db,$select);
 							$beau=$res->fetch_row();
 							$class=$beau[1];
-
 							$select="select * from dept where dept_id=".$beau[2];
 							$res=mysqli_query($db,$select);
 							$beau=$res->fetch_row();
 							$dept_name=$beau[1];
-
 							$select="select * from college where college_id=".$beau[2];
 							$res=mysqli_query($db,$select);
 							$beau=$res->fetch_row();
 							$college=$beau[1];
-
 	    					echo"<tr>";
 	    					echo"<th>{$row[0]}</th>";
 	    					echo"<th>{$row[4]}</th>";
@@ -83,12 +79,10 @@
 	                        echo"<span class='input-group-addon'>人员编号</span>";
 	                        echo"<input id='Username{$row[0]}' type='text' class='form-control' value='{$row[0]}' disabled='disabled' aria-describedby='basic-addon1'>";
 	                        echo"</div>";
-
 	                        echo"<div class='input-group inputone'>";
 	                        echo"<span class='input-group-addon'>姓名(必填)</span>";
 	                        echo"<input id='name{$row[0]}' type='text' class='form-control' value='{$row[4]}' aria-describedby='basic-addon1'>";
 	                        echo"</div>";
-
 	                        echo"<div class='input-group inputone'>";
 	                        echo"<span class='input-group-addon'>班级(必填)</span>";
 	                        echo"<select class='form-control' id='class{$row[0]}'>";
@@ -99,7 +93,6 @@
 	                            $rsl = mysqli_query($db,$sel);
 	                            $Attr=$rsl->fetch_row();
 	                            $dep=$Attr[1];
-
 	                            $sel="select * from college where college_id =".$Attr[2];
 	                            $rsl = mysqli_query($db,$sel);
 	                            $Attr=$rsl->fetch_row();

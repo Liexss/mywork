@@ -1,33 +1,33 @@
 <?php session_start(); 
-    if(!isset($_SESSION['type'])||!isset($_SESSION['enter_id'])){
-        header('location:exit.php');
-        exit(); 
-    }
-  
-    include("../ajax_php/connect.php");
-    include("judgeid.php");
-  
-    if($_SESSION['type']==1){
-        @header("http/1.1 404 not found"); 
-        @header("status: 404 not found"); 
-        header('location:Error404.php');
-        exit(); 
-    }
-  
+if(!isset($_SESSION['type'])||!isset($_SESSION['enter_id'])){
+    header('location:exit.php');
+    exit(); 
+}
 
-    if(!isset($_SESSION['college_id'])){
-        $sql="select * from college";
-        $res = mysqli_query($db,$sql);
-        $row=$res->fetch_array();
-        $_SESSION['college_id']=$row[0];
-    }
+include("../ajax_php/connect.php");
+include("judgeid.php");
 
-    if(!isset($_SESSION['dept_id'])){
-        $sql="select * from dept";
-        $res = mysqli_query($db,$sql);
-        $row=$res->fetch_array();
-        $_SESSION['dept_id']=$row[0];
-    }
+if($_SESSION['type']==1){
+    @header("http/1.1 404 not found"); 
+    @header("status: 404 not found"); 
+    header('location:Error404.php');
+    exit(); 
+}
+
+
+if(!isset($_SESSION['college_id'])){
+    $sql="select * from college";
+    $res = mysqli_query($db,$sql);
+    $row=$res->fetch_array();
+    $_SESSION['college_id']=$row[0];
+}
+
+if(!isset($_SESSION['dept_id'])){
+    $sql="select * from dept";
+    $res = mysqli_query($db,$sql);
+    $row=$res->fetch_array();
+    $_SESSION['dept_id']=$row[0];
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -36,8 +36,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>杭师大奖助管理系统</title>
-    
+    <title>人员添加</title>
+
     <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css">
 
@@ -89,7 +89,7 @@
             <p>填写人员基本信息; 上传并保留头像; 添加相关人员信息。</p>
         </div>
     </div>
-  
+
     <div id="mainber" class="container">
         <div id="lefter">
             <div id="accountInput" class="input-group">
@@ -112,21 +112,21 @@
                 <select class="form-control" id="college" onchange="changeCollege()">
                     <?php
 
-                        $sql="select * from college where college_id=".$_SESSION['college_id'];
-                        $res = mysqli_query($db,$sql);
-                        $attr=$res->fetch_array();
-                        $name=$attr[1];
+                    $sql="select * from college where college_id=".$_SESSION['college_id'];
+                    $res = mysqli_query($db,$sql);
+                    $attr=$res->fetch_array();
+                    $name=$attr[1];
 
-                        $sql="select * from college";
-                        $res = mysqli_query($db,$sql);
+                    $sql="select * from college";
+                    $res = mysqli_query($db,$sql);
 
 
-                        echo"<option value='".$_SESSION['college_id']."'>".$name."</option>";
-                        while ($row=$res->fetch_array()) {
-                            if($row['college_id']==$_SESSION['college_id'])
-                                continue;
-                            echo"<option value='".$row['college_id']."'>".$row['college_name']."</option>";
-                        }
+                    echo"<option value='".$_SESSION['college_id']."'>".$name."</option>";
+                    while ($row=$res->fetch_array()) {
+                        if($row['college_id']==$_SESSION['college_id'])
+                            continue;
+                        echo"<option value='".$row['college_id']."'>".$row['college_name']."</option>";
+                    }
                     ?>
                 </select>
             </div>
@@ -135,20 +135,20 @@
                 <span class="input-group-addon">系别<span id="deptSpan"></span></span>
                 <select class="form-control" id="dept" onchange="changeDept()">
                     <?php
-                        $sql="select * from dept where dept_id=".$_SESSION['dept_id'];
-                        $res = mysqli_query($db,$sql);
-                        $attr=$res->fetch_array();
-                        $name=$attr[1];
+                    $sql="select * from dept where dept_id=".$_SESSION['dept_id'];
+                    $res = mysqli_query($db,$sql);
+                    $attr=$res->fetch_array();
+                    $name=$attr[1];
 
-                        $sql="select * from dept where college_id=".$_SESSION['college_id'];
-                        $res = mysqli_query($db,$sql);
+                    $sql="select * from dept where college_id=".$_SESSION['college_id'];
+                    $res = mysqli_query($db,$sql);
 
-                        echo"<option value='".$_SESSION['dept_id']."'>".$name."</option>";
-                        while ($row=$res->fetch_array()) {
-                            if($row['dept_id']==$_SESSION['dept_id'])
-                                continue;
-                            echo"<option value='".$row['dept_id']."'>".$row['dept_name']."</option>";
-                        }
+                    echo"<option value='".$_SESSION['dept_id']."'>".$name."</option>";
+                    while ($row=$res->fetch_array()) {
+                        if($row['dept_id']==$_SESSION['dept_id'])
+                            continue;
+                        echo"<option value='".$row['dept_id']."'>".$row['dept_name']."</option>";
+                    }
                     ?>
                 </select>
             </div>
@@ -157,11 +157,11 @@
                 <span class="input-group-addon">班级<span id="classSpan"></span></span>
                 <select class="form-control" id="Class">
                     <?php 
-                        $sql="select * from class where dept_id=".$_SESSION['dept_id'];
-                        $res = mysqli_query($db,$sql);
-                        while ($row=$res->fetch_array()) {
-                            echo"<option value='".$row['class_id']."'>".$row['class_name']."</option>";
-                        }
+                    $sql="select * from class where dept_id=".$_SESSION['dept_id'];
+                    $res = mysqli_query($db,$sql);
+                    while ($row=$res->fetch_array()) {
+                        echo"<option value='".$row['class_id']."'>".$row['class_name']."</option>";
+                    }
                     ?>
                 </select>
             </div>

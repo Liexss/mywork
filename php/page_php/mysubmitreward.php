@@ -1,12 +1,12 @@
 <?php
-    session_start(); 
-    if(!isset($_SESSION['type'])||!isset($_SESSION['enter_id'])){
-        header('location:exit.php');
-        exit();
-    }
+session_start(); 
+if(!isset($_SESSION['type'])||!isset($_SESSION['enter_id'])){
+    header('location:exit.php');
+    exit();
+}
 
-    include("../ajax_php/connect.php");
-    include("judgeid.php");
+include("../ajax_php/connect.php");
+include("judgeid.php");
 ?>
 <!DOCTYPE html>
 <html  lang="zh-CN">
@@ -14,7 +14,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>杭师大奖助管理系统</title>
+    <title>我的申请</title>
 
     <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css">
@@ -49,24 +49,24 @@
                         <th></th>
                     </tr>
                 </thead>
-              
+
                 <tbody>
-                <?php
-                
+                    <?php
+
                     $sql="select a.prize_name,a.id,b.id,b.submit_time,b.state,b.end_time from reward a,reward_apply b,teacher c where a.id=b.prize_id and a.teacher_id=c.teacher_id and b.student_id=".$_SESSION['enter_id'];
                     $res = $db->query($sql);
                     while ($row = $res->fetch_array() ) {
                         echo "<tr>";
                         echo "<td>" . $row[2] . "</td>";
                         echo "<td>" . $row[0] . "</td>";
-                        // echo "<td>" . $row[1] . "</td>";
+// echo "<td>" . $row[1] . "</td>";
                         echo "<td>" . $row[3] . "</td>";
                         echo "<td style='"."padding-left:20px;"."'>" . $row[4] . "</td>";
-                        //将申请编号传入url
+//将申请编号传入url
                         echo "<td><a target='_blank' href='submitsituation.php?id=".$row[2]."'><span class='glyphicon glyphicon-search' aria-hidden='true'></span></a></td>";
                         echo "</tr>";
                     }
-                ?>
+                    ?>
                 </tbody>
             </table>
         </div>

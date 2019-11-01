@@ -1,10 +1,10 @@
 
 
 <?php
-	function MyDecrypt($textIn)
-	{
+function MyDecrypt($textIn)
+{
 
-$private_key = "-----BEGIN PRIVATE KEY-----
+	$private_key = "-----BEGIN PRIVATE KEY-----
 MIICdwIBADANBgkqhkiG9w0BAQEFAASCAmEwggJdAgEAAoGBAMlOIrJxW0RLYgrD
 sOficnt/LasoWwh9jl9lhFhHfZbZUXFbQ7idwLaDYo1IDfsXNFCRrtD1f8qbutCH
 QB+huJjkP9Vkd2dN7JQL2/EzodS/Aph6Qwt9dIhoHli5QEPVHys2tGUtvCiWs3UD
@@ -20,12 +20,12 @@ Hy2e1O7dDQ96M8GTz6HCZWDIhj81OQJAWjx6UkaLwnLGSM4kN+dVhq7JMyugyS+J
 TMnzjBKjuNaXohF2F3j54dSeEnvnUjXfLfyl8qL+9AwZaPeTZ320eWeixuSau26Z
 gl5DBWDZPTcL3OE=
 -----END PRIVATE KEY-----";
-		$hex_encrypt_data = base64_decode($textIn); //十六进制数据
-		
-		openssl_private_decrypt($hex_encrypt_data, $textIn, $private_key, OPENSSL_PKCS1_PADDING);
-		return $textIn;
+$hex_encrypt_data = base64_decode($textIn); //十六进制数据
 
-	}
+openssl_private_decrypt($hex_encrypt_data, $textIn, $private_key, OPENSSL_PKCS1_PADDING);
+return $textIn;
+
+}
 
 
 ?>
