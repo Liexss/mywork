@@ -1,19 +1,19 @@
 <?php
-    session_start(); 
-    if(!isset($_SESSION['type'])||!isset($_SESSION['enter_id'])){
-        header('location:exit.php');
-        exit(); 
-    }
-  
-    include("../ajax_php/connect.php");
-    include("judgeid.php");
-  
-    if($_SESSION['type']==1){
-        @header("http/1.1 404 not found"); 
-        @header("status: 404 not found"); 
-        header('location:Error404.php');
-        exit(); 
-    }
+session_start(); 
+if(!isset($_SESSION['type'])||!isset($_SESSION['enter_id'])){
+    header('location:exit.php');
+    exit(); 
+}
+
+include("../ajax_php/connect.php");
+include("judgeid.php");
+
+if($_SESSION['type']==1){
+    @header("http/1.1 404 not found"); 
+    @header("status: 404 not found"); 
+    header('location:Error404.php');
+    exit(); 
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -37,7 +37,7 @@
             <p>选择查询字段并填写信息; 获取相关人员信息; 导出信息表格。</p>
         </div>
     </div>
-    
+
     <div id="mainber" class="container">
         <div id="searchNav" class="page-header">
             <h4 style="display: inline-block;">查询 <small>根据字段</small></h4>
@@ -48,7 +48,7 @@
                 <option value="4">专业</option>
                 <option value="5">班级</option>
             </select>
-        
+
             <input id="search" class="form-control" type="text" name="Search">
             <button id="searchBtn" type="button" class="btn btn-primary" onclick="queryUser()">查询</button>
         </div>

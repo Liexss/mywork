@@ -1,14 +1,14 @@
 <?php 
-    session_start();
+session_start();
 
-    if(!isset($_SESSION['type'])||!isset($_SESSION['enter_id'])){
-        header('location:exit.php');
-        exit();
-    }
+if(!isset($_SESSION['type'])||!isset($_SESSION['enter_id'])){
+    header('location:exit.php');
+    exit();
+}
 
-    include("../ajax_php/connect.php");
-    include("judgeid.php");
-  
+include("../ajax_php/connect.php");
+include("judgeid.php");
+
 ?>
 
 <!DOCTYPE html>
@@ -27,99 +27,99 @@
 </head>
 <body>
     <?php include("nav.php")?>
-  
+
     <div id='catalog' class="container">
         <ul class="nav nav-tabs" style="margin-top: 30px;">
-        <li role="presentation" class="active"><a href="personal.php">基本资料</a></li>
-        <li role="presentation"><a href="mypassword.php">密码设置</a></li>
+            <li role="presentation" class="active"><a href="personal.php">基本资料</a></li>
+            <li role="presentation"><a href="mypassword.php">密码设置</a></li>
         </ul>
     </div>
-  
+
     <div id='mainber' class="container">
         <h4 style="font-weight: bold; display: inline-block;">个人信息</h4>
-        
+
         <table id='Info' class="table table-striped">
-        <?php 
-        if($_SESSION['type']==1){
-            $select = "select * from student where student_id=".$_SESSION['enter_id'];
+            <?php 
+            if($_SESSION['type']==1){
+                $select = "select * from student where student_id=".$_SESSION['enter_id'];
 
-            $result = mysqli_query($db,$select);
-            $attr=$result->fetch_row();
+                $result = mysqli_query($db,$select);
+                $attr=$result->fetch_row();
 
-            $account=$attr[0];
-            $password=$attr[1];
-            $name=$attr[4];
+                $account=$attr[0];
+                $password=$attr[1];
+                $name=$attr[4];
 
-            $sql="select * from class where class_id=".$attr[2];
-            $res = mysqli_query($db,$sql);
-            $Attr=$res->fetch_row();
-            $class=$Attr[1];
-            
+                $sql="select * from class where class_id=".$attr[2];
+                $res = mysqli_query($db,$sql);
+                $Attr=$res->fetch_row();
+                $class=$Attr[1];
 
-            $sql2="select * from dept where dept_id=".$Attr[2];
-            $res2 = mysqli_query($db,$sql2);
-            $Attr2=$res2->fetch_row();
-            $dept=$Attr2[1];
 
-            $sql3="select * from college where college_id=".$Attr2[2];
-            $res3 = mysqli_query($db,$sql3);
-            $Attr3=$res3->fetch_row();
-            $college=$Attr3[1];
+                $sql2="select * from dept where dept_id=".$Attr[2];
+                $res2 = mysqli_query($db,$sql2);
+                $Attr2=$res2->fetch_row();
+                $dept=$Attr2[1];
 
-        }else{
-            $select = "select * from teacher where teacher_id=".$_SESSION['enter_id'];
+                $sql3="select * from college where college_id=".$Attr2[2];
+                $res3 = mysqli_query($db,$sql3);
+                $Attr3=$res3->fetch_row();
+                $college=$Attr3[1];
 
-            $result = mysqli_query($db,$select);
-            $attr=$result->fetch_row();
+            }else{
+                $select = "select * from teacher where teacher_id=".$_SESSION['enter_id'];
 
-            $account=$attr[0];
-            $password=$attr[1];
-            $name=$attr[2];
+                $result = mysqli_query($db,$select);
+                $attr=$result->fetch_row();
 
-            $sql="select * from college where college_id=".$attr[3];
-            $res = mysqli_query($db,$sql);
-            $Attr=$res->fetch_row();
-            $college=$Attr[1];
-        }
+                $account=$attr[0];
+                $password=$attr[1];
+                $name=$attr[2];
 
-        if($_SESSION['type']==1){
-            echo "<tr>";
-            echo "<td>账号</td>";
-            echo "<td>$account</td>";
-            echo "</tr>";
-            echo "<tr>";
-            echo "<td>真实姓名</td>";
-            echo "<td>$name</td>";
-            echo "</tr>";
-            echo "<tr>";
-            echo "<td>班级</td>";
-            echo "<td>$class</td>";
-            echo "</tr>";
-            echo "<tr>";
-            echo "<td>学院</td>";
-            echo "<td>$college</td>";
-            echo "</tr>";
-            echo "<tr>";
-            echo "<td>专业</td>";
-            echo "<td>$dept</td>";
-            echo "</tr>";
-        }else{
-            echo "<tr>";
-            echo "<td>账号</td>";
-            echo "<td>$account</td>";
-            echo "</tr>";
-            echo "<tr>";
-            echo "<td>真实姓名</td>";
-            echo "<td>$name</td>";
-            echo "</tr>";
-            echo "<tr>";
-            echo "<td>学院</td>";
-            echo "<td>$college</td>";
-            echo "</tr>";
-        }
-        ?>
-        
-      </table>
+                $sql="select * from college where college_id=".$attr[3];
+                $res = mysqli_query($db,$sql);
+                $Attr=$res->fetch_row();
+                $college=$Attr[1];
+            }
+
+            if($_SESSION['type']==1){
+                echo "<tr>";
+                echo "<td>账号</td>";
+                echo "<td>$account</td>";
+                echo "</tr>";
+                echo "<tr>";
+                echo "<td>真实姓名</td>";
+                echo "<td>$name</td>";
+                echo "</tr>";
+                echo "<tr>";
+                echo "<td>班级</td>";
+                echo "<td>$class</td>";
+                echo "</tr>";
+                echo "<tr>";
+                echo "<td>学院</td>";
+                echo "<td>$college</td>";
+                echo "</tr>";
+                echo "<tr>";
+                echo "<td>专业</td>";
+                echo "<td>$dept</td>";
+                echo "</tr>";
+            }else{
+                echo "<tr>";
+                echo "<td>账号</td>";
+                echo "<td>$account</td>";
+                echo "</tr>";
+                echo "<tr>";
+                echo "<td>真实姓名</td>";
+                echo "<td>$name</td>";
+                echo "</tr>";
+                echo "<tr>";
+                echo "<td>学院</td>";
+                echo "<td>$college</td>";
+                echo "</tr>";
+            }
+            ?>
+
+        </table>
 
     </div>
 

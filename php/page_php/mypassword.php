@@ -1,23 +1,23 @@
 <?php 
-    session_start();
-    if(!isset($_SESSION['type'])||!isset($_SESSION['enter_id'])){
-        header('location:exit.php');
-        exit(); 
-    }
+session_start();
+if(!isset($_SESSION['type'])||!isset($_SESSION['enter_id'])){
+    header('location:exit.php');
+    exit(); 
+}
 
-    include("../ajax_php/connect.php");
-    include("judgeid.php");
+include("../ajax_php/connect.php");
+include("judgeid.php");
 
-    $select="";
-    if($_SESSION['type']==1)
-        $select = "select * from student where student_id=".$_SESSION['enter_id'];
-    else
-        $select = "select * from teacher where teacher_id=".$_SESSION['enter_id'];
+$select="";
+if($_SESSION['type']==1)
+    $select = "select * from student where student_id=".$_SESSION['enter_id'];
+else
+    $select = "select * from teacher where teacher_id=".$_SESSION['enter_id'];
 
-    $result = mysqli_query($db,$select);
-    $attr=$result->fetch_row();
+$result = mysqli_query($db,$select);
+$attr=$result->fetch_row();
 
-    $pass=$attr[1];
+$pass=$attr[1];
 ?>
 
 <!DOCTYPE html>
@@ -64,7 +64,7 @@
         <button type="button" class="btn btn-success" onclick="changePassword(<?php echo "'$pass'"; ?>)" style="margin-bottom: 10px;">更改</button>
     </div>
 
-      <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
-      <script src="../../js/bootstrap.min.js"></script>
-      <script src="../../js/mypassword.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+    <script src="../../js/bootstrap.min.js"></script>
+    <script src="../../js/mypassword.js"></script>
 </body>

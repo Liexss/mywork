@@ -48,5 +48,5 @@
     </div>
     <input type="text" data-edit="inserttext" id="voiceBtn" x-webkit-speech="">
 </div>
- 
+
 <div id="editor" contenteditable="true"></div>

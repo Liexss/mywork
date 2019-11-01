@@ -1,17 +1,17 @@
 <?php
 session_start();
 if(!isset($_SESSION['type'])||!isset($_SESSION['enter_id'])){
-    header('location:exit.php');
-    exit();  
+  header('location:exit.php');
+  exit();  
 }
 include("../ajax_php/connect.php");
 include("judgeid.php");
 if($_SESSION['type']==1){
-    @header("http/1.1 404 not found"); 
-    @header("status: 404 not found"); 
-    header('location:Error404.php');
-    exit(); 
-  }
+  @header("http/1.1 404 not found"); 
+  @header("status: 404 not found"); 
+  header('location:Error404.php');
+  exit(); 
+}
 $select = "select * from student where student_id=".$_SESSION['enter_id'];
 
 $result = mysqli_query($db,$select);
@@ -29,23 +29,23 @@ $class=$attr[3];
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="../../css/bootstrap.min.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css">
+  <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css">
 
-    <link rel="stylesheet" type="text/css" href="../../css/admin_edit.css">
+  <link rel="stylesheet" type="text/css" href="../../css/admin_edit.css">
 </head>
 <body>
   <?php include("nav.php")?>
   <div class="jumbotron">
-      <div class="container">
-        <h2>人员信息编辑</h2>
-        <p>查看已有的人员信息; 编辑人员基本信息。</p>
-      </div>
+    <div class="container">
+      <h2>人员信息编辑</h2>
+      <p>查看已有的人员信息; 编辑人员基本信息。</p>
+    </div>
   </div>
   <div id="mainber" class="container">
     <div id="lefter">

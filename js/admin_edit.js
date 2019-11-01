@@ -100,13 +100,13 @@ function editUser(){
 			contentType:false,
 			processData:false,
 			success:function(data){
-				// console.log(data);
-				window.alert("编辑成功!");
-				window.location="admin_manage.php";
-			},
-			error:function(){
-				window.alert("error");
-			}
-		});
+// console.log(data);
+window.alert("编辑成功!");
+window.location="admin_manage.php";
+},
+error:function(){
+	window.alert("error");
+}
+});
 	}
 }

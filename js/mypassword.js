@@ -1,5 +1,5 @@
 $(document).ready(function() {
-	 $("#personal").addClass('active');
+	$("#personal").addClass('active');
 });
 
 function changePassword($password){
@@ -29,14 +29,14 @@ function changePassword($password){
 			contentType:false,
 			processData:false,
 			success:function(data){
-				// console.log(data);
-				window.alert("编辑成功!");
-				window.location="personal.php";
-			},
-			error:function(){
-				window.alert("error");
-			}
-		});
+// console.log(data);
+window.alert("编辑成功!");
+window.location="personal.php";
+},
+error:function(){
+	window.alert("error");
+}
+});
 	}
 
 }
