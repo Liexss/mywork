@@ -124,6 +124,9 @@ function addUser(){
 			}
 		});
 	}else{
+		$("#account").val("");
+		$("#password").val("");
+		$("#name").val("");
 		window.alert("请确认自己的信息");
 	}
 }

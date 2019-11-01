@@ -23,15 +23,16 @@ function queryUser(){
 				}
 				if(flag==false){
 					window.alert("寻找不到相关信息");
-					$("#queTable").html("<tr><td>学号</td>"+"<td>姓名</td>"+"<td>学院</td>"+"<td>专业</td>"+"<td>班级</td></tr>");
+					$("#queTable").html("<tr><td>身份</td>"+"<td>学号</td>"+"<td>姓名</td>"+"<td>学院</td>"+"<td>专业</td>"+"<td>班级</td></tr>");
 				}
 				else
 				{	
 					$("#queTable").empty();
-					$("#queTable").html("<tr><td>学号</td>"+"<td>姓名</td>"+"<td>学院</td>"+"<td>专业</td>"+"<td>班级</td></tr>");
+					$("#queTable").html("<tr><td>身份</td>"+"<td>学号</td>"+"<td>姓名</td>"+"<td>学院</td>"+"<td>专业</td>"+"<td>班级</td></tr>");
 					$(data).each(function(i,values){
 						$("#queTable").append(
-							"<tr><td>"+values.student_id+"</td>"
+							"<tr><td>"+values.work+"</td>"
+							+"<td>"+values.student_id+"</td>"
 							+"<td>"+values.name+"</td>"
 							+"<td>"+values.college+"</td>"
 							+"<td>"+values.dept_name+"</td>"

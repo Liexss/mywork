@@ -94,17 +94,17 @@
         <div id="lefter">
             <div id="accountInput" class="input-group">
                 <span class="input-group-addon">学号<span id="accountSpan"></span></span>
-                <input id="account" type="text" class="form-control">
+                <input id="account" type="text" class="form-control" placeholder="只包含数字和字母 长度6-16">
             </div>
 
             <div id="passwordInput" class="input-group">
                 <span class="input-group-addon">密码<span id="passwordSpan"></span></span>
-                <input id="password" type="password" class="form-control">
+                <input id="password" type="password" class="form-control" placeholder="只包含数字 长度3-10">
             </div>
 
             <div id="nameInput" class="input-group">
                 <span class="input-group-addon">姓名<span id="nameSpan"></span></span>
-                <input id="name" type="text" class="form-control">
+                <input id="name" type="text" class="form-control" placeholder="非空">
             </div>
 
             <div id="collegeInput" class="input-group">

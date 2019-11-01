@@ -42,7 +42,30 @@ select dept_id from dept where college_id in(select college_id from college wher
 		$beau=$res->fetch_row();
 		$college=$beau[1];
 
-	    $array[$inum]=array("student_id"=>$row['student_id'],"name"=>$row['name'],"class"=>$class,"dept_name"=>$dept_name,"college"=>$college);
+	    $array[$inum]=array("work"=>"student","student_id"=>$row['student_id'],"name"=>$row['name'],"class"=>$class,"dept_name"=>$dept_name,"college"=>$college);
+	    
+	    $inum++;
+	}
+
+	$select="";
+	if($option==1){
+		$select = "select * from teacher where teacher_id like '%$search%' and is_post=1";
+	}else if($option==2){
+		$select = "select * from teacher where name like '%$search%' and is_post=1";
+	}else if($option==3){
+		$select="select * from teacher where college_id in(select college_id from college where college_name like '%$search%')and is_post=1;";
+	}
+
+	$result = mysqli_query($db,$select);
+
+	while ($row=$result->fetch_assoc()){
+
+		$sql="select * from college where college_id=".$row['college_id'];
+		$res=mysqli_query($db,$sql);
+		$beau=$res->fetch_row();
+		$college=$beau[1];
+
+	    $array[$inum]=array("work"=>"teacher","student_id"=>$row['teacher_id'],"name"=>$row['name'],"class"=>"*","dept_name"=>"*","college"=>$college);
 	    
 	    $inum++;
 	}

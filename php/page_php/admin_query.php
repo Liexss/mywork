@@ -56,6 +56,7 @@
         <form>
             <table id="queTable" class="table table-striped">
                 <tr>
+                    <td>身份</td>
                     <td>学号</td>
                     <td>姓名</td>
                     <td>学院</td>
