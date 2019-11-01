@@ -85,7 +85,7 @@
 
 	                        echo"<div class='input-group inputone'>";
 	                        echo"<span class='input-group-addon'>姓名(必填)</span>";
-	                        echo"<input id='name{$row[0]}' type='text' class='form-control' value='{$row[6]}' aria-describedby='basic-addon1'>";
+	                        echo"<input id='name{$row[0]}' type='text' class='form-control' value='{$row[4]}' aria-describedby='basic-addon1'>";
 	                        echo"</div>";
 
 	                        echo"<div class='input-group inputone'>";
