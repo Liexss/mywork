@@ -17,7 +17,7 @@
     $result = mysqli_query($db,$select);
     $attr=$result->fetch_row();
 
-    $pass=$attr[1];
+    $pass=$attr[0];
 ?>
 
 <!DOCTYPE html>
@@ -53,7 +53,7 @@
 
         <div class="form-group">
             <label for="newPasswordLabel">New password</label>
-            <input type="password" class="form-control" id="newPasswordInput" placeholder="请输入新密码" autocomplete="off">
+            <input type="password" class="form-control" id="newPasswordInput" placeholder="请输入新密码,长度3-10" autocomplete="off">
         </div>
 
         <div class="form-group">
@@ -66,5 +66,7 @@
 
       <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
       <script src="../../js/bootstrap.min.js"></script>
+      <script src="../../jsencrypt-master/bin/jsencrypt.min.js"></script>
+    <script src="../../js/My-Encryption.js" type="text/javascript" charset="utf-8"></script>
       <script src="../../js/mypassword.js"></script>
 </body>

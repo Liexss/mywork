@@ -99,7 +99,7 @@
 
             <div id="passwordInput" class="input-group">
                 <span class="input-group-addon">密码<span id="passwordSpan"></span></span>
-                <input id="password" type="password" class="form-control" placeholder="只包含数字 长度3-10">
+                <input id="password" type="password" class="form-control" placeholder="长度3-10">
             </div>
 
             <div id="nameInput" class="input-group">

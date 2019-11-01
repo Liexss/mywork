@@ -24,6 +24,7 @@ $(".delete").click(function(){
 $(".editque").click(function(){
     event.preventDefault();
     $str=$(this).attr("id");
+    $password=myEncryption($("#password"+$str).val());
 
     var reg2 = new RegExp(/^[0-9]*$/);
     if( $("#name"+$str).val()==""){
@@ -36,10 +37,10 @@ $(".editque").click(function(){
 	    $data = {
 	              'student_id':$str,
 	              'name' : $("#name"+$str).val(),
-	              'password' : $("#password"+$str).val(),
+	              'password' : $password,
 	              'class' : $("#class"+$str).val()
 	        }
-	    console.log($data);
+	    //console.log($data);
 	    $.ajax({
 	      url: '../ajax_php/changepeople_db.php',
 	      type : 'POST',
@@ -49,9 +50,12 @@ $(".editque").click(function(){
 	        alert("修改成功"); 
 	        location.reload();
 	      },
-	      error:function() {
-	        console.log("ERROR");
-	      }
+	      error:function(data){
+                var json =  JSON.stringify(data);
+
+                console.log(json);
+                //window.alert("Error");
+            }
 	    });
 	}
 });
