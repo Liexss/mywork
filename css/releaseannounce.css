@@ -30,10 +30,6 @@ footer p{
     text-align: center;
     margin:0;
 }
-
-@media (max-width: 996px) { 
-    .w-e-toolbar{
-        flex-wrap:wrap;
-    }
+.w-e-toolbar{
+  flex-wrap:wrap;
 }
-
