@@ -4,7 +4,6 @@ if(!isset($_SESSION['type'])||!isset($_SESSION['enter_id'])){
     header('location:exit.php');
     exit(); 
 }
-
 include("../ajax_php/connect.php");
 include("judgeid.php");
 // $id=$_GET['id'];
@@ -84,14 +83,12 @@ if(!isset($_GET['id'])||!is_numeric($_GET['id'])){//判断所需要的参数是�
 <?php
 $id=$_GET['id'];
 $sql="select b.theme,a.name,b.content,b.time,b.announce_id,b.enclosure from teacher as a right join announce as b on a.teacher_id=b.user_id where b.announce_id=".$id;
-
 $result=mysqli_query($db,$sql);
 $row=mysqli_fetch_array($result);
 for($i=0;$i<=5;$i++){
     $row[$i]=$db->real_escape_string($row[$i]);
 }
 echo"<script>";
-
 if($row[5]==""){
     echo"$('#conensol').hide();";
 }
