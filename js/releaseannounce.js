@@ -5,6 +5,7 @@ $(document).ready(function() {
   	var editor = new E('#editor');
   	// 或者 var editor = new E( document.getElementById('editor') )
   	editor.customConfig.uploadImgShowBase64 = true;
+  	editor.customConfig.zIndex = 100;
   	editor.create();
     var urll="";
     $("#annconbtn").click(function(){
