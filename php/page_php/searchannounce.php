@@ -1,4 +1,4 @@
-?php
+<?php
 session_start();
 if(!isset($_SESSION['type'])||!isset($_SESSION['enter_id'])){
   header('location:exit.php');
@@ -16,6 +16,7 @@ while ($row = $res->fetch_array() ) {
   $total = $row[0];
 }
 $totnumpage= ($total+12)/13;
+
 if((!isset($_GET['content']))||$content==""||(!isset($_GET['pagenum']))||!is_numeric($_GET['pagenum'])||$totnumpage<$pagenum||$pagenum<=0){//判断所需要的参数是否存在，isset用来检测变量是否设置，返回true or false
   header('location:index.php?pagenum=1');
   exit();  
