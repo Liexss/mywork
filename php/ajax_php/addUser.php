@@ -6,7 +6,6 @@
 	include_once("connect.php");
 
 	$name=$obj->name;
-	$class=$obj->class;
 	$password=$obj->password;
 
 $private_key = "-----BEGIN PRIVATE KEY-----

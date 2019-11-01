@@ -14,6 +14,20 @@
         exit(); 
     }
   
+
+    if(!isset($_SESSION['college_id'])){
+        $sql="select * from college";
+        $res = mysqli_query($db,$sql);
+        $row=$res->fetch_array();
+        $_SESSION['college_id']=$row[0];
+    }
+
+    if(!isset($_SESSION['dept_id'])){
+        $sql="select * from dept";
+        $res = mysqli_query($db,$sql);
+        $row=$res->fetch_array();
+        $_SESSION['dept_id']=$row[0];
+    }
 ?>
 <!DOCTYPE html>
 <html>
@@ -21,11 +35,51 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>杭师大奖助管理系统</title>
     
     <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css">
 
     <link rel="stylesheet" type="text/css" href="../../css/admin_add.css">
+
+    <script type="text/javascript">
+        function changeCollege(){
+            var college=$("#college").val();
+
+            $.ajax({
+                url:"../ajax_php/changeCollege.php",
+                type:"post",
+                data:JSON.stringify({college:college}),
+                contentType:false,
+                processData:false,
+                success:function(data){
+                    window.location="admin_add.php";
+                },
+                error:function(){
+                    window.alert("error");
+                }
+            });
+        }     
+
+        function changeDept(){
+            var dept=$("#dept").val();
+
+            $.ajax({
+                url:"../ajax_php/changeDept.php",
+                type:"post",
+                data:JSON.stringify({dept:dept}),
+                contentType:false,
+                processData:false,
+                success:function(data){
+                    window.location="admin_add.php";
+                },
+                error:function(){
+                    window.alert("error");
+                }
+            });
+        }    
+    </script>
 </head>
 <body>
     <?php include("nav.php")?>
@@ -53,23 +107,60 @@
                 <input id="name" type="text" class="form-control">
             </div>
 
+            <div id="collegeInput" class="input-group">
+                <span class="input-group-addon">学院<span id="collegeSpan"></span></span>
+                <select class="form-control" id="college" onchange="changeCollege()">
+                    <?php
+
+                        $sql="select * from college where college_id=".$_SESSION['college_id'];
+                        $res = mysqli_query($db,$sql);
+                        $attr=$res->fetch_array();
+                        $name=$attr[1];
+
+                        $sql="select * from college";
+                        $res = mysqli_query($db,$sql);
+
+
+                        echo"<option value='".$_SESSION['college_id']."'>".$name."</option>";
+                        while ($row=$res->fetch_array()) {
+                            if($row['college_id']==$_SESSION['college_id'])
+                                continue;
+                            echo"<option value='".$row['college_id']."'>".$row['college_name']."</option>";
+                        }
+                    ?>
+                </select>
+            </div>
+
+            <div id="deptInput" class="input-group">
+                <span class="input-group-addon">系别<span id="deptSpan"></span></span>
+                <select class="form-control" id="dept" onchange="changeDept()">
+                    <?php
+                        $sql="select * from dept where dept_id=".$_SESSION['dept_id'];
+                        $res = mysqli_query($db,$sql);
+                        $attr=$res->fetch_array();
+                        $name=$attr[1];
+
+                        $sql="select * from dept where college_id=".$_SESSION['college_id'];
+                        $res = mysqli_query($db,$sql);
+
+                        echo"<option value='".$_SESSION['dept_id']."'>".$name."</option>";
+                        while ($row=$res->fetch_array()) {
+                            if($row['dept_id']==$_SESSION['dept_id'])
+                                continue;
+                            echo"<option value='".$row['dept_id']."'>".$row['dept_name']."</option>";
+                        }
+                    ?>
+                </select>
+            </div>
+
             <div id="classInput" class="input-group">
                 <span class="input-group-addon">班级<span id="classSpan"></span></span>
                 <select class="form-control" id="Class">
-                    <?php
-                        $sql="select * from class";
+                    <?php 
+                        $sql="select * from class where dept_id=".$_SESSION['dept_id'];
                         $res = mysqli_query($db,$sql);
-                        while ($row = $res->fetch_array() ) {
-                            $sel="select * from dept where dept_id =".$row[2];
-                            $rsl = mysqli_query($db,$sel);
-                            $attr=$rsl->fetch_row();
-                            $dept=$attr[1];
-
-                            $sel="select * from college where college_id =".$attr[2];
-                            $rsl = mysqli_query($db,$sel);
-                            $attr=$rsl->fetch_row();
-                            $college=$attr[1];
-                             echo"<option value='".$row['class_id']."'>".$college.$dept.$row['class_name']."</option>";
+                        while ($row=$res->fetch_array()) {
+                            echo"<option value='".$row['class_id']."'>".$row['class_name']."</option>";
                         }
                     ?>
                 </select>

@@ -16,11 +16,6 @@ body{
         margin-right: 2%;
     }
 
-	#righter{
-		margin-top: 10px;
-		width: 5%;
-	}
-
     #Img{
     	display: none;
     }
@@ -38,8 +33,7 @@ body{
 
 @media (max-width: 996px) { 
     #lefter{
-		width: 55%;
-		display: inline-block;
+		width: 100%;
 	}
 }
 
@@ -49,16 +43,6 @@ body{
 	margin-top: 20px;
 	margin-right: 35%;
 }
-
-@media (max-width: 996px) { 
-
-	#righter{
-		margin-top: 1%;
-		margin-right: 15%;
-		width: 5%;
-	}
-}
-
 
 #Img{
 	width: 100px;

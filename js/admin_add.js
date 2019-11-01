@@ -5,6 +5,8 @@ function addUser(){
 	var password=$("#password").val();
 	var name=$("#name").val();
 	var Class=$("#Class").val();
+	var dept=$("#dept").val();
+	var college=$("#college").val();
 
 	var reg = new RegExp(/^[a-zA-Z0-9]+$/u);
 	var flag=1;
@@ -54,19 +56,49 @@ function addUser(){
 		$("#nameSpan").addClass("glyphicon glyphicon-ok");
 	}
 
-	if(Class=="")
+	if(Class==null)
 	{
 		flag=0;
 		$("#classInput").removeClass("has-success has-feedback");
 		$("#classSpan").removeClass("glyphicon glyphicon-ok");
-		$("#classInput").addClass("has-warning has-feedback");
-		$("#classSpan").addClass("glyphicon glyphicon-warning-sign");
+		$("#classInput").addClass("has-error has-feedback");
+		$("#classSpan").addClass("glyphicon glyphicon-remove");
 	}else
 	{
-		$("#classInput").removeClass("has-warning has-feedback");
-		$("#classSpan").removeClass("glyphicon glyphicon-warning-sign");
+		$("#classInput").removeClass("has-error has-feedback");
+		$("#classSpan").removeClass("glyphicon glyphicon-remove");
 		$("#classInput").addClass("has-success has-feedback");
 		$("#classSpan").addClass("glyphicon glyphicon-ok");
+	}
+
+	if(dept==null)
+	{
+		flag=0;
+		$("#deptInput").removeClass("has-success has-feedback");
+		$("#deptSpan").removeClass("glyphicon glyphicon-ok");
+		$("#deptInput").addClass("has-error has-feedback");
+		$("#deptSpan").addClass("glyphicon glyphicon-remove");
+	}else
+	{
+		$("#deptInput").removeClass("has-error has-feedback");
+		$("#deptSpan").removeClass("glyphicon glyphicon-remove");
+		$("#deptInput").addClass("has-success has-feedback");
+		$("#deptSpan").addClass("glyphicon glyphicon-ok");
+	}
+
+	if(college==null)
+	{
+		flag=0;
+		$("#collegeInput").removeClass("has-success has-feedback");
+		$("#collegeSpan").removeClass("glyphicon glyphicon-ok");
+		$("#collegeInput").addClass("has-error has-feedback");
+		$("#collegeSpan").addClass("glyphicon glyphicon-remove");
+	}else
+	{
+		$("#collegeInput").removeClass("has-error has-feedback");
+		$("#collegeSpan").removeClass("glyphicon glyphicon-remove");
+		$("#collegeInput").addClass("has-success has-feedback");
+		$("#collegeSpan").addClass("glyphicon glyphicon-ok");
 	}
 
 	var choose=window.confirm("是否添加");
