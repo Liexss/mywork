@@ -6,7 +6,9 @@
 	include_once("connect.php");
 
 	$name=$obj->name;
+	$name=$db->real_escape_string($name);
 	$password=$obj->password;
+	$password=$db->real_escape_string($password);
 
 $private_key = "-----BEGIN PRIVATE KEY-----
 MIICdwIBADANBgkqhkiG9w0BAQEFAASCAmEwggJdAgEAAoGBAMlOIrJxW0RLYgrD
