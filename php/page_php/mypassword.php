@@ -45,7 +45,7 @@
         </div>
         <div class="form-group">
             <label for="newPasswordLabel">New password</label>
-            <input type="password" class="form-control" id="newPasswordInput" placeholder="请输入新密码,长度3-10" autocomplete="off">
+            <input type="password" class="form-control" id="newPasswordInput" placeholder="请输入新密码,长度6-10" autocomplete="off">
         </div>
         <div class="form-group">
             <label for="newPasswordAgainLabel">Re-enter password</label>
