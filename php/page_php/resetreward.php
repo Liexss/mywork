@@ -1,0 +1,180 @@
+<?php
+session_start();
+if(!isset($_SESSION['type'])||!isset($_SESSION['enter_id'])){
+    header('location:exit.php');
+    exit(); 
+}
+
+include("../ajax_php/connect.php");
+include("judgeid.php");
+if($_SESSION['type']==1){
+    @header("http/1.1 404 not found"); 
+    @header("status: 404 not found"); 
+    header('location:Error404.php');
+    exit(); 
+}
+if(!isset($_GET['id'])||!is_numeric($_GET['id'])){//判断所需要的参数是否存在，isset用来检测变量是否设置，返回true or false
+  header('location:rewardlist.php?pagenum=1');
+  exit(); 
+}
+$id=$_GET['id'];
+$sql="select * from reward where id='".$id."'";
+$result=mysqli_query($db,$sql);
+if(mysqli_num_rows($result) < 1){
+    @header("http/1.1 404 not found"); 
+    @header("status: 404 not found"); 
+    include("Error404.php");
+    exit(); 
+}
+$row1=mysqli_fetch_array($result);
+?>
+
+<!DOCTYPE html>
+<html  lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>修改奖学金</title>
+    <link rel="icon" href="../../image/timg.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+    <link href="../../css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css">
+
+    <link rel="stylesheet" type="text/css" href="../../css/addreward.css">
+
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+    <script src="../../js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../js/bootstrap-datetimepicker.js" charset="UTF-8"></script>
+
+    <script src="../../js/resetreward.js"></script>
+</head>
+<body>
+    <?php include("nav.php")?>
+
+    <div class="jumbotron">
+        <div class="container">
+            <h2>修改奖学金</h2>
+            <p>你可以在这个网站修改奖学金</p>
+        </div>
+    </div>
+
+    <div class="container" style="margin-top: 50px;" id="showaddreward">
+        <form id='form'>
+            <div class="row">
+                <div class ="col-md-6" style="padding-left: 2.5%;">
+                    <div class="input-group" style="margin-top: 30px; ">
+                        <span class="input-group-addon" id="basic-addon1">奖学金名称</span>
+                        <input type="text" class="form-control" name="name" id="name" value=<?php echo $row1[1]; ?> >
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class ="col-md-6" style="padding-left: 2.5%;">
+                    <div class="input-group" style="margin-top: 30px;">
+                        <span class="input-group-addon" id="basic-addon1">奖励金额</span>
+                        <input type="text" class="form-control" name="money" id="money" value=<?php echo $row1[2]; ?>>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class=" col-md-6" style="padding-left: 2.5%;margin-top: 30px;">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="basic-addon1">审批人</span>
+                        <select class="form-control" id="selteacher">
+                            <?php
+
+                            $sql="select * from teacher";
+                            $res = $db->query($sql);
+                            while ($row = $res->fetch_array() ) {
+                                echo"<option value='".$row['teacher_id']."' id='".$row['teacher_id']."'>"."教师编号:".$row['teacher_id']."--".$row['name']."</option>";
+                            }
+                            ?>
+                        </select>
+                    </div>
+                </div>   
+            </div>
+
+            <div class="row">
+                <div class="form-group" style="padding-left: 2.5%;margin-top: 30px;">
+                    <div class="input-group date form_datetime col-md-6" data-date="1979-09-16T05:25:07Z" data-date-format="dd MM yyyy - HH:ii p" data-link-field="dtp_input1">
+                        <span class="input-group-addon">起始时间</span>
+                        <input id ="begintime" name ="begintime" class="form-control" type="text"  value=<?php echo "'".$row1[5]."'"; ?>>
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+                    </div>
+                    <input type="hidden" id="dtp_input1" value="" /><br/>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group" style="padding-left: 2.5%;">
+                    <div class="input-group date form_datetime col-md-6" data-date="1979-09-16T05:25:07Z" data-date-format="dd MM yyyy - HH:ii p" data-link-field="dtp_input1">
+                        <span class="input-group-addon">结束时间</span>
+                        <input id="endtime" name ="endtime" class="form-control" type="text" value=<?php echo "'".$row1[6]."'"; ?>>
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-th"></span>
+                        </span>
+                    </div>
+                    <input type="hidden" id="dtp_input1" value="" /><br/>
+                </div>
+            </div>
+
+            <div class="row" style="padding-right: 1.5%;padding-left: 1.5%;">
+                <div class ="col-md-12">
+                    <div class="form-group">
+                        <textarea class="form-control" placeholder="简介" rows="3" style="resize: none; height: 200px;" id='content' name='content'><?php echo $row1[4]; ?></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-10" style="padding-left: 2.5%;">
+                    <div class="form-group">
+                        <label for="exampleInputFile">资料上传</label>
+                        <input type="file" id="file" name='file'>
+                    </div>
+                </div>
+            </div>
+            
+        </form>
+
+        <div class="row">
+            <div class="col-md-10"  id="submitfile" style="padding-left: 2.5%;">
+              <a id="ensol" style="text-decoration:none;"></a>
+            </div>
+            <div class="col-md-2">
+                <button type="button" class="btn btn-default" name=<?php echo $id;?> id="btn">确认提交</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+    $(document).ready(function () {
+
+        $('.form_datetime').datetimepicker({
+            format: "yyyy-mm-dd hh:ii:00",
+            startDate: new Date(),
+            autoclose: true,
+            todayBtn: true,
+            language: 'zh-CN',
+            initialDate:new Date(),
+            minView: 0
+        });
+        $("#selteacher").val(<?php echo"'".$row1[8]."'"?>);
+        <?php
+        if($row1[7]==""){
+          echo"$('#conensol').hide();";
+        }
+        else {
+          echo"$('#ensol').html('".substr($row1[7],30)."');";
+          echo"$('#ensol').attr('download','".substr($row1[7],30)."');";
+          echo"$('#ensol').attr('href','".$row1[7]."');";
+        }
+        ?>
+    });
+</script>
+</html>

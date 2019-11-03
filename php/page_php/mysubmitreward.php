@@ -47,13 +47,15 @@ include("judgeid.php");
                         <th>申报时间</th>
                         <th>审批状态</th>
                         <th></th>
+                        <th></th>
                     </tr>
                 </thead>
 
                 <tbody>
                     <?php
 
-                    $sql="select a.prize_name,a.id,b.id,b.submit_time,b.state,b.end_time from reward a,reward_apply b,teacher c where a.id=b.prize_id and a.teacher_id=c.teacher_id and b.student_id='".$_SESSION['enter_id']."'";
+                    $sql="select a.prize_name,a.id,b.id,b.submit_time,b.state,b.end_time from reward a,reward_apply b,teacher c where a.id=b.prize_id and a.teacher_id=c.teacher_id and b.is_post=1 and b.student_id='".$_SESSION['enter_id']."'";
+                    //echo $sql;
                     $res = $db->query($sql);
                     while ($row = $res->fetch_array() ) {
                         echo "<tr>";
@@ -64,6 +66,11 @@ include("judgeid.php");
                         echo "<td style='"."padding-left:20px;"."'>" . $row[4] . "</td>";
 //将申请编号传入url
                         echo "<td><a target='_blank' href='submitsituation.php?id=".$row[2]."'><span class='glyphicon glyphicon-search' aria-hidden='true'></span></a></td>";
+                        //echo $row[2];
+                        if($row[4]==="待审批")
+                            echo "<td><a href='#' id='deleteid' name=".$row[2].">撤回</a></td>";
+                        else 
+                            echo "<td></td>";
                         echo "</tr>";
                     }
                     ?>

@@ -127,7 +127,7 @@ if($end_time <$showTime||$start_time>$showTime){
 
 <div class="row">
     <div class="col-md-2 col-md-offset-10">
-        <button type="submit" class="btn btn-default" name="btnsubmit" id="btnsubmit" value=<?php echo $id ?>>提交申请</button>
+        <button type="submit" class="btn btn-default" name=<?php echo "'".$_SESSION['type']."'" ?> id="btnsubmit" value=<?php echo $id ?>>提交申请</button>
     </div>
 </div>
 </div>

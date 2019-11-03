@@ -32,6 +32,7 @@ if(!isset($_GET['id'])||!is_numeric($_GET['id'])){//判断所需要的参数是�
   <script src="../../js/bootstrap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
   <script src="../../js/resetannounce.js" type="text/javascript"></script>
+  <script src="../../js/bootstrap.min.js"></script>
   <script src="../../js/wangEditor.js" type="text/javascript"></script>
   <!-- Bootstrap -->
   <!-- HTML5 shim 和 Respond.js 是为了让 IE8 支持 HTML5 元素和媒体查询（media queries）功能 -->
@@ -57,11 +58,11 @@ if(!isset($_GET['id'])||!is_numeric($_GET['id'])){//判断所需要的参数是�
     $row[$i]=$db->real_escape_string($row[$i]);
   }
   ?>
-  <?php include("nav.php") ?>
+  <?php include("nav.php"); ?>
   <div class="jumbotron">
     <div class="container">
-      <h1>我的申请</h1>
-      <p>你可以在这里查看历史申请状态</p>
+      <h1>修改公告</h1>
+      <p>你可以在这里修改公告内容</p>
     </div>
   </div>
   <div class="container" id="myannounce">

@@ -1,7 +1,7 @@
 $(document).ready(function() {
 	$("#reward").siblings('li').removeClass('active');
 	$("#reward").addClass('active');
-	$(".delete").click(function(){
+	$("#delebtn").click(function(){
 		$flag=confirm("是否删除?");
 		$id=$(this).attr("id");
 		if($flag){

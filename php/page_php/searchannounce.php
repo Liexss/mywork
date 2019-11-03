@@ -7,7 +7,7 @@ if(!isset($_SESSION['type'])||!isset($_SESSION['enter_id'])){
 include("../ajax_php/connect.php");
 include("judgeid.php");
 $content=$_GET['content'];
-$content=urldecode($content);
+$content=$db->real_escape_string(urldecode($content));
 $pagenum=$_GET['pagenum'];  
 $sql = "select count(*) from teacher as a right join announce as b on a.teacher_id=b.user_id where b.is_post=1 and a.is_post=1 and (b.theme "."like '%".$content."%' or a.name "."like '%".$content."%') order by time desc";
 $res = $db->query($sql);
