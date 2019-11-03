@@ -34,7 +34,7 @@
                         content.push("<li class='xl-active'>"+i+"</li>");
                     }
                 }
-            }else if(nowPage <= Math.floor(buttonNum / 2)){
+            }else if(nowPage <= Math.ceil(buttonNum / 2)){
                 //当前页面小于等于展示页数总数的一半（向下取整），从1开始
                 for(var i=1;i<= buttonNum-2;i++){
                     if (nowPage !== i) {
@@ -43,12 +43,17 @@
                         content.push("<li class='xl-active'>"+i+"</li>");
                     }
                 }
+                if(nowPage==buttonNum-2&&nowPage+1!=pageNum){
+                    content.push("<li>"+(nowPage+1)+"</li>");
+                }
                 content.push("<li class='xl-disabled'>...</li>");
                 content.push("<li>" + pageNum + "</li>");
             }else  if(pageNum - nowPage <= Math.floor(buttonNum / 2)){
                 //当前页面大于展示页数总数的一半（向下取整）
                 content.push("<li>"+1+"</li>");
                 content.push("<li class='xl-disabled'>...</li>");
+                if(nowPage==(pageNum-buttonNum+3)&&nowPage!=2) 
+                    content.push("<li>"+(nowPage-1)+"</li>");
                 for(var i=pageNum-buttonNum+3; i<=pageNum; i++){
                     if (nowPage !== i) {
                         content.push("<li>"+i+"</li>");
@@ -58,37 +63,59 @@
                 }
             }else{
                 //前半部分页码
-                if(nowPage - Math.floor(buttonNum / 2) <= 0){
-                    for(var i=1;i<= Math.floor(buttonNum / 2);i++){
-                        if (nowPage !== i) {
-                            content.push("<li>"+i+"</li>");
-                        } else {
-                            content.push("<li class='xl-active'>"+i+"</li>");
-                        }
-                    }
-                }else{
+                // if(nowPage - Math.floor(buttonNum / 2) <= 0){
+                //     for(var i=1;i<= Math.floor(buttonNum / 2);i++){
+                //         if (nowPage !== i) {
+                //             content.push("<li>"+i+"</li>");
+                //         } else {
+                //             content.push("<li class='xl-active'>"+i+"</li>");
+                //         }
+                //     }
+                // }else{
+                //     content.push("<li>"+1+"</li>");
+                //     content.push("<li class='xl-disabled'>...</li>");
+                //     for(var i=nowPage-Math.floor(buttonNum / 2)+(buttonNum % 2 == 0 ? 3: 2); i<=nowPage; i++){
+                //         if (nowPage !== i) {
+                //             content.push("<li>"+i+"</li>");
+                //         } else {
+                //             content.push("<li class='xl-active'>"+i+"</li>");
+                //         }
+                //     }
+
+                // }
+                // //后半部分页码
+                // if(pageNum - nowPage <= 0){
+                //     for(var i=nowPage+1;i<=pageNum;i++){
+                //         content.push("<li>" + i + "</li>");
+                //     }
+                // }else{
+                //     for(var i=nowPage+1; i<=nowPage+Math.floor(buttonNum / 2)-2; i++){
+                //         content.push("<li>"+i+"</li>");
+                //     }
+                //     content.push("<li class='xl-disabled'>...</li>");
+                //     content.push("<li>" + pageNum + "</li>");
+                // }
+                if(Math.max(1,nowPage-2)!=1){
                     content.push("<li>"+1+"</li>");
                     content.push("<li class='xl-disabled'>...</li>");
-                    for(var i=nowPage-Math.floor(buttonNum / 2)+(buttonNum % 2 == 0 ? 3: 2); i<=nowPage; i++){
-                        if (nowPage !== i) {
-                            content.push("<li>"+i+"</li>");
-                        } else {
-                            content.push("<li class='xl-active'>"+i+"</li>");
-                        }
-                    }
-
                 }
-                //后半部分页码
-                if(pageNum - nowPage <= 0){
-                    for(var i=nowPage+1;i<=pageNum;i++){
-                        content.push("<li>" + i + "</li>");
-                    }
-                }else{
-                    for(var i=nowPage+1; i<=nowPage+Math.floor(buttonNum / 2)-2; i++){
+                for(var i=Math.max(1,nowPage-2);i<=nowPage-1;i++){
+                    if (nowPage !== i) {
                         content.push("<li>"+i+"</li>");
+                    } else {
+                        content.push("<li class='xl-active'>"+i+"</li>");
                     }
+                }
+                for(var i=nowPage;i<=Math.min(nowPage+2,pageNum);i++){
+                if (nowPage !== i) {
+                        content.push("<li>"+i+"</li>");
+                    } else {
+                        content.push("<li class='xl-active'>"+i+"</li>");
+                    }
+                }
+                if(Math.min(nowPage+2,pageNum)!=pageNum){
                     content.push("<li class='xl-disabled'>...</li>");
-                    content.push("<li>" + pageNum + "</li>");
+                    content.push("<li>"+pageNum+"</li>");
                 }
             }
             content.push("<li class='xl-nextPage'>下一页</li>");
