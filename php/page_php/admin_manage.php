@@ -43,13 +43,23 @@
 			<table class="table table-bordered" id="homepagetable">
 	    		<?php
 	    			$sql="select * from student left join (class left join dept on class.dept_id=dept.dept_id) left join college on dept.college_id=college.college_id on student.class=class.class_id where is_post =1";
-	    			$result=mysqli_query($db,$sql);
+	    			$result=mysqli_query($db,$sql);                       
+
+	    			$sq="select * from (class left join dept on class.dept_id=dept.dept_id) left join college on dept.college_id=college.college_id";
+	    			$re = mysqli_query($db,$sq);
+	    			
+	    			$arr=[];
+	    			$arrnum=0;
+	    			while ($beau = $re->fetch_array() ) {
+	    				$arr[$arrnum++] = array('class_id' => $beau[0],'college' => $beau[7],'dept' => $beau[4],'class' => $beau[1] );
+	                 }
 	    			echo"<tr><th>人员编号</th><th>姓名</th><th>学院</th><th>班级</th><th>专业</th><th>操作</th></tr>";
 	    			if($result){
 	    				while($row=$result->fetch_row()){
 							$class=$row[6];
 							$dept_name=$row[9];
 							$college=$row[12];
+
 	    					echo"<tr>";
 	    					echo"<th>{$row[0]}</th>";
 	    					echo"<th>{$row[4]}</th>";
@@ -77,18 +87,8 @@
 	                        echo"<div class='input-group inputone'>";
 	                        echo"<span class='input-group-addon'>班级(必填)</span>";
 	                        echo"<select class='form-control' id='class{$row[0]}'>";
-	                        $sq="select * from class";
-	                        $re = mysqli_query($db,$sq);
-	                        while ($Row = $re->fetch_array() ) {
-	                            $sel="select * from dept where dept_id =".$Row[2];
-	                            $rsl = mysqli_query($db,$sel);
-	                            $Attr=$rsl->fetch_row();
-	                            $dep=$Attr[1];
-	                            $sel="select * from college where college_id =".$Attr[2];
-	                            $rsl = mysqli_query($db,$sel);
-	                            $Attr=$rsl->fetch_row();
-	                            $coll=$Attr[1];
-	                             echo"<option value='".$Row['class_id']."'>".$coll.$dep.$Row['class_name']."</option>";
+	                        for($i=0;$i<$arrnum;$i++){
+	                             echo"<option value='".$arr[$i]['class_id']."'>".$arr[$i]['college'].$arr[$i]['dept'].$arr[$i]['class']."</option>";
 	                        }
 	                        echo "</select>";
 	                        echo"</div>";
