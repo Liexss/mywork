@@ -29,7 +29,7 @@ include("judgeid.php");
     <script src="../../js/mysubmitreward.js"></script>
 </head>
 <body>
-    <?php include("nav.php")?>
+    <?php include("nav.php");?>
     <div class="jumbotron">
         <div class="container">
             <h1>我的申请</h1>
@@ -56,6 +56,7 @@ include("judgeid.php");
 
                     $sql="select a.prize_name,a.id,b.id,b.submit_time,b.state,b.end_time from reward a,reward_apply b,teacher c where a.id=b.prize_id and a.teacher_id=c.teacher_id and b.is_post=1 and b.student_id='".$_SESSION['enter_id']."'";
                     //echo $sql;
+                    //
                     $res = $db->query($sql);
                     while ($row = $res->fetch_array() ) {
                         echo "<tr>";

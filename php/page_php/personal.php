@@ -26,7 +26,7 @@ include("judgeid.php");
 
 </head>
 <body>
-    <?php include("nav.php")?>
+    <?php include("nav.php");?>
 
     <div id='catalog' class="container">
         <ul class="nav nav-tabs" style="margin-top: 30px;">

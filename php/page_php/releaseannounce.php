@@ -35,7 +35,7 @@ include("judgeid.php");
     <script type="text/javascript" src="../../js/wangEditor.js"></script>
 </head>
 <body>
-    <?php include("nav.php")?>
+    <?php include("nav.php");?>
     <div class="jumbotron">
         <div class="container">
             <h1>发布公告</h1>

@@ -30,7 +30,7 @@ include("judgeid.php");
     <script src="../../js/myapprovereward.js"></script>
 </head>
 <body>
-    <?php include("nav.php")?>
+    <?php include("nav.php");?>
     <div class="jumbotron">
         <div class="container">
             <h1>我的审批</h1>
