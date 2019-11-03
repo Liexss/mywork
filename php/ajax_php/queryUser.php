@@ -27,20 +27,14 @@ $array=array();
 $inum=0;
 
 while ($row=$result->fetch_assoc()){
-	$sql="select * from class where class_id=".$row['class'];
+	$sql="select * from (class left join dept on class.dept_id=dept.dept_id) left join college on dept.college_id=college.college_id where class_id=".$row['class'];
 	$res=mysqli_query($db,$sql);
 	$beau=$res->fetch_row();
 	$class=$beau[1];
 
-	$sql="select * from dept where dept_id=".$beau[2];
-	$res=mysqli_query($db,$sql);
-	$beau=$res->fetch_row();
-	$dept_name=$beau[1];
+	$dept_name=$beau[4];
 
-	$sql="select * from college where college_id=".$beau[2];
-	$res=mysqli_query($db,$sql);
-	$beau=$res->fetch_row();
-	$college=$beau[1];
+	$college=$beau[7];
 
 	$array[$inum]=array("work"=>"student","student_id"=>$row['student_id'],"name"=>$row['name'],"class"=>$class,"dept_name"=>$dept_name,"college"=>$college);
 
