@@ -10,7 +10,7 @@ if($result1){
 	$num=$row[0]+1;
 }
 
-$select_name="select * from teacher where teacher_id=".$_SESSION['enter_id']; //假造ID
+$select_name="select * from teacher where teacher_id='".$_SESSION['enter_id']."'"; //假造ID
 $result_name=mysqli_query($db,$select_name);
 $attr=$result_name->fetch_row();
 $user_id=$attr[0];

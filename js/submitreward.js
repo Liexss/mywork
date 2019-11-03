@@ -1,7 +1,13 @@
 $(document).ready(function() {
 	 $("#reward").siblings('li').removeClass('active');
 	 $("#reward").addClass('active');
+   $txt= $("#btnsubmit").attr("name");
+   console.log($txt);
 	 $("#btnsubmit").click(function(){
+          if($txt==2){
+            alert("教师无法申请");
+            return;
+          }
           if($('#content').val().length>500){
                 alert("概要不能超过500个字符");
           }

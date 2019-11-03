@@ -65,14 +65,15 @@ if(!isset($_GET['pagenum'])||!is_numeric($_GET['pagenum'])||$totnumpage<$pagenum
                         $name = $row["prize_name"];
                         echo '<li class="item">';
                         echo '<div class="row">';
-                        echo '<div class="col-md-9 col-md-offset-1" class="group">';
+                        echo '<div class="col-md-8 col-md-offset-1" class="group">';
                         echo "<span>".$row["prize_name"]. "</span>";
                         echo '<p>奖项编号：'.$row['id'].' </p>';
                         echo '<p>开始时间：'.$row['start_time'].' </p>';
                         echo '<p>结束时间：'.$row['end_time'].'</p></div>';
-                        echo ' <div class="col-md-2">';
+                        echo ' <div class="col-md-3">';
                         if($_SESSION['type']==2){
-                            echo '<a id="delebtn"><button type="button" class="btn btn-danger delete" id='.$row['id'].'>删除</button></a>';
+                            echo  '<a target="_blank" href="resetreward.php?id='.$row['id'].'"><button type="button" class="btn btn-danger delete" id='.$row['id'].'>编辑</button></a>';
+                            echo '<a><button id="delebtn" type="button" class="btn btn-danger delete" id='.$row['id'].'>删除</button></a>';
                         }
                         echo '<a target="_blank" href="showreward.php?id='.$row['id'].'"><button type="button" class="btn" id='.$row['id'].'>申请</button></a>';
                         echo '</div></div></li>';

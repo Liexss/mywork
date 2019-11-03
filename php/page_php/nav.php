@@ -21,7 +21,7 @@
             echo"<li class='dropdown' id='reward'>";
             echo"<a href='#'' class='dropdown-toggle' data-toggle='dropdown' role='button' aria-haspopup='true' aria-expanded='false'>奖学金管理 <span class='caret'></span></a>";
             echo"<ul class='dropdown-menu'>";
-            echo"<li id='rewardlist'><a href='rewardlist.php?1'>奖学金列表</a></li>";
+            echo"<li id='rewardlist'><a href='rewardlist.php?pagenum=1'>奖学金列表</a></li>";
             echo"<li role='separator' class='divider'></li>";
             echo"<li role='separator'><a href='addreward.php'>添加奖学金</a></li>";
             echo"</ul>";

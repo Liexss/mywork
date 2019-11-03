@@ -87,7 +87,7 @@ if ($account!=$_SESSION['enter_id']) {
 
 //查找对应学生信息
 // $sql="select * from student where student_id = (select student_id frosm reward_apply where id=".$id.")";
-    $sql ="select e.name,a.class_name,b.dept_name,c.college_name from  student as e left join class as a on a.class_id=e.class left join dept as b on a.dept_id=b.dept_id left join college as c on b.college_id=c.college_id where e.student_id=".$student_id;
+    $sql ="select e.name,a.class_name,b.dept_name,c.college_name from  student as e left join class as a on a.class_id=e.class left join dept as b on a.dept_id=b.dept_id left join college as c on b.college_id=c.college_id where e.student_id='".$student_id."'";
     $res = $db->query($sql);
 
     while ($row = $res->fetch_array() ) {
@@ -201,8 +201,6 @@ else {
 }
 if($state!="待审批"){
     echo"$('#sel').val('".$state."');";
-    echo"$('#sel').attr('disabled',true);";
-    echo"$('#btnsubmit').hide();";
 }
 echo"$('#btnsubmit').attr('value',".$id.");";
 echo"</script>";
