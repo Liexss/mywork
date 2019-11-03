@@ -20,7 +20,7 @@ if(!isset($_GET['id'])||!is_numeric($_GET['id'])){//判断所需要的参数是�
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>奖学金简介</title>
-
+    <link rel="icon" href="../../image/timg.jpg" type="image/x-icon">
     <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
 
     <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css">

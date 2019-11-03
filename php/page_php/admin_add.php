@@ -15,19 +15,6 @@ if($_SESSION['type']==1){
 }
 
 
-if(!isset($_SESSION['college_id'])){
-    $sql="select * from college";
-    $res = mysqli_query($db,$sql);
-    $row=$res->fetch_array();
-    $_SESSION['college_id']=$row[0];
-}
-
-if(!isset($_SESSION['dept_id'])){
-    $sql="select * from dept";
-    $res = mysqli_query($db,$sql);
-    $row=$res->fetch_array();
-    $_SESSION['dept_id']=$row[0];
-}
 ?>
 <!DOCTYPE html>
 <html>
@@ -37,7 +24,7 @@ if(!isset($_SESSION['dept_id'])){
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>人员添加</title>
-
+    <link rel="icon" href="../../image/timg.jpg" type="image/x-icon">
     <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css">
 
@@ -54,11 +41,21 @@ if(!isset($_SESSION['dept_id'])){
                 contentType:false,
                 processData:false,
                 success:function(data){
-                    window.location="admin_add.php";
+                    $("#dept").empty();
+                    $(data).each(function(i,values){
+                        $("#dept").append(
+                "<option value='"+values.dept_id+"'>"+values.dept_name+"</option>"
+                            );
+                    });
+                    changeDept();
+                    //console.log(data);
                 },
-                error:function(){
-                    window.alert("error");
-                }
+                error:function(data){
+    var json =  JSON.stringify(data);
+
+    console.log(json);
+    window.alert("Error");
+}
             });
         }     
 
@@ -72,7 +69,12 @@ if(!isset($_SESSION['dept_id'])){
                 contentType:false,
                 processData:false,
                 success:function(data){
-                    window.location="admin_add.php";
+                    $("#Class").empty();
+                    $(data).each(function(i,values){
+                        $("#Class").append(
+                "<option value='"+values.class_id+"'>"+values.class_name+"</option>"
+                            );
+                    });
                 },
                 error:function(){
                     window.alert("error");
@@ -82,7 +84,7 @@ if(!isset($_SESSION['dept_id'])){
     </script>
 </head>
 <body>
-    <?php include("nav.php")?>
+    <?php include("nav.php");?>
     <div class="jumbotron">
         <div class="container">
             <h2>人员信息添加</h2>
@@ -112,7 +114,7 @@ if(!isset($_SESSION['dept_id'])){
                 <select class="form-control" id="college" onchange="changeCollege()">
                     <?php
 
-                    $sql="select * from college where college_id=".$_SESSION['college_id'];
+                    $sql="select * from college where college_id="."1";
                     $res = mysqli_query($db,$sql);
                     $attr=$res->fetch_array();
                     $name=$attr[1];
@@ -121,9 +123,9 @@ if(!isset($_SESSION['dept_id'])){
                     $res = mysqli_query($db,$sql);
 
 
-                    echo"<option value='".$_SESSION['college_id']."'>".$name."</option>";
+                    echo"<option value='"."1"."'>".$name."</option>";
                     while ($row=$res->fetch_array()) {
-                        if($row['college_id']==$_SESSION['college_id'])
+                        if($row['college_id']==1)
                             continue;
                         echo"<option value='".$row['college_id']."'>".$row['college_name']."</option>";
                     }
@@ -135,17 +137,17 @@ if(!isset($_SESSION['dept_id'])){
                 <span class="input-group-addon">系别<span id="deptSpan"></span></span>
                 <select class="form-control" id="dept" onchange="changeDept()">
                     <?php
-                    $sql="select * from dept where dept_id=".$_SESSION['dept_id'];
+                    $sql="select * from dept where dept_id="."8";
                     $res = mysqli_query($db,$sql);
                     $attr=$res->fetch_array();
                     $name=$attr[1];
 
-                    $sql="select * from dept where college_id=".$_SESSION['college_id'];
+                    $sql="select * from dept where college_id="."1";
                     $res = mysqli_query($db,$sql);
 
-                    echo"<option value='".$_SESSION['dept_id']."'>".$name."</option>";
+                    echo"<option value='"."8"."'>".$name."</option>";
                     while ($row=$res->fetch_array()) {
-                        if($row['dept_id']==$_SESSION['dept_id'])
+                        if($row['dept_id']==8)
                             continue;
                         echo"<option value='".$row['dept_id']."'>".$row['dept_name']."</option>";
                     }
@@ -157,7 +159,7 @@ if(!isset($_SESSION['dept_id'])){
                 <span class="input-group-addon">班级<span id="classSpan"></span></span>
                 <select class="form-control" id="Class">
                     <?php 
-                    $sql="select * from class where dept_id=".$_SESSION['dept_id'];
+                    $sql="select * from class where dept_id="."8";
                     $res = mysqli_query($db,$sql);
                     while ($row=$res->fetch_array()) {
                         echo"<option value='".$row['class_id']."'>".$row['class_name']."</option>";

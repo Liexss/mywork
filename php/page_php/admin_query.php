@@ -23,14 +23,14 @@ if($_SESSION['type']==1){
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>人员查询</title>
-
+    <link rel="icon" href="../../image/timg.jpg" type="image/x-icon">
     <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css">    
     <!-- <link rel="stylesheet" type="text/css" href="../css/frame.css"> -->
     <link rel="stylesheet" type="text/css" href="../../css/query.css">
 </head>
 <body>
-    <?php include("nav.php")?>
+    <?php include("nav.php");?>
     <div class="jumbotron">
         <div class="container">
             <h2>人员信息查询</h2>

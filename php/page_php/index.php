@@ -18,10 +18,10 @@ while ($row = $res->fetch_array() ) {
     $total = $row[0];
 }
 $totnumpage= ($total+12)/13;
-
-if(!isset($_GET['pagenum'])||$_GET['pagenum']==NULL||!is_numeric($_GET['pagenum'])||$totnumpage<$pagenum||$pagenum<=0){//判断所需要的参数是否存在，isset用来检测变量是否设置，返回true or false
+//echo $totnumpage;
+if(!isset($_GET['pagenum'])||$_GET['pagenum']==NULL||!is_numeric($_GET['pagenum'])||$totnumpage<$pagenum&&$totnumpage>1||$pagenum<=0){//判断所需要的参数是否存在，isset用来检测变量是否设置，返回true or false
     header('location:index.php?pagenum=1');
-    ob_end_flush();
+    //ob_end_flush();
     exit(); 
 }
 ?>
@@ -34,7 +34,7 @@ if(!isset($_GET['pagenum'])||$_GET['pagenum']==NULL||!is_numeric($_GET['pagenum'
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>公告首页</title>
 
-
+    <link rel="icon" href="../../image/timg.jpg" type="image/x-icon">
     <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css">
 

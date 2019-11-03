@@ -12,7 +12,7 @@ $password=sha1($password);
 
 $db = mysqli_connect("localhost","root","","money");
 
-$update = "select * from student where student_id='$account' and is_post = 1";
+$update = "select * from student where student_id='".$account."' and is_post = 1";
 $result = mysqli_query($db,$update);
 
 $flag=0;//判断能否进入 0不能 1可以
@@ -27,7 +27,7 @@ if($result)
 	}
 }
 
-$update = "select * from teacher where teacher_id='$account' and is_post = 1";
+$update = "select * from teacher where teacher_id='".$account."' and is_post = 1";
 $result = mysqli_query($db,$update);
 if($result)
 {

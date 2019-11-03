@@ -16,7 +16,7 @@ include("judgeid.php");
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>我的审批</title>
-
+    <link rel="icon" href="../../image/timg.jpg" type="image/x-icon">
     <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css">
     <link rel="stylesheet" type="text/css" href="http://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css">
@@ -54,7 +54,7 @@ include("judgeid.php");
 
                 <tbody>
                     <?php
-                    $sql="select a.prize_name,a.id,b.id,b.submit_time,b.state,b.end_time from reward a,reward_apply b,teacher c where a.id=b.prize_id and a.teacher_id=c.teacher_id and c.teacher_id=".$_SESSION['enter_id'];
+                    $sql="select a.prize_name,a.id,b.id,b.submit_time,b.state,b.end_time from reward a,reward_apply b,teacher c where a.id=b.prize_id and a.teacher_id=c.teacher_id and c.teacher_id='".$_SESSION['enter_id']."'";
                     $res = $db->query($sql);
                     while ($row = $res->fetch_array() ) {
                         echo "<tr>";

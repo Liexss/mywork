@@ -6,12 +6,16 @@ $obj=json_decode($json);
 include("connect.php");
 $college=$obj->college;
 
-$_SESSION['college_id']=$college;
 
-$sql="select * from dept where college_id=".$_SESSION['college_id'];
+$sql="select * from dept where college_id=".$college;
 $res = mysqli_query($db,$sql);
-$row=$res->fetch_array();
-$_SESSION['dept_id']=$row[0];
+$dataarr = array();  
+$inum=0;
+    //while($row = mysql_fetch_array($result)){  
+	while($row = $res->fetch_assoc()) {
+        $dataarr[$inum]=array("dept_id"=>$row["dept_id"],"dept_name"=>$row['dept_name']);
+        $inum++;
+    } 
 
-echo json_encode(array());
+echo json_encode($dataarr);
 ?>
