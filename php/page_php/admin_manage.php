@@ -47,18 +47,12 @@
 	    			echo"<tr><th>人员编号</th><th>姓名</th><th>学院</th><th>班级</th><th>专业</th><th>操作</th></tr>";
 	    			if($result){
 	    				while($row=$result->fetch_row()){
-	    					$select="select * from class where class_id=".$row[2];
+	    					$select="select * from (class left join dept on class.dept_id=dept.dept_id) left join college on dept.college_id=college.college_id where class_id=".$row[2];
 							$res=mysqli_query($db,$select);
 							$beau=$res->fetch_row();
 							$class=$beau[1];
-							$select="select * from dept where dept_id=".$beau[2];
-							$res=mysqli_query($db,$select);
-							$beau=$res->fetch_row();
-							$dept_name=$beau[1];
-							$select="select * from college where college_id=".$beau[2];
-							$res=mysqli_query($db,$select);
-							$beau=$res->fetch_row();
-							$college=$beau[1];
+							$dept_name=$beau[4];
+							$college=$beau[7];
 	    					echo"<tr>";
 	    					echo"<th>{$row[0]}</th>";
 	    					echo"<th>{$row[4]}</th>";

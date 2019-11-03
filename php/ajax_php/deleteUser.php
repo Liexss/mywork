@@ -5,7 +5,7 @@ $obj=json_decode($json);
 $id=$obj->num;
 
 include("connect.php");
-$update = "update student set is_post = 0 where student_id=".$id;
+$update = "update student set is_post = 0 where student_id='".$id."'";
 $result = mysqli_query($db,$update);
 echo json_encode(array());
 ?>

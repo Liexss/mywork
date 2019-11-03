@@ -21,7 +21,7 @@ function changePassword($password){
 	}
 
 	var reg2 = new RegExp(/^[\u4e00-\u9fa5]+$/);
-	if(!reg2.test(newPassword)&&newPassword.length>=3 && newPassword.length<=10){
+	if(!reg2.test(newPassword)&&newPassword.length>=6 && newPassword.length<=10){
 		;
 	}else{
 		window.alert("密码输入格式错误");

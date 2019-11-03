@@ -30,8 +30,10 @@ $(".editque").click(function(){
     if( $("#name"+$str).val()==""){
     	alert("姓名不能为空");
     }
-    else if($("#password"+$str).val()!=$("#repassword"+$str).val()|| !(reg2.test($("#password"+$str).val())&& $("#password"+$str).val().length>=3 && $("#password"+$str).val().length<=10)){
-    	alert("密码不一致或格式不正确");
+    else if($("#password"+$str).val()!=$("#repassword"+$str).val()){
+    	alert("密码不一致");
+    }else if($("#password"+$str).val()!=""&&!(reg2.test($("#password"+$str).val())&& $("#password"+$str).val().length>=6 && $("#password"+$str).val().length<=10)){
+    	alert("密码格式不正确");
     }
     else {
 	    $data = {
